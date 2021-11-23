@@ -1,0 +1,8 @@
+/**
+ * @file
+ * Override classy styles for system messages.
+ */
+
+.messages {
+  @apply tw-ml-2;
+}

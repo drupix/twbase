@@ -1,0 +1,5 @@
+# Schema for the configuration files of the TWBase theme.
+
+twbase.settings:
+  type: theme_settings
+  label: 'TWBase settings'

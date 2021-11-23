@@ -1,0 +1,90 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{%
+  set classes_link = [
+    'tw-flex tw-items-center tw-px-3 tw-py-3 tw-bg-transparent hover:tw-bg-gray-200 dark:hover:tw-bg-gray-600',
+    'focus:tw-outline-none focus:tw-shadow-outline'
+]
+%}
+
+<div class="tw-relative tw-mt-1" x-data="{ isOpen: false}">
+  <button
+    @click="isOpen = !isOpen"
+    @keydown.escape="isOpen = false"
+    class="tw-flex tw-items-center"
+  >
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-circle"
+        class="tw-inline tw-w-8 tw-h-8 fa-user-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+      <path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"></path>
+    </svg>
+    <svg fill="currentColor" viewBox="0 0 20 20" :class="{'tw-rotate-180': isOpen, 'tw-rotate-0': !isOpen}" class="tw-inline tw-w-4 tw-h-4 tw-mt-1 tw-ml-1 tw-transition-transform tw-duration-300 tw-transform md:tw--mt-1">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+  <ul x-show="isOpen"
+    @click.away="isOpen = false"
+    x-transition:enter="tw-transition tw-ease-out tw-duration-300"
+    x-transition:enter-start="tw-transform tw-opacity-0 tw-scale-90"
+    x-transition:enter-end="tw-transform tw-opacity-100 tw-scale-100"
+    x-transition:leave="tw-transition tw-ease-in tw-duration-300"
+    x-transition:leave-start="tw-transform tw-opacity-100 tw-scale-100"
+    x-transition:leave-end="tw-transform tw-opacity-0 tw-scale-90"
+    class="tw-absolute tw-font-normal tw-bg-white dark:tw-bg-gray-800 tw-text-gray-700 dark:tw-text-white tw-rounded tw-shadow tw-overflow-hidden tw-w-48 tw-border tw-mt-2 tw-py-1 md:tw-right-0 tw-z-40"
+  >
+    {% for item in items %}
+      <li>
+        {% if item.url.routeName == 'user.page' %}
+          {% set title %}
+            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user"
+                class="tw-inline tw-h-6 tw-w-6 fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor" d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path>
+            </svg>
+            <span class="tw-ml-2">{{ item.title }}</span>
+          {% endset %}
+        {% elseif item.url.routeName == 'user.login' %}
+          {% set title %}
+            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-gray-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-in-alt"
+                class="tw-inline tw-h-6 tw-w-6 fa-sign-in-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="currentColor" d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z"></path></svg>
+            </svg>
+            <span class="tw-ml-2">{{ item.title }}</span>
+          {% endset %}
+        {% elseif item.url.routeName == 'user.logout' %}
+          {% set title %}
+            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-gray-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-out-alt"
+                class="tw-inline tw-h-6 tw-w-6 fa-sign-out-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="currentColor" d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"></path>
+            </svg>
+            <span class="tw-ml-2">{{ item.title }}</span>
+          {% endset %}
+        {% else %}
+          {% set title %}
+            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-gray-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
+            <span class="tw-ml-2">{{ item.title }}</span>
+          {% endset %}
+        {% endif %}
+        {{ link(title, item.url, { 'class': classes_link }) }}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

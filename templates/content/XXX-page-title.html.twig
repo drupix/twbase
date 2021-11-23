@@ -1,0 +1,55 @@
+{#
+/**
+ * @file
+ * Theme override for page titles.
+ *
+ * Available variables:
+ * - title_attributes: HTML attributes for the page title element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * Extra available variables:
+ *   see twbase_preprocess_page_title()
+ * - hide_title: A boolean indicating whether to hide the title.
+ */
+#}
+
+{% if content_size == 'full' %}
+  {% set container_size = 'tw-w-full' %}
+{% else %}
+  {% set container_size = 'tw-container tw-mx-auto ' %}
+  {% if content_size == 'sm' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-sm' %}
+  {% elseif content_size == 'md' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-md' %}
+  {% elseif content_size == 'lg' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-lg' %}
+  {% elseif content_size == 'xl' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-xl' %}
+  {% endif %}
+{% endif %}
+
+{%
+  set classes = [
+    'tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000'
+  ]
+%}
+{# {%
+  set classes = [
+    'tw-max-w-5xl tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000'
+  ]
+%} #}
+
+{% if title and not hide_title %}
+  <div class="tw-w-full tw-px-4 tw-py-5">
+    <div class="{{ container_size }} tw-px-4">
+      {{ title_prefix }}
+      {# {% if title %} #}
+        <h1{{ title_attributes.addClass('page-title', classes) }}>{{ title }}</h1>
+      {# {% endif %} #}
+      {{ title_suffix }}
+    </div>
+  </div>
+{% endif %}

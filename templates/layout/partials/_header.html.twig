@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override to display the header of a single page.
+ *
+ * @see templates/layout/page.html.twig for a full list of
+ * available variables.
+ */
+#}
+
+<!--Header-->
+{% if header_size == 'full' %}
+  {% set container_size = 'tw-w-full' %}
+{% else %}
+  {% set container_size = 'tw-container tw-mx-auto ' %}
+  {% if header_size == 'sm' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-sm' %}
+  {% elseif header_size == 'md' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-md' %}
+  {% elseif header_size == 'lg' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-lg' %}
+  {% elseif header_size == 'xl' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-xl' %}
+  {% endif %}
+{% endif %}
+<section class="tw-w-full tw-text-white tw-bg-purple-800 dark:tw-bg-purple-800 tw-px-4 tw-py-2">
+  <div class="{{ container_size }} tw-font-medium tw-text-base tw-mx-auto tw-text-center tw-px-4">
+    <!--Page Header-->
+    {{ page.header }}
+  </div>
+</section>

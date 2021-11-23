@@ -1,0 +1,38 @@
+name: TWBase
+type: theme
+description: 'Starter theme built with Tailwind CSS.'
+core_version_requirement: '^8.9 || ^9'
+base theme: classy
+package: Tailwind CSS
+screenshots: 'screenshots.jpg'
+logo: logo.png
+
+libraries:
+  - twbase/global-styling
+  - twbase/custom-styling
+  - twbase/global-scripts
+  - twbase/darkmode-switcher
+  - twbase/alpinejs
+
+# stylesheets-remove:
+#   - '@bootstrap5/css/style.css'
+
+# ckeditor_stylesheets:
+#   - css/styles.css
+
+regions:
+  header: Header
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  # showcase: Showcase
+  # hero: Hero
+  breadcrumb: Breadcrumbs
+  content_top: 'Content top'
+  content: 'Main content'
+  sidebar: 'Sidebar'
+  # sidebar_first: 'Sidebar first'
+  # sidebar_second: 'Sidebar second'
+  wide_content: 'Wide content'
+  pre_footer: 'Pre footer'
+  footer: Footer

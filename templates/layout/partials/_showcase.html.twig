@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme override to display the showcase of a single page.
+ *
+ * @see templates/layout/page.html.twig for a full list of
+ * available variables.
+ * @see twbase_preprocess_page()
+ */
+#}
+
+<!--Showcase-->
+<div class="showcase tw-relative tw-overflow-hidden tw-pt-12 tw-px-4" style="min-height: 34rem;">
+
+  <!--Showcase content-->
+  <div class="tw-container tw-max-w-screen-xl tw-relative tw-mx-auto tw-pt-40 tw-pb-32 tw-px-4 tw-z-30">
+    <div class="tw-w-full tw-max-w-screen-xl tw-mx-auto tw-py-4">
+      {{ page.showcase }}
+
+      {% if showcase['title'] %}
+        <h1 class="page-title tw-max-w-5xl tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000">{{ showcase['title'] }}</h1>
+      {% endif %}
+
+      {% if showcase['introduction'] %}
+        <div class="tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-1000 tw-pt-4">
+          {{ showcase['introduction'] }}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {# The showcase image #}
+  {% if showcase['image_path'] %}
+    <img src="{{ showcase['image_path'] }}" class="tw-absolute tw-top-0 tw-left-0 tw-z-10 tw-w-full tw-h-full tw-object-cover">
+  {% endif %}
+
+  {# The overlay gradient #}
+  {% if showcase_add_overlay %}
+    {% include '@twbase/layout/partials/_showcase_overlay.html.twig' %}
+  {% endif %}
+
+  {% if showcase_add_deco %}
+    {% include '@twbase/layout/partials/_showcase_divider_swirl.html.twig' %}
+  {% endif %}
+
+</div>

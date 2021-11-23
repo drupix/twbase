@@ -1,0 +1,51 @@
+global-styling:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/styles.css: {}
+
+custom-styling:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/twbase-gradient.css: {}
+
+global-scripts:
+  version: 1.x
+  js:
+    js/twbase.js: { defer: true }
+    js/app.js: {
+      attributes: { defer: true }
+    }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+
+## Dark Mode toggle
+## On page load or when changing themes, best to add in `head` to avoid FOUC
+## FOUC: Flash Of Unstyled Content
+darkmode-switcher:
+  header: true
+  version: 1.x
+  js:
+    js/themeSwitcher.js: {
+      attributes: { async: true }
+    }
+
+alpinejs:
+  header: true
+  remote: https://github.com/alpinejs/alpine
+  version: 3.5.0
+  license:
+    name: MIT
+    url: https://github.com/alpinejs/alpine/blob/main/LICENSE.md
+    gpl-compatible: true
+  js:
+    https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js: {
+      type: external,
+      minified: true,
+      attributes: { defer: true }
+    }

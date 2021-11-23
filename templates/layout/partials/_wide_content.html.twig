@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Theme override to display the wide_content of a single page.
+ *
+ * @see templates/layout/page.html.twig for a full list of
+ * available variables.
+ */
+#}
+
+<!--Team/Wide content ???-->
+{% if wide_content_size == 'full' %}
+  {% set container_size = 'tw-w-full' %}
+{% else %}
+  {% set container_size = 'tw-container tw-mx-auto ' %}
+  {% if wide_content_size == 'sm' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-sm' %}
+  {% elseif wide_content_size == 'md' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-md' %}
+  {% elseif wide_content_size == 'lg' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-lg' %}
+  {% elseif wide_content_size == 'xl' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-xl' %}
+  {% endif %}
+{% endif %}
+<section class="tw-bg-gray-200 dark:tw-bg-gray-600 tw-text-gray-200 dark:tw-text-gray-200 tw-w-full tw-px-4 tw-py-5 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl">
+  <div class="{{ container_size }} tw-px-4 tw-py-24 tw-flex tw-flex-col tw-items-center tw-space-y-6 lg:tw-space-y-0 lg:tw-flex-row lg:tw-justify-between">
+    {# <div class="tw-max-w-screen-xl tw-w-full tw-flex tw-flex-wrap"> #}
+      {# <p>Wide content here</p> #}
+      {{ page.wide_content }}
+    {# </div> #}
+  </div>
+</section>

@@ -1,0 +1,101 @@
+/**
+ * @file
+ * src/styles.css
+ *
+ * TWBase theme - Include Tailwind in our CSS.
+ */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/*
+Drupal core Classy theme overrides
+==================================
+*/
+
+/* @import "components/hero"; */
+@import "contextual/contextual";
+@import "components/field";
+@import "components/messages";
+@import "components/misc";
+@import "components/navbar";
+@import "components/node";
+/* @import "components/sidebar"; */
+/* @import "components/toolbar"; */
+/* @import "components/showcase"; */
+/* @import "../custom/blogs"; */
+
+@layer base {
+
+  body.toolbar-fixed .navbar-fixed {
+    top: 36px;
+  }
+  body.toolbar-fixed.has-showcase .navbar-fixed {
+    top: 36px;
+  }
+  /* Horizontal */
+  body.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .navbar-fixed {
+    top: 73px;
+  }
+  body.toolbar-tray-open.toolbar-horizontal.toolbar-fixed.has-showcase .navbar-fixed {
+    top: 73px;
+  }
+  body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
+    @apply tw-fixed;
+  }
+
+  #toolbar-administration {
+    @apply tw-text-xs;
+  }
+
+  .region-sidebar .block:first-child h2,
+  .region-sidebar-first .block:first-child h2,
+  .region-sidebar-second .block:first-child h2 {
+    @apply tw-mt-0;
+  }
+
+  .tabs .primary {
+    @apply tw-list-none tw-text-sm tw-flex tw-cursor-pointer tw-border-b-2 tw-border-gray-600;
+  }
+  .tabs .primary li {
+    @apply tw-p-0 tw-mr-1 tw-rounded-t-lg tw-bg-gray-200;
+  }
+  .tabs .primary li a {
+    @apply tw-block tw-py-1 tw-px-4 tw-bg-transparent tw-text-gray-600;
+  }
+  .tabs .primary li:hover {
+    @apply tw-bg-gray-400;
+  }
+  .tabs .primary li:hover a {
+    @apply tw-text-white tw-border-b-2 tw-border-gray-600 tw-no-underline tw--mb-0.5;
+  }
+  .tabs .primary li.is-active {
+    @apply tw-bg-gray-600;
+  }
+  .tabs .primary li.is-active a {
+    @apply tw-text-white tw-border-b-2 tw-border-gray-600 tw--mb-0.5;
+  }
+
+  .dropcap {
+    @apply tw-block tw-float-left tw-text-5xl tw-leading-none tw-p-0 tw-mr-2 tw-uppercase;
+  }
+  .text-primary {
+    @apply tw-text-pink-600;
+  }
+  .text-secondary {
+    @apply tw-text-pink-400;
+  }
+  .text-success {
+    @apply tw-text-green-400;
+  }
+  .text-danger {
+    @apply tw-text-red-500;
+  }
+  .text-warning {
+    @apply tw-text-yellow-400;
+  }
+  .text-info{
+    @apply tw-text-indigo-400;
+  }
+}

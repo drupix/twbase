@@ -1,0 +1,22 @@
+{
+    "name": "current",
+    "version": "1.0.0",
+    "description": "TWBase - A starter theme for Drupal built with Tailwind CSS",
+    "scripts": {
+        "build": "postcss src/*.css -d css/ --verbose && ls -S -lh css/styles.css | awk '{print \"\\x1B[33mSize: \" $5}'",
+        "watch": "chokidar '*.config.js' 'src/*.css' 'src/**/*.css' '**/*.twig' -i 'node_modules' -c 'npm run build' --initial"
+    },
+    "license": "ISC",
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.4.1",
+        "autoprefixer": "^10.3.7",
+        "chokidar-cli": "^3.0.0",
+        "cssnano": "^5.0.6",
+        "postcss": "^8.3.9",
+        "postcss-cli": "^8.3.1",
+        "tailwindcss": "^2.2.17"
+    },
+    "dependencies": {
+        "postcss-import": "^14.0.2"
+    }
+}

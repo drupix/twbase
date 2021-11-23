@@ -1,0 +1,39 @@
+# Setting configuration file of the TWBase theme.
+# Set the default values of settings on the theme-settings.php form.
+
+content_size: lg
+# offset_box: 1
+# hide_front_title: 0
+# title_pairing: 1
+# title_center: 0
+page_loader: 0
+page_loader_dark: 0
+breadcrumb_display: 1
+# breadcrumb_position: left
+# breadcrumb_separator: ' › '
+# breadcrumb_home: 1
+# breadcrumb_trailing: 0
+# breadcrumb_title: 0
+header_size: full
+navbar_size: xl
+header_fixed: 1
+# header_animated: 1
+header_dark: 1
+header_transparent: 0
+default_showcase_enabled: 1
+default_showcase_display_title: 1
+default_showcase_display_submitted: 0
+showcase_parallax: 0
+showcase_textstyle: text-light
+showcase_add_overlay: 1
+showcase_overlay_type: overlay-dark-gradient
+showcase_hero_size: fullscreen
+showcase_content_pos: default
+showcase_deco_front: 0
+showcase_deco: 1
+# showcase_image_default: 1
+
+pre_footer_size: xl
+sticky_footer: 1
+footer_size: xl
+email_maintenance: ''

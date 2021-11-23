@@ -1,0 +1,8 @@
+/**
+ * @file
+ * Override classy styles for unmanaged elements.
+ */
+
+.feed-icons {
+  @apply tw-hidden;
+}

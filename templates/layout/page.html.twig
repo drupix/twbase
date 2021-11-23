@@ -1,0 +1,174 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template in this directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * @todo: check here
+ * Theme specific utility variables:
+ * - content_size: utilities for setting the maximum width of the content.
+ * - footer_size: utilities for setting the maximum width of the footer.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - messages: Status and error messages. Should be displayed prominently.
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * @todo: check here
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.nav_branding: Items for the Navigation branding region
+ * - page.nav_main: Items for the Main navigation region
+ * - page.nav_additional: Items for the Additional navigation region (eg search form, social icons, etc)
+ * - page.hero: Items for the Hero region
+ * - page.showcase: Items for the Showcase region
+ * - page.breadcrumb: Items for the breadcrumb region.
+ * - page.content_top: Items for the content top region.
+ * - page.content: The main content of the current page.
+ * - page.sidebar_first: Items for the first sidebar.
+ * - page.sidebar_second: Items for the second sidebar.
+ * - page.pre_footer: Items for the pre footer region.
+ * - page.footer: Items for the footer region.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+{# <div class="layout-container"> #}
+{# <div class="tw-container tw-mx-auto tw-p-4"> #}
+<div id="page-wrapper" class="tw-flex tw-flex-col tw-min-h-screen font-roboto gradient dark:tw-bg-gray-900">
+
+  <header id="header" role="banner"
+    class="tw-text-white tw-bg-white dark:tw-bg-gray-900 tw-border-b dark:tw-border-gray-700 tw-w-full {% if header_fixed %}navbar-fixed tw-fixed tw-top-0 tw-left-0 tw-right-0{% endif %} tw-z-40">
+    {# {{ page.header }} #}
+    {% if page.header %}
+      {% include '@twbase/layout/partials/_header.html.twig' %}
+    {% endif %}
+
+    {% if page.nav_branding or page.nav_main or page.nav_additional %}
+      {% include '@twbase/layout/partials/_navbar.html.twig' %}
+    {% endif %}
+  </header>
+
+  {# <main role="main" class="tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark"> #}
+  <main id="main" role="main"
+    {% if main_style %}style="{{ main_style }}"{% endif %}
+    class="tw-flex tw-flex-col tw-flex-1 tw-text-gray-800 dark:tw-text-gray-200">
+           {# tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark
+    "> #}
+
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    {% if has_showcase %}
+      {% if is_front %}
+        {% include '@twbase/layout/partials/_showcase_front.html.twig' %}
+      {% else %}
+        {% include '@twbase/layout/partials/_showcase.html.twig' %}
+      {% endif %}
+    {% endif %}
+
+    {# Set the container_size here, it is needed in breadcrumb and _content_top #}
+    {% if content_size == 'full' %}
+      {% set container_size = 'tw-w-full' %}
+    {% else %}
+      {% set container_size = 'tw-container tw-mx-auto ' %}
+      {% if content_size == 'sm' %}
+        {% set container_size = container_size ~ 'tw-max-w-screen-sm' %}
+      {% elseif content_size == 'md' %}
+        {% set container_size = container_size ~ 'tw-max-w-screen-md' %}
+      {% elseif content_size == 'lg' %}
+        {% set container_size = container_size ~ 'tw-max-w-screen-lg' %}
+      {% elseif content_size == 'xl' %}
+        {% set container_size = container_size ~ 'tw-max-w-screen-xl' %}
+      {% endif %}
+    {% endif %}
+
+    {% if breadcrumb_display and page.breadcrumb %}
+      {% include '@twbase/layout/partials/_breadcrumb.html.twig' %}
+    {% endif %}
+
+    {# See twbase_preprocess_page() #}
+    {% if has_content_top and page.content_top %}
+      {% include '@twbase/layout/partials/_content_top.html.twig' %}
+    {% endif %}
+
+    {#
+    {% if page.content %}
+      {% include '@twbase/layout/partials/_content.html.twig' %}
+    {% endif %}
+    #}
+
+    <section class="tw-flex-grow tw-w-full tw-bg-white dark:tw-bg-gray-800 tw-px-4 tw-py-5 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
+      <div class="{{ container_size }} tw-px-4 XXXXtw--mx-4 tw-flex tw-flex-col lg:tw-flex-row xxx-tw-items-center xxx-tw-justify-between
+        {# tw-space-y-6 lg:tw-space-y-0 lg:tw-flex-row lg:tw-justify-between #}
+      ">
+      {# <div class="tw-container tw-mx-auto tw-max-w-screen-lg tw-px-4"> #}
+      {# <div class="lg:tw-flex md-tw-flex-col tw--mx-4"> #}
+
+        <div class="lg:tw-flex-1 lg:tw-w-2/3 {% if page.sidebar %}tw-p-4{% else %}{% endif %}">
+          {{ page.content }}
+          {# {% include '@twbase/layout/partials/_content.html.twig' %} #}
+        </div>
+
+        {% if page.sidebar %}
+          <aside class="lg:tw-w-1/3 tw-p-4" role="complementary">
+            {{ page.sidebar }}
+          </aside>
+        {% endif %}
+
+        {# {% if page.sidebar_first or page.sidebar_second %}
+          <div class="tw-bg-purple-400 lg:tw-flex-1 lg:tw-w-1/3">
+            <div class="tw-bg-indigo-600 tw-flex tw-flex-col md:tw-flex-row lg:tw-flex-row">
+              {% if page.sidebar_first %}
+                <aside class="tw-bg-pink-600 md:tw-w-1/2 lg:tw-w-1/2 tw-p-4" role="complementary">
+                  {{ page.sidebar_first }}
+                </aside>
+              {% endif %}
+
+              {% if page.sidebar_second %}
+                <aside class="tw-bg-green-600 md:tw-w-1/2 lg:tw-w-1/2 tw-p-4" role="complementary">
+                  {{ page.sidebar_second }}
+                </aside>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %} #}
+      </div>
+    </section>
+
+  </main>
+
+  {% if page.wide_content %}
+    {% include '@twbase/layout/partials/_wide_content.html.twig' %}
+  {% endif %}
+
+  {% if page.pre_footer %}
+    {% include '@twbase/layout/partials/_pre_footer.html.twig' %}
+  {% endif %}
+
+  {% if page.footer %}
+    {# <footer role="contentinfo">
+      {{ page.footer }}
+    </footer> #}
+    {% include '@twbase/layout/partials/_footer.html.twig' %}
+  {% endif %}
+
+</div>{# /#page-wrapper #}

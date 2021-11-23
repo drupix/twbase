@@ -1,0 +1,12 @@
+/**
+ * Navbar styling.
+ */
+body {
+  /* Fix horizontal scrolling on iOS devices. */
+  /* https://www.drupal.org/node/1870076 */
+  position: relative;
+}
+
+body.toolbar-vertical.navbar-is-fixed header {
+  top: 36px;
+}

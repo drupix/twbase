@@ -1,0 +1,133 @@
+{#
+/**
+ * @file
+ * Theme override to display the navbar of a single page.
+ *
+ * @see templates/layout/page.html.twig for a full list of
+ * available variables.
+ */
+#}
+
+<!--Navbar-->
+{% if navbar_size == 'full' %}
+  {% set container_size = 'tw-w-full' %}
+{% else %}
+  {% set container_size = 'tw-container tw-mx-auto ' %}
+  {% if navbar_size == 'sm' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-sm' %}
+  {% elseif navbar_size == 'md' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-md' %}
+  {% elseif navbar_size == 'lg' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-lg' %}
+  {% elseif navbar_size == 'xl' %}
+    {% set container_size = container_size ~ 'tw-max-w-screen-xl' %}
+  {% endif %}
+{% endif %}
+
+<div x-data="{ open: false }"
+  @click.away="open = false"
+  class="tw-flex tw-flex-col {{ container_size }} md:tw-items-center md:tw-justify-between md:tw-flex-row">
+  {# class="tw-flex tw-flex-col tw-max-w-screen-xl tw-mx-auto md: md:tw-items-center md:tw-justify-between md:tw-flex-row"> #}
+
+  <div class="tw-px-4 tw-py-6 md:tw-py-4 tw-flex tw-flex-row tw-justify-between">
+
+    <div class="tw-justify-start">
+      {{ page.nav_branding }}
+    </div>
+
+    <button class="md:tw-hidden tw-rounded-lg focus:tw-outline-none focus:tw-shadow-outline" @click="open = !open">
+      <svg fill="currentColor" viewBox="0 0 20 20" class="tw-w-6 tw-h-6">
+        <path x-show="!open" fill-rule="evenodd"
+          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+          clip-rule="evenodd"></path>
+        <path x-show="open" fill-rule="evenodd"
+          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+  </div>
+
+  <nav id="main-nav" :class="{'tw-flex': open, 'tw-hidden': !open}"
+      class="tw-z-30 tw-bg-white tw-text-white tw-top-0 currentColor tw-flex-col tw-flex-grow tw-px-4 tw-py-4 tw-hidden md:tw-flex md:tw-flex-row md:tw-bg-transparent">
+
+    <div class="tw-px-4">
+      {{ page.nav_main }}
+    </div>
+    <div class="tw-px-4 tw-flex tw-flex-grow md:tw-justify-end">
+      {{ page.nav_additional }}
+    </div>
+
+    {# @todo: #}
+    {# Add locales switcher #}
+    <div id="locales-switcher" class="md:flex md:flex-grow md:justify-end">
+      {# {% if locales()|length %}
+        {% for locale in locales() %}
+          <a href="{{ locale.link|replace({'?_locale=': ''}) }}" class="{% if loop.first %}md:ml-4{% else %}md:ml-0{% endif %} px-2 py-2 mt-2 text-sm font-semibold bg-transparent md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
+            {{ locale.emoji }} {{ locale.code|upper }}
+          </a>
+        {% endfor %}
+      {% endif %} #}
+
+      {# {% include 'partials/theme-switcher/_theme-switcher.twig' %} #}
+
+
+      {# Component from https://tailwindcomponents.com/component/switch-dark-mode #}
+      <!--Theme Switcher style-->
+      <style>
+        .toggle-checkbox:checked {
+          right: 0;
+          border: none;
+          /* default */
+          background-color: rgb(129, 124, 214);
+          /* blue-600 */
+          /* background-color: rgb(37, 99, 235); */
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' className='h-10 w-10' fill='%23FFF' viewBox='0 0 24 24' stroke='rgb(129 124 214)' > <path strokeLinecap='round' strokeLinejoin='round' d='M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z' /> </svg>");
+        }
+        .toggle-checkbox:checked + .toggle-label {
+          /* default */
+          background-color: rgb(76, 73, 188);
+          /* blue-800 */
+          /* background-color: rgb(30, 64, 175); */
+          /* blue-900 */
+          /* background-color: rgb(30, 58, 138); */
+        }
+      </style>
+
+      <!--Theme Switcher-->
+      {# See https://plaiceholder.co/docs for an other example #}
+      {# <div class="fixed bottom-5 left-5 w-12 select-none transition duration-200 ease-in z-30"> #}
+      <div class="tw-relative tw-block tw-flex-none tw-ml-2 md:tw-ml-4 tw-mt-8 md:tw-mt-2 tw-w-12 tw-select-none tw-transition tw-duration-200 tw-ease-in tw-z-30">
+        <input type="checkbox" name="theme-switcher" id="theme-switcher"
+          class="toggle-checkbox tw-bg-yellow-300 tw-border-yellow-500 tw-mr-1 tw-mt-1 focus:tw-ring-transparent tw-absolute tw-block tw-w-6 tw-h-6 tw-rounded-full tw-border-2 tw-appearance-none tw-cursor-pointer"
+        />
+        <label for="theme-switcher"
+          class="toggle-label tw-block tw-h-8 tw--ml-1 tw--mt-1 tw-rounded-full tw-bg-blue-300 tw-cursor-pointer">
+        </label>
+      </div>
+    </div>
+
+  </nav>
+
+</div>
+
+
+{% if header_fixed %}
+  {# The progess bar is only shown on Pages, Blogs and News #}
+  <div id="progress" class="tw-h-1 tw-z-40"
+    style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
+  </div>
+  {# @todo: add this in config ? #}
+  {# {% if record.contenttype|default == 'pages' %}
+    <div id="progress" class="h-1 z-40"
+      style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
+    </div>
+  {% elseif record.contenttype|default == 'blogs' %}
+    <div id="progress" class="h-1 z-40"
+      style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
+    </div>
+  {% elseif record.contenttype|default == 'news' %}
+    <div id="progress" class="h-1 z-40"
+      style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
+    </div>
+  {% endif %} #}
+{% endif %}

@@ -1,0 +1,137 @@
+<?php
+
+/**
+ * @file
+ * TWBase theme file.
+ */
+
+use Drupal\Component\Utility\Html;
+// use Drupal\Core\Entity\EntityInterface;
+use Drupal\media\Entity\Media;
+use Drupal\file\Entity\File;
+use Drupal\node\Entity\NodeType;
+// Only add if you need to generate an image URL with an image style
+use Drupal\image\Entity\ImageStyle;
+
+
+/**
+ * Override or insert variables into the page templates.
+ */
+function twbase_preprocess_html(&$variables) {
+  //
+  // Configuring the classes for the Showcase region
+  //
+  $variables['header_fixed'] = theme_get_setting('header_fixed');
+  $variables['has_showcase'] = FALSE;
+  if(isset($variables['node_type'])) {
+    if($node = \Drupal::request()->attributes->get('node')) {
+      $config = \Drupal::config('twbase.settings');
+      // $type = NodeType::load($variables['node_type']);
+      // $enabled = $type->getThirdPartySetting('twbase_utils', 'showcase_enabled', $config->get('default_showcase_enabled'));
+      // $enabled = $enabled && $node->get('showcase_enabled')->value;
+      $enabled = $config->get('default_showcase_enabled');
+      $variables['has_showcase'] = $enabled;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function twbase_preprocess_page_title(&$variables) {
+  $variables['content_size'] = theme_get_setting('content_size');
+  $variables['hide_title'] = FALSE;
+}
+
+/**
+ * Override or insert variables into the page templates.
+ */
+function twbase_preprocess_page(&$variables) {
+  $variables['header_fixed'] = theme_get_setting('header_fixed');
+  $variables['header_size'] = theme_get_setting('header_size');
+  $variables['navbar_size'] = theme_get_setting('navbar_size');
+  $variables['content_size'] = theme_get_setting('content_size');
+  $variables['wide_content_size'] = theme_get_setting('pre_footer_size');
+  $variables['pre_footer_size'] = theme_get_setting('pre_footer_size');
+  $variables['footer_size'] = theme_get_setting('footer_size');
+
+  $variables['has_showcase'] = FALSE;
+  if(isset($variables['node'])) {
+    $node = $variables['node'];
+    $config = \Drupal::config('twbase.settings');
+    // $type = NodeType::load($node->bundle());
+    // $enabled = $type->getThirdPartySetting('twbase_utils', 'showcase_enabled', $config->get('default_showcase_enabled'));
+    // $enabled = $enabled && $node->get('showcase_enabled')->value;
+    $enabled = $config->get('default_showcase_enabled');
+    $variables['has_showcase'] = $enabled;
+  }
+
+  //
+  // Configuring the classes for the Showcase region
+  //
+  $variables['showcase_size'] = theme_get_setting('showcase_hero_size');
+  $variables['showcase_content_pos'] = theme_get_setting('showcase_content_pos');
+  $variables['showcase_add_overlay'] = theme_get_setting('showcase_add_overlay');
+  $variables['showcase_overlay_type'] = theme_get_setting('showcase_overlay_type');
+  $variables['showcase_add_deco'] = theme_get_setting('showcase_deco');
+  $variables['showcase_add_front_deco'] = theme_get_setting('showcase_deco_front');
+
+  //
+  // Configuring Showcase region
+  //
+  // _twbase_get_showcase($variables);
+
+
+  //
+  // Configuring the breadcrump
+  //
+  $variables['breadcrumb_display'] = theme_get_setting('breadcrumb_display');
+
+  // Themes improperly check renderable arrays when determining visibility see
+  // issues https://www.drupal.org/project/drupal/issues/953034#comment-14214288
+  // Check if content_top is empty or not
+  $has_content_top = !empty(trim(strip_tags(\Drupal::service('renderer')->renderRoot($variables['page']['content_top']))));
+  $variables['has_content_top'] = $has_content_top;
+
+  // kint($variables);die;
+}
+
+/**
+ * Override or insert variables into the node templates.
+ */
+function twbase_preprocess_node(&$variables) {
+  // $variables['default_content'] = TRUE;
+
+  $variables['content_size'] = theme_get_setting('content_size');
+
+  // $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  // $variables['language'] = $language;
+
+  // kint($variables);die;
+}
+
+/**
+ * Override or insert variables into the node templates.
+ */
+function twbase_preprocess_paragraph(&$variables) {
+  // $variables['default_content'] = TRUE;
+
+  // $variables['content_size'] = theme_get_setting('content_size');
+
+  // $variables['bg_color'] = FALSE;
+  // if(isset($variables['elements']['tw_background']['#items'])) {
+  //   $bg_color = $variables['elements']['tw_background']['#items']->getString();
+  //   $variables['bg_color'] = $bg_color;
+  // }
+}
+
+/**
+ * Implements hook_preprocess_field__field_name().
+ */
+function twbase_preprocess_field__field_tags(&$variables) {
+  // kint($variables);die;
+  // $items = $variables['items'];
+  // foreach ($items as $key => $item) {
+  //   $variables['items'][$key]['content']['#options']['attributes']['class'] = ['tag-link'];
+  // }
+}
