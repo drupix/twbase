@@ -23,6 +23,7 @@ header_transparent: 0
 default_showcase_enabled: 1
 default_showcase_display_title: 1
 default_showcase_display_submitted: 0
+default_showcase_display_image: 1
 showcase_parallax: 0
 showcase_textstyle: text-light
 showcase_add_overlay: 1
