@@ -1461,6 +1461,18 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	margin-top: -0.25rem;
 }
 
+.tw-mt-4 {
+	margin-top: 1rem;
+}
+
+.tw-mr-2 {
+	margin-right: 0.5rem;
+}
+
+.tw-mt-3 {
+	margin-top: 0.75rem;
+}
+
 .tw--mt-12 {
 	margin-top: -3rem;
 }
@@ -1497,6 +1509,10 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	height: 0.25rem;
 }
 
+.tw-h-16 {
+	height: 4rem;
+}
+
 .tw-h-full {
 	height: 100%;
 }
@@ -1531,6 +1547,10 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 
 .tw-w-12 {
 	width: 3rem;
+}
+
+.tw-w-16 {
+	width: 4rem;
 }
 
 .tw-max-w-screen-sm {
@@ -1634,6 +1654,10 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 
 .tw-justify-between {
 	justify-content: space-between;
+}
+
+.tw-justify-around {
+	justify-content: space-around;
 }
 
 .tw-space-y-6 > :not([hidden]) ~ :not([hidden]) {
@@ -1764,14 +1788,14 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	padding: 1rem;
 }
 
-.tw-px-4 {
-	padding-left: 1rem;
-	padding-right: 1rem;
-}
-
 .tw-py-5 {
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
+}
+
+.tw-px-4 {
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .tw-px-3 {
@@ -1946,6 +1970,11 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 
+.tw-text-gray-400 {
+	--tw-text-opacity: 1;
+	color: rgba(156, 163, 175, var(--tw-text-opacity));
+}
+
 .tw-opacity-0 {
 	opacity: 0;
 }
@@ -2026,6 +2055,12 @@ Drupal core Classy theme overrides
  * Visual styles for fields.
  */
 
+.field__label {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
 /* .field--name-field-paragraphs .field__item:last-child .paragraph {
   @apply tw-pb-12;
 } */
@@ -2038,7 +2073,7 @@ Drupal core Classy theme overrides
 	height: 1.5rem;
 	border-radius: 9999px;
 	--tw-bg-opacity: 1;
-	background-color: rgba(124, 58, 237, var(--tw-bg-opacity));
+	background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
 	padding-left: 0.75rem;
 	padding-right: 0.75rem;
 	padding-top: 0.25rem;

@@ -10,20 +10,44 @@
 #}
 
 <!--Showcase-->
-<div class="showcase tw-relative tw-overflow-hidden tw-pt-12 tw-px-4" style="min-height: 34rem;">
+{# <div class="showcase tw-relative tw-overflow-hidden tw-pt-12 tw-px-4" style="min-height: 34rem;"> #}
+<div class="showcase tw-relative tw-overflow-hidden tw-pt-12 tw-px-4">
 
   <!--Showcase content-->
   <div class="tw-container tw-max-w-screen-xl tw-relative tw-mx-auto tw-pt-40 tw-pb-32 tw-px-4 tw-z-30">
     <div class="tw-w-full tw-max-w-screen-xl tw-mx-auto tw-py-4">
       {{ page.showcase }}
 
-      {% if showcase['title'] %}
-        <h1 class="page-title tw-max-w-5xl tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000">{{ showcase['title'] }}</h1>
+      {% if showcase.title %}
+        <h1 class="page-title tw-max-w-5xl tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000">{{ showcase.title }}</h1>
       {% endif %}
 
-      {% if showcase['introduction'] %}
-        <div class="tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-1000 tw-pt-4">
-          {{ showcase['introduction'] }}
+      {% if showcase.submitted %}
+        <div class="tw-flex tw-mt-4 tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-1000 tw-pt-4">
+          {% set submitted_author = showcase.submitted.author %}
+
+          {% if submitted_author.picture %}
+            <img src="{{ submitted_author.picture }}" class="tw-h-16 tw-w-16 tw-rounded-full tw-mr-2 tw-object-cover">
+          {% endif %}
+          <div class="tw-flex tw-flex-col tw-flex-1 tw-justify-around">
+            {% if submitted_author.name %}
+              <p class="tw-font-semibold tw-text-gray-200">
+                {% trans %}By {{ submitted_author.name }}{% endtrans %}
+              </p>
+            {% endif %}
+
+            {% if showcase.submitted.created %}
+              <p class="tw-font-semibold tw-text-base tw-text-gray-400">
+                {{ showcase.submitted.created }}
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if showcase.introduction %}
+        <div class="tw-flex tw-mt-3 tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-1000 tw-pt-4">
+          {{ showcase.introduction }}
         </div>
       {% endif %}
 

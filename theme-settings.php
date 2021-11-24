@@ -209,11 +209,22 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
     '#default_value' => theme_get_setting('default_showcase_display_title'),
     '#description' => t('Display the node title in the showcase.'),
   ];
-  $form['showcase_options']['default']['options']['default_showcase_display_submitted'] = [
+
+	$form['showcase_options']['default']['options']['default_showcase_display_submitted'] = [
     '#type' => 'checkbox',
     '#title' => t('Author and date information'),
     '#default_value' => theme_get_setting('default_showcase_display_submitted'),
-    '#description' => t('Display the node author and the publication date in the showcase.'),
+    '#description' => t('Display the node author and the publication date in the showcase.') . '<br>' .
+											t('The content type display settings defined at <a href="@link">admin content type</a> will takes precedence over this option.',
+												['@link' => Url::fromRoute('entity.node_type.collection')->toString()]
+											),
+  ];
+
+  $form['showcase_options']['default']['options']['default_showcase_display_image'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Use image field'),
+    '#default_value' => theme_get_setting('default_showcase_display_image'),
+    '#description' => t('If an image field (field_image) is defined in the content type it will be used as showcase image.'),
   ];
 
 	// Parallax
