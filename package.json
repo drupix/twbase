@@ -10,7 +10,7 @@
     "devDependencies": {
         "@tailwindcss/typography": "^0.4.1",
         "autoprefixer": "^10.3.7",
-        "chokidar-cli": "^3.0.0",
+        "chokidar-cli": "^1.2.0",
         "cssnano": "^5.0.6",
         "postcss": "^8.3.9",
         "postcss-cli": "^8.3.1",
