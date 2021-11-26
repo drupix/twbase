@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Extra custom classes for unmanaged text.
+ */
+
+.dropcap {
+  @apply tw-block tw-float-left tw-text-5xl sm:tw-text-6xl xl:tw-text-7xl tw-leading-none tw-p-0 tw-mr-1 tw-uppercase;
+}
+
+.text-primary {
+  @apply tw-text-blue-500;
+}
+.text-secondary {
+  @apply tw-text-blue-400;
+}
+.text-success {
+  @apply tw-text-green-400;
+}
+.text-danger {
+  @apply tw-text-red-500;
+}
+.text-warning {
+  @apply tw-text-yellow-400;
+}
+.text-info{
+  @apply tw-text-indigo-400;
+}

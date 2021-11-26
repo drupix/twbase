@@ -2052,8 +2052,83 @@ Drupal core Classy theme overrides
 
 /**
  * @file
+ * Extra custom classes for unmanaged text.
+ */
+
+.dropcap {
+	float: left;
+	margin-right: 0.25rem;
+	display: block;
+	padding: 0px;
+	font-size: 3rem;
+	line-height: 1;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+@media (min-width: 640px) {
+
+	.dropcap {
+		font-size: 3.75rem;
+		line-height: 1;
+	}
+}
+
+@media (min-width: 1280px) {
+
+	.dropcap {
+		font-size: 4.5rem;
+		line-height: 1;
+	}
+}
+
+.text-primary {
+	--tw-text-opacity: 1;
+	color: rgba(59, 130, 246, var(--tw-text-opacity));
+}
+
+.text-secondary {
+	--tw-text-opacity: 1;
+	color: rgba(96, 165, 250, var(--tw-text-opacity));
+}
+
+.text-success {
+	--tw-text-opacity: 1;
+	color: rgba(52, 211, 153, var(--tw-text-opacity));
+}
+
+.text-danger {
+	--tw-text-opacity: 1;
+	color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.text-warning {
+	--tw-text-opacity: 1;
+	color: rgba(251, 191, 36, var(--tw-text-opacity));
+}
+
+.text-info {
+	--tw-text-opacity: 1;
+	color: rgba(129, 140, 248, var(--tw-text-opacity));
+}
+
+/**
+ * @file
  * Visual styles for fields.
  */
+
+.text-format-wrapper .filter-wrapper {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+.tw-dark .text-format-wrapper .filter-wrapper select {
+	--tw-bg-opacity: 1;
+	background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(156, 163, 175, var(--tw-text-opacity));
+}
 
 .field__label {
 	font-size: 1rem;

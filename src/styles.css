@@ -16,6 +16,7 @@ Drupal core Classy theme overrides
 
 /* @import "components/hero"; */
 @import "contextual/contextual";
+@import "components/base-text";
 @import "components/field";
 @import "components/messages";
 @import "components/misc";
@@ -77,25 +78,4 @@ Drupal core Classy theme overrides
     @apply tw-text-white tw-border-b-2 tw-border-gray-600 tw--mb-0.5;
   }
 
-  .dropcap {
-    @apply tw-block tw-float-left tw-text-5xl tw-leading-none tw-p-0 tw-mr-2 tw-uppercase;
-  }
-  .text-primary {
-    @apply tw-text-pink-600;
-  }
-  .text-secondary {
-    @apply tw-text-pink-400;
-  }
-  .text-success {
-    @apply tw-text-green-400;
-  }
-  .text-danger {
-    @apply tw-text-red-500;
-  }
-  .text-warning {
-    @apply tw-text-yellow-400;
-  }
-  .text-info{
-    @apply tw-text-indigo-400;
-  }
 }

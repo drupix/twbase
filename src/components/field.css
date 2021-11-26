@@ -3,6 +3,13 @@
  * Visual styles for fields.
  */
 
+.text-format-wrapper .filter-wrapper {
+  @apply tw-font-normal tw-text-base;
+}
+.text-format-wrapper .filter-wrapper select {
+  @apply dark:tw-text-gray-400 dark:tw-bg-gray-600;
+}
+
 .field__label {
   @apply tw-font-normal tw-text-base;
 }
