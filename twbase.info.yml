@@ -14,11 +14,8 @@ libraries:
   - twbase/darkmode-switcher
   - twbase/alpinejs
 
-# stylesheets-remove:
-#   - '@bootstrap5/css/style.css'
-
-# ckeditor_stylesheets:
-#   - css/styles.css
+ckeditor_stylesheets:
+  - css/styles.css
 
 regions:
   header: Header
