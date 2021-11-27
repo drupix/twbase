@@ -5,10 +5,10 @@
  * TWBase theme file.
  */
 
-use Drupal\Component\Utility\Html;
+// use Drupal\Component\Utility\Html;
 // use Drupal\Core\Entity\EntityInterface;
-use Drupal\media\Entity\Media;
-use Drupal\file\Entity\File;
+// use Drupal\media\Entity\Media;
+// use Drupal\file\Entity\File;
 use Drupal\node\Entity\NodeType;
 // Only add if you need to generate an image URL with an image style
 use Drupal\image\Entity\ImageStyle;
@@ -227,5 +227,53 @@ function _twbase_get_default_showcase(&$variables) {
     }
 
     $variables['showcase']['image_path'] = $image_path;
+  }
+  elseif($variables['is_front']) {
+    $config = \Drupal::config('twbase.settings');
+
+    // Get the default showcase enabled status
+    $default_showcase_enabled = $config->get('default_showcase_enabled');
+    // Leave from here if the default showcase is not enabled
+    if (!$default_showcase_enabled) return;
+
+    // Build an array of datas to return for the showcase
+    $variables['showcase'] = [
+      'title' => FALSE,
+      'introduction' => FALSE,
+      'submitted' => [],
+      'image_path' => FALSE,
+    ];
+
+    $moduleHandler = \Drupal::service('module_handler');
+    // Check if TWBase Theme Utilities module is installed
+    if($moduleHandler->moduleExists('twbase_utils')) {
+      // Get the TWBase Theme Utilities module settings
+      $twbase_utils_config = \Drupal::config('twbase_utils.settings_showcase');
+
+      // Set showcase data
+      $variables['showcase']['title'] = $twbase_utils_config->get('title');
+      $variables['showcase']['introduction'] = $twbase_utils_config->get('body.value');
+      // @todo: manage this in module admin
+      $variables['showcase']['image_path'] = '/themes/custom/twbase/img/home-showcase.jpg';
+    }
+    else {
+      // Set default showcase if TWBase Theme Utilities module is not installed
+      $variables['showcase']['title'] = "Hi! I'm the default <strong class=\"text-warning\">hardcoded</strong> showcase!";
+      $variables['showcase']['introduction'] =
+        '<p>Take a look around, this is the TWBase Theme default showcase.
+          To edit this content in a super <strong class="text-warning">uggly way</strong>,
+          open <code class="text-warning">twbase.theme</code> file in your favorites text editor and change it in the
+          appropriate function... mmhhhh not really funny 🤡...
+          <!--<code class="text-warning">_twbase_get_default_showcase()</code>... mmhhhh not really funny 🤡...-->
+        </p>
+        <p class="tw-py-4">
+          Otherwise you can also install the <a class="text-success" href="https://github.com/drupix/twbase_utils" target="_blank">TWBase Theme Utilities</a>
+          module and simply edit this content in the admin UI!
+          <!--Documentation, examples and support are available on the official
+          <a class="text-success" href="https://github.com/drupix/twbase_utils" target="_blank">TWBase Theme Utilities website</a>.-->
+          Happy building 👩🏾‍💻🦊🧑‍🎨
+        </p>';
+      $variables['showcase']['image_path'] = '/themes/custom/twbase/img/home-showcase.jpg';
+    }
   }
 }

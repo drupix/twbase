@@ -16,9 +16,9 @@
 
 {# Showcase content position #}
 {% set showcase_content_pos = showcase_content_pos is defined ? showcase_content_pos : 'default' %}
-{% set showcase_bottom = showcase_content_pos == 'bottom' %}
+{% set showcase_pos_bottom = showcase_content_pos == 'bottom' %}
 
-{% if showcase_fullscreen or showcase_bottom %}
+{% if showcase_fullscreen or showcase_pos_bottom %}
   {% set showcase_classes = 'tw-flex tw-items-center tw-justify-between' %}
 {% else %}
   {% set showcase_classes = 'tw-pt-10' %}
@@ -26,49 +26,47 @@
 
 {% if showcase_fullscreen %}
   {% set showcase_classes = showcase_classes ~ ' tw-h-screen' %}
-  {% set showcase_fullscreen = true %}
+  {# {% set showcase_fullscreen = true %} #}
 {% endif %}
 
 
 {# The showcase image #}
-{% set showcase_image = showcase['image_path'] ? showcase['image_path'] : (is_front ? '/themes/custom/twbase/img/home-showcase.jpg' : FALSE) %}
+{# {% set showcase_image = showcase.image_path ? showcase.image_path : (is_front ? '/themes/custom/twbase/img/home-showcase.jpg' : FALSE) %} #}
 
 <!--Showcase-->
 <div class="showcase tw-relative tw-overflow-hidden {{ showcase_classes }} tw-px-4">
 
   <!--Showcase content-->
   <div class="tw-container tw-max-w-screen-xl tw-relative
-    {% if showcase_bottom %}
-      md:tw-w-9/12 tw-w-full md:tw-bottom-16 sm:tw-col-span-1 tw-space-y-5 md:tw-space-y-8 {% if showcase_fullscreen %}tw-pt-96{% else %}tw-pt-72{% endif %}
+    {% if showcase_pos_bottom %}
+      md:tw-w-9/12 tw-w-full md:tw-bottom-16 sm:tw-col-span-1 tw-space-y-5 md:tw-space-y-8 {% if showcase_fullscreen %}tw-pt-60{% else %}tw-pt-72{% endif %}
     {% else %}
       tw-mx-auto tw-pt-40 tw-pb-32
     {% endif %}
     tw-px-4 tw-z-30">
 
-    <h1 class="tw-max-w-5xl tw-text-4xl sm:tw-text-5xl xl:tw-text-7xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000">
-      Je suis la section showcase, mon titre est assez long!
-    </h1>
-    <div class="tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-1000 tw-pt-4">
-      {% if showcase['introduction'] %}
-        {{ showcase['introduction'] }}
-      {% else %}
-        <p>Block teaser: Regardez autour de vous, this is Bolt's default 2021 theme. To edit your site's content, go login with your username and password. Documentation, examples and support are available on the official Bolt website.</p>
-      {% endif %}
-    </div>
+    {% if showcase.title %}
+      <h1 class="tw-max-w-5xl tw-text-4xl sm:tw-text-5xl xl:tw-text-7xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000">{{ showcase.title|raw }}</h1>
+    {% endif %}
+
+    {% if showcase.introduction %}
+      <div class="tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-1000 tw-pt-4">
+        {{ showcase.introduction|raw }}
+      </div>
+    {% endif %}
 
     <div class="tw-flex tw-justify-start tw-space-x-4">
-      <a href="#"
+      <a target="_blank" href="https://github.com/drupix/twbase_utils"
         class="tw-shadow tw-rounded-lg tw-transition tw-duration-200 tw-ease-in-out tw-transform hover:tw--translate-y-1 hover:tw-shadow-lg tw-bg-gray-500 hover:tw-bg-gray-600 tw-text-white tw-font-bold tw-my-6 tw-py-4 tw-px-8">
-        Lire la suite
+        Get TWBase Theme Utilities module
       </a>
     </div>
 
   </div>
 
-  {% if showcase_image %}
-    <img src="{{ showcase_image }}"
-      class="tw-absolute tw-top-0 tw-left-0 tw-z-10 tw-w-full tw-h-full tw-object-cover"
-    >
+  {# The showcase image #}
+  {% if showcase.image_path %}
+    <img src="{{ showcase.image_path }}" class="tw-absolute tw-top-0 tw-left-0 tw-z-10 tw-w-full tw-h-full tw-object-cover">
   {% endif %}
 
   {# The overlay gradient #}
