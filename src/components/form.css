@@ -1,0 +1,117 @@
+/**
+ * @file
+ * Override classy styles for form components.
+ */
+
+/* @todo: check to remove */
+form.label-block .form-type-textfield label,
+form.label-block .form-type-textarea label,
+form.label-block .form-type-select label,
+form.label-block .form-type-color label,
+form.label-block .form-type-date label,
+form.label-block .form-type-file label,
+form.label-block .form-type-email label,
+form.label-block .form-type-number label,
+form.label-block .form-type-password label,
+form.label-block .form-type-password-confirm label,
+form.label-block .form-type-range label,
+form.label-block .form-type-tel label,
+form.label-block .form-type-url label,
+form.label-block .form-item .label {
+  @apply tw-block tw-font-medium;
+}
+
+form input[type='submit'] {
+  @apply tw-rounded-lg tw-px-4 tw-py-2 tw-uppercase tw-font-semibold tw-shadow-lg tw-tracking-wider;
+}
+
+form input[type='text'],
+form input[type='password'],
+form input[type='email'],
+form input[type='number'],
+form input[type='url'],
+form input[type='date'],
+form input[type='datetime-local'],
+form input[type='month'],
+form input[type='week'],
+form input[type='time'],
+form input[type='search'],
+form input[type='tel'],
+select,
+select[multiple],
+textarea {
+  @apply tw-bg-gray-100 dark:tw-bg-gray-800 tw-text-gray-800 dark:tw-text-gray-200;
+}
+form input[type='text'],
+form input[type='password'],
+form input[type='email'],
+form input[type='url'],
+form input[type='search'],
+form input[type='tel'],
+/* form .form-range */
+textarea {
+  @apply tw-w-full tw-max-w-full;
+}
+
+form input[type='checkbox'] {
+  @apply tw-rounded;
+}
+form input[type='checkbox'],
+form input[type='radio'] {
+  @apply tw-bg-gray-200 tw-border-transparent focus:tw-border-transparent focus:tw-bg-gray-200 tw-text-gray-700 focus:tw-ring-1 focus:tw-ring-offset-2 focus:tw-ring-gray-500;
+}
+
+form .dropbutton-multiple,
+form .dropbutton-multiple.open,
+form .dropbutton-multiple.open .dropbutton-widget {
+  @apply tw-w-full tw-max-w-md;
+}
+.js form .dropbutton-widget {
+  @apply tw-border-gray-500;
+}
+form .dropbutton-widget .dropbutton {
+  @apply tw-border-r tw-border-gray-400;
+}
+form .dropbutton-widget .dropbutton li {
+  @apply tw-bg-gray-100 dark:tw-bg-gray-800 tw-text-gray-800 dark:tw-text-gray-200;
+}
+form .dropbutton-widget .dropbutton li a {
+  @apply tw-no-underline;
+}
+form .dropbutton-widget .dropbutton li.dropbutton-action {
+  @apply tw-m-0 tw-p-0;
+}
+form .dropbutton-widget .dropbutton > li::before {
+  @apply tw-w-0 tw-h-0 tw-top-0 tw-left-0 tw-border-gray-400;
+}
+form .dropbutton-widget .dropbutton .dropbutton-toggle {
+  @apply tw-absolute tw-m-0;
+}
+
+form .dropbutton-widget .dropbutton .dropbutton-arrow {
+  @apply tw-border-t-gray-400 dark:tw-border-t-gray-400;
+}
+form .dropbutton-multiple.open .dropbutton .dropbutton-arrow {
+  @apply tw-border-opacity-0;
+}
+
+form fieldset.form-wrapper {
+  @apply tw-p-4;
+}
+form fieldset.form-wrapper legend {
+  @apply tw-px-2 tw-font-medium;
+}
+form fieldset.fieldgroup,
+form fieldset.form-composite {
+  @apply tw-p-0;
+}
+
+
+.form-type-radio .description,
+.form-type-checkbox .description {
+  @apply tw-ml-5; /* LTR */
+}
+[dir="rtl"] .form-type-radio .description,
+[dir="rtl"] .form-type-checkbox .description {
+  @apply tw-mr-5;
+}

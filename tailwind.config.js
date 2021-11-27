@@ -1,3 +1,10 @@
+// To see, check and test:
+// // Theming Tailwind with CSS Variables
+// https://www.youtube.com/watch?v=MAtaT8BZEAo
+//
+// 07: Customizing Your Design System – Tailwind CSS: From Zero to Production
+// https://www.youtube.com/watch?v=0l0Gx8gWPHk
+
 const { margin } = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -18,9 +25,9 @@ module.exports = {
   darkMode: 'class', // false or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        'my-color': '#a83232',
-      },
+      // colors: {
+      //   'my-color': '#a83232',
+      // },
       // See https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
       typography: (theme) => ({
         DEFAULT: {
@@ -31,14 +38,10 @@ module.exports = {
             },
             blockquote: {
               position: 'relative',
-              // fontSize: '1.125em',
-              // fontStyle: 'italic',
-              // fontWeight: 'inherit',
               padding: '1.25rem 3rem 1.5rem 2.25rem',
               margin: '1rem',
               border: 'none',
               borderRadius: '1.5rem',
-              // color: theme('colors.gray.700'),
               background: theme('colors.gray.100'),
             },
             'blockquote cite': {
@@ -136,6 +139,7 @@ module.exports = {
   plugins: [
 //    require('@tailwindcss/jit'),
     require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
   ],
   // important: true,
   prefix: 'tw-'

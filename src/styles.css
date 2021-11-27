@@ -18,6 +18,7 @@ Drupal core Classy theme overrides
 @import "contextual/contextual";
 @import "components/base-text";
 @import "components/field";
+@import "components/form";
 @import "components/messages";
 @import "components/misc";
 @import "components/navbar";
