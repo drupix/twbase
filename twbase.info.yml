@@ -22,14 +22,10 @@ regions:
   nav_branding: 'Navigation branding region'
   nav_main: 'Main navigation region'
   nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
-  # showcase: Showcase
-  # hero: Hero
   breadcrumb: Breadcrumbs
   content_top: 'Content top'
   content: 'Main content'
   sidebar: 'Sidebar'
-  # sidebar_first: 'Sidebar first'
-  # sidebar_second: 'Sidebar second'
   wide_content: 'Wide content'
   pre_footer: 'Pre footer'
   footer: Footer

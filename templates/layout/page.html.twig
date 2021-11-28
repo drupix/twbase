@@ -55,13 +55,11 @@
  * - page.nav_branding: Items for the Navigation branding region
  * - page.nav_main: Items for the Main navigation region
  * - page.nav_additional: Items for the Additional navigation region (eg search form, social icons, etc)
- * - page.hero: Items for the Hero region
- * - page.showcase: Items for the Showcase region
  * - page.breadcrumb: Items for the breadcrumb region.
  * - page.content_top: Items for the content top region.
  * - page.content: The main content of the current page.
- * - page.sidebar_first: Items for the first sidebar.
- * - page.sidebar_second: Items for the second sidebar.
+ * - page.sidebar: Items for the sidebar.
+ * - page.wide_content: Items for the wide content region.
  * - page.pre_footer: Items for the pre footer region.
  * - page.footer: Items for the footer region.
  *
@@ -182,9 +180,6 @@
   {% endif %}
 
   {% if page.footer %}
-    {# <footer role="contentinfo">
-      {{ page.footer }}
-    </footer> #}
     {% include '@twbase/layout/partials/_footer.html.twig' %}
   {% endif %}
 
