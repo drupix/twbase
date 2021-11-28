@@ -4,6 +4,7 @@ module.exports = {
     'postcss-import': {},
     tailwindcss: {},
     autoprefixer: {},
+    // Uncomment this to minify the outputed css file
     // cssnano: {
     //   preset: "default",
     // },
