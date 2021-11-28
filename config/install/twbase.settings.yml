@@ -25,13 +25,14 @@ default_showcase_display_title: 1
 default_showcase_display_submitted: 0
 default_showcase_display_image: 1
 showcase_parallax: 0
-showcase_textstyle: text-light
 showcase_add_overlay: 1
 showcase_overlay_type: overlay-dark-gradient
+showcase_textstyle: text-light
+showcase_deco: 1
+default_showcase_front_enabled: 1
 showcase_hero_size: fullscreen
 showcase_content_pos: default
 showcase_deco_front: 0
-showcase_deco: 1
 # showcase_image_default: 1
 
 pre_footer_size: xl

@@ -19,12 +19,11 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 
 	// We are editing the $form in place, so we don't need to return anything.
 
+	// Create vertical tabs for options.
 	$form['twbase_settings'] = [
 		'#type' => 'vertical_tabs',
 		'#title' => t('TWBase Settings'),
 		'#weight' => 2,
-		// '#collapsible' => TRUE,
-		// '#collapsed' => FALSE,
 	];
 
 	/************************/
@@ -52,14 +51,6 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 	];
 
 /*
-	// Offset box
-	$form['general']['offset_box'] = [
-		'#title' => t('Offset box'),
-		'#type' => 'checkbox',
-		'#default_value' => theme_get_setting('offset_box'),
-		'#description' => t('When checked, frontpage content will be displayed with a negative offset.'),
-	];
-
 	// Page loader
 	$form['general']['page_loader'] = [
 		'#title' => t('Add a page loader'),
@@ -203,6 +194,7 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
     ],
   ];
 
+  // Title
   $form['showcase_options']['default']['options']['default_showcase_display_title'] = [
     '#type' => 'checkbox',
     '#title' => t('Display title'),
@@ -210,7 +202,8 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
     '#description' => t('Display the node title in the showcase.'),
   ];
 
-	$form['showcase_options']['default']['options']['default_showcase_display_submitted'] = [
+	// Submitted: author name and published date
+  $form['showcase_options']['default']['options']['default_showcase_display_submitted'] = [
     '#type' => 'checkbox',
     '#title' => t('Author and date information'),
     '#default_value' => theme_get_setting('default_showcase_display_submitted'),
@@ -220,6 +213,7 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 											),
   ];
 
+	// Image - field_image
   $form['showcase_options']['default']['options']['default_showcase_display_image'] = [
     '#type' => 'checkbox',
     '#title' => t('Use image field'),
@@ -227,7 +221,7 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
     '#description' => t('If an image field (field_image) exists in the content type it will be used as showcase image.'),
   ];
 
-	// Parallax
+	// Image - Parallax
 /*
 	$form['showcase_options']['showcase_parallax'] = [
 		'#type' => 'checkbox',
@@ -237,24 +231,90 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 	];
 */
 
-	// Text style
-	$form['showcase_options']['showcase_textstyle'] = [
-		'#type' => 'select',
-		'#title' => t('Text style'),
-		'#options' => ['text-light' => t('Text light'), 'text-dark' => t('Text dark')],
-		'#default_value' => theme_get_setting('showcase_textstyle'),
-		'#description' => t('Set if the text should be light or dark depending on the content.'),
+	// Swirl decoration
+	$form['showcase_options']['default']['options']['showcase_deco'] = [
+		'#type' => 'checkbox',
+		'#title'         => t('Swirl decoration'),
+		'#default_value' => theme_get_setting('showcase_deco'),
+		'#description' => t('If checked a nice swirl is added under the showcase region on <strong>all pages (except the frontpage)</strong>.'),
 	];
 
-	// Overlay
-	$form['showcase_options']['showcase_add_overlay'] = [
+	//
+	// Frontpage options
+	//
+	$form['showcase_options']['default']['frontpage_options'] = [
+		'#type' => 'fieldset',
+		'#title' => t('Frontpage options'),
+		'#collapsible' => TRUE,
+		'#collapsed' => FALSE,
+	];
+
+  $form['showcase_options']['default']['frontpage_options']['default_showcase_front_enabled'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Provide the default showcase'),
+    '#default_value' => theme_get_setting('default_showcase_front_enabled'),
+    '#description' => t('A default showcase with gradient background will be displayed on top of pages.'),
+  ];
+
+  $form['showcase_options']['default']['frontpage_options']['options'] = [
+		'#type' => 'container',
+    '#states' => [
+      'invisible' => [
+        'input[name="default_showcase_front_enabled"]' => ['checked' => FALSE],
+      ],
+    ],
+  ];
+
+	// Hero size
+	$form['showcase_options']['default']['frontpage_options']['options']['showcase_hero_size'] = [
+		'#type' => 'select',
+		'#title' => t('Size of the showcase'),
+		'#options' => [
+			'default' => t('Default'),
+			'fullscreen' => t('Fullscreen'),
+		],
+		'#default_value' => theme_get_setting('showcase_hero_size'),
+	];
+
+	// Hero content position
+	$form['showcase_options']['default']['frontpage_options']['options']['showcase_content_pos'] = [
+		'#type' => 'select',
+		'#title' => t('Position of the hero content'),
+		'#options' => [
+			'default' => t('Default'),
+			'bottom' => t('Bottom left'),
+		],
+		'#default_value' => theme_get_setting('showcase_content_pos'),
+	];
+
+	// Decorations - Front
+	$form['showcase_options']['default']['frontpage_options']['options']['showcase_deco_front'] = [
+		'#type' => 'checkbox',
+		'#title'         => t('Swirl decoration'),
+		'#default_value' => theme_get_setting('showcase_deco_front'),
+		'#description' => t('If checked a nice swirl is added under the showcase region.'),
+	];
+
+	//
+	// Common options
+	//
+	$form['showcase_options']['default']['common_options'] = [
+		'#type' => 'fieldset',
+		'#title' => t('Common options'),
+		'#collapsible' => TRUE,
+		'#collapsed' => FALSE,
+	];
+
+	// Image - Overlay
+	$form['showcase_options']['default']['common_options']['showcase_add_overlay'] = [
 		'#type' => 'checkbox',
 		'#title' => t('Add an overlay over the underlying image.'),
 		'#default_value' => theme_get_setting('showcase_add_overlay'),
 		'#description' => t('When checked, add an overlay over the underlying image.'),
 	];
-	// Overlay type
-	$form['showcase_options']['showcase_overlay_type'] = [
+
+	// Image - Overlay type
+	$form['showcase_options']['default']['common_options']['showcase_overlay_type'] = [
 		'#type' => 'select',
 		'#title' => t('Overlay type'),
 		'#options' => [
@@ -272,77 +332,14 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 		],
 	];
 
-	//
-	// Frontpage options
-	//
-	$form['showcase_options']['frontpage_options'] = [
-		'#type' => 'fieldset',
-		'#title' => t('Frontpage options'),
-		'#collapsible' => TRUE,
-		'#collapsed' => FALSE,
-	];
-
-	// Hero size
-	$form['showcase_options']['frontpage_options']['showcase_hero_size'] = [
+	// Text style
+	$form['showcase_options']['default']['common_options']['showcase_textstyle'] = [
 		'#type' => 'select',
-		'#title' => t('Size of the showcase'),
-		'#options' => [
-			'default' => t('Default'),
-			'fullscreen' => t('Fullscreen'),
-			// 'hero-large' => t('Large'),
-			// 'hero-medium' => t('Medium'),
-			// 'hero-small' => t('Small'),
-			// 'hero-tiny' => t('Tiny'),
-		],
-		'#default_value' => theme_get_setting('showcase_hero_size'),
-		// '#description' => t('Size of the hero block is only applied on the frontpage.'),
+		'#title' => t('Text style'),
+		'#options' => ['text-light' => t('Text light'), 'text-dark' => t('Text dark')],
+		'#default_value' => theme_get_setting('showcase_textstyle'),
+		'#description' => t('Set if the text should be light or dark depending on the content.'),
 	];
-
-	// Hero content position
-	$form['showcase_options']['frontpage_options']['showcase_content_pos'] = [
-		'#type' => 'select',
-		'#title' => t('Position of the hero content'),
-		'#options' => [
-			'default' => t('Default'),
-			'bottom' => t('Bottom left'),
-		],
-		'#default_value' => theme_get_setting('showcase_content_pos'),
-		// '#description' => t('Provide a more dynamic header.'),
-	];
-
-	// Decorations - Front
-	$form['showcase_options']['frontpage_options']['showcase_deco_front'] = [
-		'#type' => 'checkbox',
-		'#title'         => t('Swirl decoration'),
-		'#default_value' => theme_get_setting('showcase_deco_front'),
-		'#description' => t('If checked a nice swirl is added under the showcase region.'),
-	];
-
-	//
-	// Pages options (except frontpage)
-	//
-	$form['showcase_options']['pages_options'] = [
-		'#type' => 'fieldset',
-		'#title' => t('All other pages options'),
-		'#collapsible' => TRUE,
-		'#collapsed' => FALSE,
-	];
-
-	// Decorations - Pages
-	$form['showcase_options']['pages_options']['showcase_deco'] = [
-		'#type' => 'checkbox',
-		'#title'         => t('Swirl decoration'),
-		'#default_value' => theme_get_setting('showcase_deco'),
-		'#description' => t('If checked a nice swirl is added under the showcase region on <strong>all pages (except the frontpage)</strong>.'),
-	];
-
-	// // Decorations - Front
-	// $form['showcase_options']['frontpage_options']['showcase_deco_front'] = [
-	// 	'#type' => 'checkbox',
-	// 	'#title'         => t('Swirl decoration on the frontpage'),
-	// 	'#default_value' => theme_get_setting('showcase_deco_front'),
-	// 	'#description' => t('If checked a nice swirl is added under the showcase region on the <strong>frontpage</strong>.'),
-	// ];
 
 	/************************/
 	/* Pre Footer settings  */

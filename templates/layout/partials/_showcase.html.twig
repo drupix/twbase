@@ -3,15 +3,13 @@
  * @file
  * Theme override to display the showcase of a single page.
  *
- * @see templates/layout/page.html.twig for a full list of
- * available variables.
+ * @see templates/layout/page.html.twig for a full list of available variables.
  * @see twbase_preprocess_page()
  */
 #}
 
 <!--Showcase-->
 <div class="showcase tw-relative tw-overflow-hidden tw-pt-12 tw-px-4" style="min-height: 32rem;">
-{# <div class="showcase tw-relative tw-overflow-hidden tw-pt-12 tw-px-4"> #}
 
   {% if showcase.title or showcase.submitted or showcase.introduction %}
     <!--Showcase content-->
@@ -63,11 +61,11 @@
 
   {# The overlay gradient #}
   {% if showcase_add_overlay %}
-    {% include '@twbase/layout/partials/_showcase_overlay.html.twig' %}
+    {% include '@twbase/layout/partials/showcase_partials/_showcase_overlay.html.twig' %}
   {% endif %}
 
   {% if showcase_add_deco %}
-    {% include '@twbase/layout/partials/_showcase_divider_swirl.html.twig' %}
+    {% include '@twbase/layout/partials/showcase_partials/_showcase_divider_swirl.html.twig' %}
   {% endif %}
 
 </div>

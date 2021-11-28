@@ -16,10 +16,27 @@
  * - is_admin: A flag indicating if the user has permission to access
  *   administration pages.
  *
- * @todo: check here
- * Theme specific utility variables:
+ * Theme layout specific utility variables:
+ * - header_fixed: utilities for setting the header pos (fixed at top or not).
+ * - header_size: utilities for setting the maximum width of the header.
+ * - navbar_size: utilities for setting the maximum width of the navbar.
  * - content_size: utilities for setting the maximum width of the content.
+ * - wide_content_size: utilities for setting the maximum width of the wide_content.
+ * - pre_footer_size: utilities for setting the maximum width of the pre_footer.
  * - footer_size: utilities for setting the maximum width of the footer.
+ * - breadcrumb_display: utilities for setting the breadcrumb (displayed or not).
+ * - has_content_top: utilities to know if the content_top has content or not ().
+ * @see twbase_preprocess_page()
+ *
+ * Theme showcase specific utility variables:
+ * - has_showcase: utilities for setting the showcase (enabled or not).
+ * - showcase_size: utilities for setting the frontpage showcase size (default, fullscreen).
+ * - showcase_content_pos: utilities for setting the frontpage showcase content position (default, bottom left).
+ * - showcase_add_overlay: utilities for setting the showcase overlay.
+ * - showcase_overlay_type: utilities for setting the showcase overlay type.
+ * - showcase_add_front_deco: utilities for setting the showcase for frontpage decoration (swirl).
+ * - showcase_add_deco: utilities for setting the showcase for pages decoration (swirl).
+ * @see twbase_preprocess_page()
  *
  * Site identity:
  * - front_page: The URL of the front page. Use this instead of base_path when
@@ -80,7 +97,6 @@
     {% if has_showcase %}
       {% if is_front %}
         {% include '@twbase/layout/partials/_showcase_front.html.twig' %}
-        {# {% include '@twbase/layout/partials/_showcase.html.twig' %} #}
       {% elseif showcase %}
         {% include '@twbase/layout/partials/_showcase.html.twig' %}
       {% endif %}

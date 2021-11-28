@@ -3,8 +3,7 @@
  * @file
  * Theme override to display the showcase of the frontpage.
  *
- * @see templates/layout/page.html.twig for a full list of
- * available variables.
+ * @see templates/layout/page.html.twig for a full list of available variables.
  * @see twbase_preprocess_page()
  */
 #}
@@ -26,12 +25,7 @@
 
 {% if showcase_fullscreen %}
   {% set showcase_classes = showcase_classes ~ ' tw-h-screen' %}
-  {# {% set showcase_fullscreen = true %} #}
 {% endif %}
-
-
-{# The showcase image #}
-{# {% set showcase_image = showcase.image_path ? showcase.image_path : (is_front ? '/themes/custom/twbase/img/home-showcase.jpg' : FALSE) %} #}
 
 <!--Showcase-->
 <div class="showcase tw-relative tw-overflow-hidden {{ showcase_classes }} tw-px-4">
@@ -71,11 +65,11 @@
 
   {# The overlay gradient #}
   {% if showcase_add_overlay %}
-    {% include '@twbase/layout/partials/_showcase_overlay.html.twig' %}
+    {% include '@twbase/layout/partials/showcase_partials/_showcase_overlay.html.twig' %}
   {% endif %}
 
   {% if showcase_add_front_deco %}
-    {% include '@twbase/layout/partials/_showcase_divider_swirl.html.twig' %}
+    {% include '@twbase/layout/partials/showcase_partials/_showcase_divider_swirl.html.twig' %}
   {% endif %}
 
 </div>
