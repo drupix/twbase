@@ -232,10 +232,10 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 */
 
 	// Swirl decoration
-	$form['showcase_options']['default']['options']['showcase_deco'] = [
+	$form['showcase_options']['default']['options']['default_showcase_deco'] = [
 		'#type' => 'checkbox',
 		'#title'         => t('Swirl decoration'),
-		'#default_value' => theme_get_setting('showcase_deco'),
+		'#default_value' => theme_get_setting('default_showcase_deco'),
 		'#description' => t('If checked a nice swirl is added under the showcase region on <strong>all pages (except the frontpage)</strong>.'),
 	];
 

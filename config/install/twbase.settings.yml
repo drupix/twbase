@@ -28,7 +28,7 @@ showcase_parallax: 0
 showcase_add_overlay: 1
 showcase_overlay_type: overlay-dark-gradient
 showcase_textstyle: text-light
-showcase_deco: 1
+default_showcase_deco: 1
 default_showcase_front_enabled: 1
 showcase_hero_size: fullscreen
 showcase_content_pos: default

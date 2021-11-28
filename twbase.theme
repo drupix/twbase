@@ -102,11 +102,11 @@ function twbase_preprocess_page(&$variables) {
   // Common classes for the Showcase
   if($default_showcase_enabled || $default_showcase_front_enabled) {
     // Classes for the Showcase
+    $variables['showcase_add_deco'] = theme_get_setting('default_showcase_deco');
     $variables['showcase_size'] = theme_get_setting('showcase_hero_size');
     $variables['showcase_content_pos'] = theme_get_setting('showcase_content_pos');
     $variables['showcase_add_overlay'] = theme_get_setting('showcase_add_overlay');
     $variables['showcase_overlay_type'] = theme_get_setting('showcase_overlay_type');
-    $variables['showcase_add_deco'] = theme_get_setting('showcase_deco');
     $variables['showcase_add_front_deco'] = theme_get_setting('showcase_deco_front');
   }
 
