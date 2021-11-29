@@ -10,7 +10,7 @@ A Starter theme for Drupal built with [Tailwind CSS](https://tailwindcss.com/).
 
 ## Recommended Modules
 
-As TWBase Theme use [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography) I recommends you to install [TWBase Theme Utilities](https://github.com/drupix/twbase_utils) modules with this theme. It load the `styles.css` provided by **TWBase Theme** and add the `prose` (`tw-prose`) extra class to the editor `body` to reflects the frontend while editing node in admin section. Otherwise the content in your editor may look slightly poor and naked... 🙀. The module also provide an admin interface to control the showcase content.
+As TWBase Theme use [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography) I recommends you to install [TWBase Theme Utilities](https://github.com/drupix/twbase_utils) modules with this theme. It load the `styles.css` provided by **TWBase Theme** and add the `prose` (`tw-prose`) extra class to the editor `body` to reflects the frontend while editing node in admin section. Otherwise the content in your editor may look slightly poor and naked... 🙀. The module also provide an admin interface to control the showcase content and last but not least: it allows you to define showcase options per content type 🥳.
 
 ## Development dependencies
 
