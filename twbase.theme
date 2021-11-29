@@ -5,62 +5,100 @@
  * TWBase theme file.
  */
 
-// use Drupal\Component\Utility\Html;
-// use Drupal\Core\Entity\EntityInterface;
-// use Drupal\media\Entity\Media;
-// use Drupal\file\Entity\File;
 use Drupal\node\Entity\NodeType;
-// Only add if you need to generate an image URL with an image style
 use Drupal\image\Entity\ImageStyle;
 
+
+/**
+ * Utility function.
+ *
+ * @return boolean
+ *   TRUE if the twbase_utils module is installed,
+ *   FALSE otherwise.
+ */
+function _twbase_twbase_utils_installed() {
+  $moduleHandler = \Drupal::service('module_handler');
+  // Check if TWBase Theme Utilities module is installed
+  return $moduleHandler->moduleExists('twbase_utils');
+}
 
 /**
  * Override or insert variables into the page templates.
  */
 function twbase_preprocess_html(&$variables) {
-  //
-  // Configuring the classes for the Showcase region
-  //
+  // Get the header position status
   $variables['header_fixed'] = theme_get_setting('header_fixed');
+  // By default there is no showcase
   $variables['has_showcase'] = FALSE;
 
   if(\Drupal::service('path.matcher')->isFrontPage()) {
-    $config = \Drupal::config('twbase.settings');
-    // Get the default showcase enabled status
-    $default_showcase_front_enabled = $config->get('default_showcase_front_enabled');
+    // Get the default frontpage showcase enabled status
+    $default_showcase_front_enabled = theme_get_setting('default_showcase_front_enabled');
+    // Set the html variable indicating the frontpage showcase enabled status
     $variables['has_showcase'] = $default_showcase_front_enabled;
   }
   elseif(isset($variables['node_type'])) {
+    // Are we viewing a node ?
     if($node = \Drupal::request()->attributes->get('node')) {
-      $config = \Drupal::config('twbase.settings');
-      // $type = NodeType::load($variables['node_type']);
-      $default_showcase_enabled = $config->get('default_showcase_enabled');
-      $variables['has_showcase'] = $default_showcase_enabled;
+      // Get the default showcase enabled status
+      $showcase_enabled = theme_get_setting('default_showcase_enabled');
+
+      if(_twbase_twbase_utils_installed()) {
+        // Load node type definition
+        $type = NodeType::load($variables['node_type']);
+        // Get the showcase enabled status per content type from twbase_utils module
+        $showcase_enabled = $type->getThirdPartySetting('twbase_utils', 'showcase_enabled', $showcase_enabled);
+      }
+      // Set the html variable indicating the showcase enabled status
+      $variables['has_showcase'] = $showcase_enabled;
     }
   }
- }
+}
 
 /**
  * Implements hook_preprocess_HOOK().
  */
 function twbase_preprocess_page_title(&$variables) {
+  // Get the default showcase content size
   $variables['content_size'] = theme_get_setting('content_size');
+  // By default the title is not hidden
   $variables['hide_title'] = FALSE;
 
-  $config = \Drupal::config('twbase.settings');
-  $default_showcase_enabled = $config->get('default_showcase_enabled');
-  $default_display_title = $config->get('default_showcase_display_title');
+  // Get the default showcase enabled status
+  $showcase_enabled = theme_get_setting('default_showcase_enabled');
+  // Get the default showcase display title status
+  $display_title = theme_get_setting('default_showcase_display_title');
 
   if(\Drupal::service('path.matcher')->isFrontPage()) {
-    $variables['hide_title'] = TRUE;
+    // By default the title is hidden on frontpage
+    //XXXXXX $variables['hide_title'] = TRUE;
+
+    // Add a Title if there is none (i.e. viewing default /node page without content promoted)
+    // Hide the title if it is empty
     if(isset($variables['title']['#markup']) && empty($variables['title']['#markup'])) {
-      $variables['hide_title'] = FALSE;
-      $title = \Drupal::service('token')->replace(t('Welcome to [site:name]'));
-      $variables['title']['#markup'] = $title;
+      // // Say that Title is not hidden
+      // $variables['hide_title'] = FALSE;
+      // // Define a default Title
+      // // @todo: add this at Theme config level ???
+      // $title = \Drupal::service('token')->replace(t('Welcome to [site:name]'));
+      // // Set the default Title
+      // $variables['title']['#markup'] = $title;
+
+      $variables['hide_title'] = TRUE;
     }
   }
   elseif($node = \Drupal::request()->attributes->get('node')) {
-    if($default_showcase_enabled and $default_display_title) {
+    if(_twbase_twbase_utils_installed()) {
+      // Load node type definition
+      $type = NodeType::load($node->bundle());
+      // Get the showcase enabled status per content type from twbase_utils module
+      $showcase_enabled = $type->getThirdPartySetting('twbase_utils', 'showcase_enabled', $showcase_enabled);
+      // Get the showcase display title status per content type from twbase_utils module
+      $display_title = $type->getThirdPartySetting('twbase_utils', 'showcase_display_title', $display_title);
+    }
+
+    if($showcase_enabled and $display_title) {
+      // Say that Title is hidden
       $variables['hide_title'] = TRUE;
     }
   }
@@ -70,17 +108,17 @@ function twbase_preprocess_page_title(&$variables) {
  * Override or insert variables into the page templates.
  */
 function twbase_preprocess_page(&$variables) {
+  // Configuring header and navbar
   $variables['header_fixed'] = theme_get_setting('header_fixed');
   $variables['header_size'] = theme_get_setting('header_size');
   $variables['navbar_size'] = theme_get_setting('navbar_size');
+  // Configuring regions sizes
   $variables['content_size'] = theme_get_setting('content_size');
   $variables['wide_content_size'] = theme_get_setting('pre_footer_size');
   $variables['pre_footer_size'] = theme_get_setting('pre_footer_size');
   $variables['footer_size'] = theme_get_setting('footer_size');
 
-  //
   // Configuring the breadcrump
-  //
   $variables['breadcrumb_display'] = theme_get_setting('breadcrumb_display');
 
   // Themes improperly check renderable arrays when determining visibility see
@@ -92,17 +130,33 @@ function twbase_preprocess_page(&$variables) {
   //
   // Showcase specific variables
   //
+
+  // By default there is no showcase
   $variables['has_showcase'] = FALSE;
 
-  // Check if the default Showcase is enabled
-  $config = \Drupal::config('twbase.settings');
-  $default_showcase_enabled = $config->get('default_showcase_enabled');
-  $default_showcase_front_enabled = $config->get('default_showcase_front_enabled');
+  // Get the default showcase enabled status
+  $showcase_enabled = theme_get_setting('default_showcase_enabled');
+
+  // Get the default showcase deco (swirl) enabled status
+  $showcase_deco = theme_get_setting('default_showcase_deco');
+  // Get the default showcase frontpage enabled status
+  $default_showcase_front_enabled = theme_get_setting('default_showcase_front_enabled');
+
+  // $showcase_enabled = FALSE;
+  if(isset($variables['node']) && _twbase_twbase_utils_installed()) {
+    // Load node type definition
+    $type = NodeType::load($variables['node']->bundle());
+    // Get the showcase enabled status per content type from twbase_utils module
+    $showcase_enabled = $type->getThirdPartySetting('twbase_utils', 'showcase_enabled', $showcase_enabled);
+    // Get the showcase deco (swirl) enabled status per content type from twbase_utils module
+    $showcase_deco = $type->getThirdPartySetting('twbase_utils', 'showcase_deco', $showcase_deco);
+  }
 
   // Common classes for the Showcase
-  if($default_showcase_enabled || $default_showcase_front_enabled) {
-    // Classes for the Showcase
-    $variables['showcase_add_deco'] = theme_get_setting('default_showcase_deco');
+  if($showcase_enabled || $default_showcase_front_enabled) {
+    // For simplicity we set all showcase theme settings even if
+    // the showcase is not enabled and they will not be used
+    $variables['showcase_add_deco'] = $showcase_deco;
     $variables['showcase_size'] = theme_get_setting('showcase_hero_size');
     $variables['showcase_content_pos'] = theme_get_setting('showcase_content_pos');
     $variables['showcase_add_overlay'] = theme_get_setting('showcase_add_overlay');
@@ -114,28 +168,21 @@ function twbase_preprocess_page(&$variables) {
   if($variables['is_front']) {
     // ... and only after check if the showcase for front is enabled
     if($default_showcase_front_enabled) {
-      // Frontpage and enabled for front
+      // Frontpage and default showcase enabled for front
       $variables['has_showcase'] = $default_showcase_front_enabled;
       // Default showcase front content
       _twbase_get_default_front_showcase($variables);
     }
   }
   // ... and only after check if the showcase is enabled for other pages
-  elseif($default_showcase_enabled) {
-    // Enabled for pages
-    $variables['has_showcase'] = $default_showcase_enabled;
+  elseif($showcase_enabled) {
+    // Showcase enabled for pages
+    $variables['has_showcase'] = $showcase_enabled;
     // Default showcase content
     _twbase_get_default_showcase($variables);
   }
-  // kint($variables);die;
-}
 
-/**
- * Override or insert variables into the node templates.
- */
-// function twbase_preprocess_node(&$variables) {
-//   $variables['content_size'] = theme_get_setting('content_size');
-// }
+}
 
 /**
  * Implements hook_preprocess_field__field_name().
@@ -161,32 +208,35 @@ function _twbase_get_default_front_showcase(&$variables) {
   // Leave from here if this is not the frontpage
   if (!\Drupal::service('path.matcher')->isFrontPage()) return;
 
-  // Get the theme config
-  $config = \Drupal::config('twbase.settings');
   // Get the default showcase enabled status
-  $default_showcase_front_enabled = $config->get('default_showcase_front_enabled');
-  // Leave from here if the default showcase is not enabled
+  $default_showcase_front_enabled = theme_get_setting('default_showcase_front_enabled');
+  // Leave from here if the default frontpage showcase is not enabled
   if (!$default_showcase_front_enabled) return;
 
   // Build an array of datas to return for the showcase
   $variables['showcase'] = [
     'title' => FALSE,
     'introduction' => FALSE,
+    'button_text' => FALSE,
+    'button_href' => FALSE,
+    'button_new_windows' => FALSE,
     'submitted' => [],
     'image_path' => FALSE,
   ];
 
-  $moduleHandler = \Drupal::service('module_handler');
   // Check if TWBase Theme Utilities module is installed
-  if($moduleHandler->moduleExists('twbase_utils')) {
+  if(_twbase_twbase_utils_installed()) {
     // Get the TWBase Theme Utilities module settings
     $twbase_utils_config = \Drupal::config('twbase_utils.settings_showcase');
 
     // Set showcase data
     $variables['showcase']['title'] = $twbase_utils_config->get('title');
     $variables['showcase']['introduction'] = $twbase_utils_config->get('body.value');
-    // @todo: manage this in module admin
+    // @todo: manage image in module admin ?
     $variables['showcase']['image_path'] = '/themes/custom/twbase/img/home-showcase.jpg';
+    $variables['showcase']['button_text'] = $twbase_utils_config->get('button.text');
+    $variables['showcase']['button_link'] = $twbase_utils_config->get('button.link');
+    $variables['showcase']['button_new_windows'] = $twbase_utils_config->get('button.target');
   }
   else {
     // Set default showcase if TWBase Theme Utilities module is not installed
@@ -196,7 +246,6 @@ function _twbase_get_default_front_showcase(&$variables) {
         To edit this content in a super <strong class="text-warning">uggly way</strong>,
         open <code class="text-warning">twbase.theme</code> file in your favorites text editor and change it in the
         appropriate function... mmhhhh not really funny 🤡...
-        <!--<code class="text-warning">_twbase_get_default_front_showcase()</code>... mmhhhh not really funny 🤡...-->
       </p>
       <p class="tw-py-4">
         Otherwise you can also install the <a class="text-success" href="https://github.com/drupix/twbase_utils" target="_blank">TWBase Theme Utilities</a>
@@ -206,6 +255,9 @@ function _twbase_get_default_front_showcase(&$variables) {
         Happy building 👩🏾‍💻🦊🧑‍🎨
       </p>';
     $variables['showcase']['image_path'] = '/themes/custom/twbase/img/home-showcase.jpg';
+    $variables['showcase']['button_text'] = 'Get TWBase Theme Utilities module';
+    $variables['showcase']['button_link'] = 'https://github.com/drupix/twbase_utils';
+    $variables['showcase']['button_new_windows'] = TRUE;
   }
 }
 
@@ -223,13 +275,20 @@ function _twbase_get_default_showcase(&$variables) {
   // Leave from here if node is not set
   if (!isset($variables['node'])) return;
 
-  // Get the theme config
-  $config = \Drupal::config('twbase.settings');
-  // Get the default showcase enabled status
-  $default_showcase_enabled = $config->get('default_showcase_enabled');
-  // Leave from here if the default showcase is not enabled
-  if (!$default_showcase_enabled) return;
+  /** @var Drupal\node\Entity\Node $node */
+  $node = $variables['node'];
+  // Get node type definition
+  $type = NodeType::load($node->bundle());
 
+  // Get the default showcase enabled status
+  $showcase_enabled = theme_get_setting('default_showcase_enabled');
+
+  if(_twbase_twbase_utils_installed()) {
+    $showcase_enabled = $type->getThirdPartySetting('twbase_utils', 'showcase_enabled', $showcase_enabled);
+  }
+
+  // Leave from here if the showcase is not enabled
+  if (!$showcase_enabled) return;
 
   // Build an array of datas to return for the showcase
   $variables['showcase'] = [
@@ -239,39 +298,52 @@ function _twbase_get_default_showcase(&$variables) {
     'image_path' => FALSE,
   ];
 
-  /* @var Drupal\node\Entity\Node $node */
-  $node = $variables['node'];
-  // Get node type definition
-  $type = NodeType::load($node->bundle());
-
   // Get the default showcase display title status
-  $default_display_title = $config->get('default_showcase_display_title');
-  if($default_display_title) {
+  $display_title = theme_get_setting('default_showcase_display_title');
+  // Get the default showcase display submitted
+  $display_submitted = theme_get_setting('default_showcase_display_submitted');
+  // Get the default showcase display image status
+  $display_image = theme_get_setting('default_showcase_display_image');
+
+  if(_twbase_twbase_utils_installed()) {
+    // Get the showcase display title status per content type from twbase_utils module
+    $display_title = $type->getThirdPartySetting('twbase_utils', 'showcase_display_title', $display_title);
+    // Get the showcase display submitted status per content type from twbase_utils module
+    $display_submitted = $type->getThirdPartySetting('twbase_utils', 'showcase_display_submitted', $display_submitted);
+    // Get the showcase display image status per content type from twbase_utils module
+    $display_image = $type->getThirdPartySetting('twbase_utils', 'showcase_display_image', $display_image);
+  }
+
+  if($display_title) {
+    // Get the node title
     $title = $node->label();
-    // $variables['showcase']['title'] = $title;
+    // Set the showcase title
     $variables['showcase']['title'] = $title;
   }
 
   // Add Submitted informations (username, user picture, created date)
-  $default_showcase_display_submitted = $config->get('default_showcase_display_submitted');
-  if($default_showcase_display_submitted &&  $type->displaySubmitted()) {
-    // Username
+  if($display_submitted &&  $type->displaySubmitted()) {
+    // Get the username
     $author = $node->getOwner();
+    // Set the showcase username
     $variables['showcase']['submitted']['author']['name'] = $author->getDisplayName();
 
-    // User picture if available
+    // Get the user picture if available
     $user_picture = $node->getOwner()->user_picture;
     if($user_picture && isset($user_picture[0])) {
       // Get origin image URI
       $picture_uri = $user_picture->entity->getFileUri();
       // Load image style "thumbnail" and build URL
       $picture_url = ImageStyle::load('thumbnail')->buildUrl($picture_uri);
+      // Set the showcase user picture url
       $variables['showcase']['submitted']['author']['picture'] = $picture_url;
     }
 
-    // Created date
+    // Get the node created date
     $node_created = $node->getCreatedTime();
+    // Format it with the default date format (medium)
     $submitted = \Drupal::service('date.formatter')->format($node_created);
+    // Set the showcase node created date
     $variables['showcase']['submitted']['created'] = $submitted;
   }
 
@@ -295,9 +367,7 @@ function _twbase_get_default_showcase(&$variables) {
 
   // Add Image, Cover, Photos or Video
   $image_path = FALSE;
-  // Get the default showcase display title status
-  $default_display_image = $config->get('default_showcase_display_image');
-  if($default_display_image) {
+  if($display_image) {
     if($node->hasField('field_image') && isset($node->get('field_image')[0])) {
       // Get URI of the image file.
       $image_path = file_create_url($node->field_image->entity->getFileUri());

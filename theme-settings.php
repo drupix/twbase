@@ -124,6 +124,7 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 		'#description' => t('When checked, the header will be fixed at the top of the browser.'),
 	];
 
+	// @todo: Header background is not used for now
 	// Header background color
 /*
 	$form['header_options']['header_dark'] = [
@@ -332,14 +333,15 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 		],
 	];
 
+	// @todo: Text style is not used for now
 	// Text style
-	$form['showcase_options']['default']['common_options']['showcase_textstyle'] = [
-		'#type' => 'select',
-		'#title' => t('Text style'),
-		'#options' => ['text-light' => t('Text light'), 'text-dark' => t('Text dark')],
-		'#default_value' => theme_get_setting('showcase_textstyle'),
-		'#description' => t('Set if the text should be light or dark depending on the content.'),
-	];
+	// $form['showcase_options']['default']['common_options']['showcase_textstyle'] = [
+	// 	'#type' => 'select',
+	// 	'#title' => t('Text style'),
+	// 	'#options' => ['text-light' => t('Text light'), 'text-dark' => t('Text dark')],
+	// 	'#default_value' => theme_get_setting('showcase_textstyle'),
+	// 	'#description' => t('Set if the text should be light or dark depending on the content.'),
+	// ];
 
 	/************************/
 	/* Pre Footer settings  */

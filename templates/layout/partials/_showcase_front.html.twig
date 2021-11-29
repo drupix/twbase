@@ -49,12 +49,15 @@
       </div>
     {% endif %}
 
-    <div class="tw-flex tw-justify-start tw-space-x-4">
-      <a target="_blank" href="https://github.com/drupix/twbase_utils"
-        class="tw-shadow tw-rounded-lg tw-transition tw-duration-200 tw-ease-in-out tw-transform hover:tw--translate-y-1 hover:tw-shadow-lg tw-bg-gray-500 hover:tw-bg-gray-600 tw-text-white tw-font-bold tw-my-6 tw-py-4 tw-px-8">
-        Get TWBase Theme Utilities module
-      </a>
-    </div>
+    {% if showcase.button_text and showcase.button_link %}
+      <div class="tw-flex tw-justify-start tw-space-x-4">
+        <a href="{{ showcase.button_link }}"
+          {% if showcase.button_new_windows %}target="_blank"{% endif %}
+          class="tw-shadow tw-rounded-lg tw-transition tw-duration-200 tw-ease-in-out tw-transform hover:tw--translate-y-1 hover:tw-shadow-lg tw-bg-gray-500 hover:tw-bg-gray-600 tw-text-white tw-font-bold tw-my-6 tw-py-4 tw-px-8">
+          {{ showcase.button_text }}
+        </a>
+      </div>
+    {% endif %}
 
   </div>
 
