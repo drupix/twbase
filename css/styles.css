@@ -1952,10 +1952,6 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 
-.tw-fill-current {
-	fill: currentColor;
-}
-
 .tw-object-cover {
 	-o-object-fit: cover;
 	   object-fit: cover;

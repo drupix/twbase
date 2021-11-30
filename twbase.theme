@@ -26,11 +26,11 @@ function _twbase_twbase_utils_installed() {
  * Implements hook_preprocess_HOOK().
  */
 function twbase_preprocess_block__system_branding_block(&$variables) {
-  //if (tailwindcss_get_active_theme() == 'tailwindcss' && $variables['base_plugin_id'] == 'system_branding_block') {
+  if (\Drupal::service('theme.manager')->getActiveTheme()->getName() == 'twbase') {
     if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
       $variables['site_logo_dark'] = str_replace('logo.png', 'logo-dark.png', $variables['content']['site_logo']['#uri']);
     }
-  // }
+  }
 }
 
 /**
