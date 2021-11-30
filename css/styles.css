@@ -2592,6 +2592,10 @@ body.toolbar-vertical.navbar-is-fixed header {
 	--tw-ring-color: transparent;
 }
 
+.focus\:tw-ring-offset-transparent:focus {
+	--tw-ring-offset-color: transparent;
+}
+
 .tw-dark .dark\:tw-prose-dark {
 	color: #e5e7eb;
 }

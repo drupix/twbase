@@ -82,6 +82,10 @@
           /* background-color: rgb(37, 99, 235); */
           background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' className='h-10 w-10' fill='%23FFF' viewBox='0 0 24 24' stroke='rgb(129 124 214)' > <path strokeLinecap='round' strokeLinejoin='round' d='M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z' /> </svg>");
         }
+        .toggle-checkbox:checked:focus,
+        .toggle-checkbox:checked:hover {
+          background-color: rgb(129, 124, 214);
+        }
         .toggle-checkbox:checked + .toggle-label {
           /* default */
           background-color: rgb(76, 73, 188);
@@ -97,7 +101,7 @@
       {# <div class="fixed bottom-5 left-5 w-12 select-none transition duration-200 ease-in z-30"> #}
       <div class="tw-relative tw-block tw-flex-none tw-ml-4 md:tw-ml-1 tw-mt-8 md:tw-mt-2 tw-w-12 tw-select-none tw-transition tw-duration-200 tw-ease-in tw-z-30">
         <input type="checkbox" name="theme-switcher" id="theme-switcher"
-          class="toggle-checkbox tw-bg-yellow-300 tw-border-yellow-500 tw-mr-1 tw-mt-1 focus:tw-ring-transparent tw-absolute tw-block tw-w-6 tw-h-6 tw-rounded-full tw-border-2 tw-appearance-none tw-cursor-pointer"
+          class="toggle-checkbox tw-bg-yellow-300 tw-border-yellow-500 tw-mr-1 tw-mt-1 focus:tw-ring-transparent focus:tw-ring-offset-transparent tw-absolute tw-block tw-w-6 tw-h-6 tw-rounded-full tw-border-2 tw-appearance-none tw-cursor-pointer"
         />
         <label for="theme-switcher"
           class="toggle-label tw-block tw-h-8 tw--ml-1 tw--mt-1 tw-rounded-full tw-bg-blue-300 tw-cursor-pointer">
