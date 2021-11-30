@@ -4,9 +4,11 @@ var window_width = window.innerWidth;
 var body = document.body;
 var header = document.getElementById("header");
 var slogan = document.getElementById("site-slogan");
+var dark_logo = document.getElementById("dark-logo");
+var light_logo = document.getElementById("light-logo");
 var main = document.getElementById("main");
 var main_nav = document.getElementById("main-nav");
-var locales_switcher = document.getElementById("locales-switcher");
+// var locales_switcher = document.getElementById("locales-switcher");
 var scrolled = false;
 var resized = false;
 var navbar_fixed = body.classList.contains('navbar-is-fixed');
@@ -48,7 +50,7 @@ function windowResize() {
       }
     }
 
-    locales_switcher.classList.add("tw-mt-4");
+    // locales_switcher.classList.add("tw-mt-4");
   }
   else {
     if(scrollpos > 10){
@@ -68,7 +70,7 @@ function windowResize() {
       main_nav.classList.add("tw-text-white");
     }
 
-    locales_switcher.classList.remove("tw-mt-4");
+    // locales_switcher.classList.remove("tw-mt-4");
   }
 
   header_height = header.offsetHeight;
@@ -108,16 +110,24 @@ function documentScroll(forceScrolled = false) {
       header.classList.add("tw-text-white");
       header.classList.remove("tw-text-black");
       header.classList.remove("tw-shadow");
-      slogan.classList.add("tw-text-gray-500");
-      slogan.classList.remove("tw-text-gray-200");
+      if(slogan != undefined) {
+        slogan.classList.add("tw-text-gray-500");
+        slogan.classList.remove("tw-text-gray-200");
+      }
+      light_logo.classList.remove("tw-hidden");
+      dark_logo.classList.add("tw-hidden");
     }
     else {
       header.classList.add("tw-bg-white");
       header.classList.remove("tw-text-white");
       header.classList.add("tw-text-black");
       header.classList.add("tw-shadow");
-      slogan.classList.remove("tw-text-gray-200");
-      slogan.classList.add("tw-text-gray-500");
+      if(slogan != undefined) {
+        slogan.classList.remove("tw-text-gray-200");
+        slogan.classList.add("tw-text-gray-500");
+      }
+      light_logo.classList.add("tw-hidden");
+      dark_logo.classList.remove("tw-hidden");
     }
 
     if(window_width <= 767) {
@@ -171,14 +181,20 @@ function documentScroll(forceScrolled = false) {
     header.classList.add("tw-text-white");
     header.classList.remove("tw-shadow");
 
-    if(localStorage.themeMode === 'tw-dark') {
-      slogan.classList.add("tw-text-gray-500");
-      slogan.classList.remove("tw-text-gray-200");
+    if(slogan != undefined) {
+      if(localStorage.themeMode === 'tw-dark') {
+        slogan.classList.add("tw-text-gray-500");
+        slogan.classList.remove("tw-text-gray-200");
+      }
+      else {
+        slogan.classList.add("tw-text-gray-200");
+        slogan.classList.remove("tw-text-gray-500");
+      }
     }
-    else {
-      slogan.classList.add("tw-text-gray-200");
-      slogan.classList.remove("tw-text-gray-500");
-    }
+
+    light_logo.classList.remove("tw-hidden");
+    dark_logo.classList.add("tw-hidden");
+
   }
 
   if(localStorage.themeMode === 'tw-dark') {
@@ -214,16 +230,6 @@ document.addEventListener('scroll', function () {
     /*Refresh scroll % width*/
     scroll = (docEl[st] || body[st]) / ((docEl[sh] || body[sh]) - docEl.clientHeight) * 100;
     progress.style.setProperty('--scroll', scroll + '%');
-
-    /*Apply classes for slide in bar*/
-    // scrollpos = window.scrollY;
-    // if (scrollpos > 10) {
-    //   header.classList.add("tw-bg-white");
-    //   header.classList.add("tw-shadow");
-    // } else {
-    //   header.classList.remove("tw-bg-white");
-    //   header.classList.remove("tw-shadow");
-    // }
   }
 });
 

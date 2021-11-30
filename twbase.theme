@@ -23,6 +23,17 @@ function _twbase_twbase_utils_installed() {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function twbase_preprocess_block__system_branding_block(&$variables) {
+  //if (tailwindcss_get_active_theme() == 'tailwindcss' && $variables['base_plugin_id'] == 'system_branding_block') {
+    if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+      $variables['site_logo_dark'] = str_replace('logo.png', 'logo-dark.png', $variables['content']['site_logo']['#uri']);
+    }
+  // }
+}
+
+/**
  * Override or insert variables into the page templates.
  */
 function twbase_preprocess_html(&$variables) {
@@ -230,8 +241,8 @@ function _twbase_get_default_front_showcase(&$variables) {
     $twbase_utils_config = \Drupal::config('twbase_utils.settings_showcase');
 
     // Set showcase data
-    $variables['showcase']['title'] = $twbase_utils_config->get('title');
-    $variables['showcase']['introduction'] = $twbase_utils_config->get('body.value');
+    $variables['showcase']['title']['#markup'] = $twbase_utils_config->get('title');
+    $variables['showcase']['introduction']['#markup'] = $twbase_utils_config->get('body.value');
     // @todo: manage image in module admin ?
     $variables['showcase']['image_path'] = '/themes/custom/twbase/img/home-showcase.jpg';
     $variables['showcase']['button_text'] = $twbase_utils_config->get('button.text');
@@ -240,8 +251,8 @@ function _twbase_get_default_front_showcase(&$variables) {
   }
   else {
     // Set default showcase if TWBase Theme Utilities module is not installed
-    $variables['showcase']['title'] = "Hi! I'm the default <strong class=\"text-warning\">hardcoded</strong> showcase!";
-    $variables['showcase']['introduction'] =
+    $variables['showcase']['title']['#markup'] = "Hi! I'm the default <strong class=\"text-warning\">hardcoded</strong> showcase!";
+    $variables['showcase']['introduction']['#markup'] =
       '<p>Take a look around, this is the TWBase Theme default showcase.
         To edit this content in a super <strong class="text-warning">uggly way</strong>,
         open <code class="text-warning">twbase.theme</code> file in your favorites text editor and change it in the
@@ -250,8 +261,8 @@ function _twbase_get_default_front_showcase(&$variables) {
       <p class="tw-py-4">
         Otherwise you can also install the <a class="text-success" href="https://github.com/drupix/twbase_utils" target="_blank">TWBase Theme Utilities</a>
         module and simply edit this content in the admin UI!
-        <!--Documentation, examples and support are available on the official
-        <a class="text-success" href="https://github.com/drupix/twbase_utils" target="_blank">TWBase Theme Utilities website</a>.-->
+        <!-- Documentation, examples and support are available on the official -->
+        <!-- <a class="text-success" href="https://github.com/drupix/twbase_utils" target="_blank">TWBase Theme Utilities website</a>.-->
         Happy building 👩🏾‍💻🦊🧑‍🎨
       </p>';
     $variables['showcase']['image_path'] = '/themes/custom/twbase/img/home-showcase.jpg';

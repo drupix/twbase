@@ -1,10 +1,11 @@
 /**
   Define your gradient here
   Use online tools to find a gradient matching your branding
+  I used this one: https://mycolor.space/gradient
 */
 .gradient {
-  /* background: linear-gradient(to right, #059669, #34D399); */
-  /* background: linear-gradient(to right, #051937, #A8EB12); */
   /* background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
-  background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72);
+  /* background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72); */
+  background: linear-gradient(to right top, #051937, #114169, #136e9d, #089fcf, #00d4ff);
+  /* background: linear-gradient(to right top, #051937, #114169, #089fcf); */
 }

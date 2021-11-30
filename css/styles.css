@@ -1602,6 +1602,10 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	margin-bottom: 1.5rem;
 }
 
+.tw-mt-4 {
+	margin-top: 1rem;
+}
+
 .tw-mt-1 {
 	margin-top: 0.25rem;
 }
@@ -1618,6 +1622,10 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	margin-left: 0.5rem;
 }
 
+.tw-ml-4 {
+	margin-left: 1rem;
+}
+
 .tw-mt-8 {
 	margin-top: 2rem;
 }
@@ -1632,10 +1640,6 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 
 .tw--mt-1 {
 	margin-top: -0.25rem;
-}
-
-.tw-mt-4 {
-	margin-top: 1rem;
 }
 
 .tw-mr-2 {
@@ -1984,11 +1988,6 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 .tw-py-1 {
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
-}
-
-.tw-px-2 {
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
 }
 
 .tw-py-2 {
@@ -3150,16 +3149,24 @@ body.toolbar-vertical.navbar-is-fixed header {
 		bottom: 4rem;
 	}
 
-	.md\:tw--mt-1 {
-		margin-top: -0.25rem;
-	}
-
 	.md\:tw-mt-0 {
 		margin-top: 0px;
 	}
 
+	.md\:tw--mt-1 {
+		margin-top: -0.25rem;
+	}
+
+	.md\:tw-ml-2 {
+		margin-left: 0.5rem;
+	}
+
 	.md\:tw-ml-4 {
 		margin-left: 1rem;
+	}
+
+	.md\:tw-ml-1 {
+		margin-left: 0.25rem;
 	}
 
 	.md\:tw-mt-2 {
@@ -3198,10 +3205,6 @@ body.toolbar-vertical.navbar-is-fixed header {
 		flex: 1 1 0%;
 	}
 
-	.md\:tw-flex-grow {
-		flex-grow: 1;
-	}
-
 	.md\:tw-flex-row {
 		flex-direction: row;
 	}
@@ -3228,9 +3231,19 @@ body.toolbar-vertical.navbar-is-fixed header {
 		background-color: transparent;
 	}
 
+	.md\:tw-px-2 {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
 	.md\:tw-py-4 {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
+	}
+
+	.md\:tw-px-0 {
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 
 	.md\:tw-text-2xl {

@@ -50,24 +50,6 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 		'#description' => t('The maximum width of the content container.'),
 	];
 
-/*
-	// Page loader
-	$form['general']['page_loader'] = [
-		'#title' => t('Add a page loader'),
-		'#type' => 'checkbox',
-		'#default_value' => theme_get_setting('page_loader'),
-		'#description' => t('When checked, a page loader is displayed.'),
-	];
-
-	// Page loader background
-	$form['general']['page_loader_dark'] = [
-		'#title' => t('Page loader dark'),
-		'#type' => 'checkbox',
-		'#default_value' => theme_get_setting('page_loader_dark'),
-		'#description' => t('When checked, a dark-friendly style will be used.'),
-	];
-*/
-
 	// Breadcrump
 	$form['general']['breadcrumb_display'] = [
 		'#type' => 'checkbox',
@@ -123,26 +105,6 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 		'#default_value' => theme_get_setting('header_fixed'),
 		'#description' => t('When checked, the header will be fixed at the top of the browser.'),
 	];
-
-	// @todo: Header background is not used for now
-	// Header background color
-/*
-	$form['header_options']['header_dark'] = [
-		'#type' => 'checkbox',
-		'#title' => t('Dark Style'),
-		'#default_value' => theme_get_setting('header_dark'),
-		'#description' => t('When checked, a dark-friendly style will be used.'),
-	];
-*/
-	// Header background transparent
-/*
-	$form['header_options']['header_transparent'] = [
-		'#type' => 'checkbox',
-		'#title' => t('Transparent'),
-		'#default_value' => theme_get_setting('header_transparent'),
-		'#description' => t('When checked, a transparent style will be used on the front page (nice with content in Showcase region).'),
-	];
-*/
 
 	/************************/
 	/** Showcase settings  **/

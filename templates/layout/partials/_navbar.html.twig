@@ -49,7 +49,7 @@
   <nav id="main-nav" :class="{'tw-flex': open, 'tw-hidden': !open}"
       class="tw-z-30 tw-bg-white tw-text-white tw-top-0 currentColor tw-flex-col tw-flex-grow tw-px-4 tw-py-4 tw-hidden md:tw-flex md:tw-flex-row md:tw-bg-transparent">
 
-    <div class="tw-px-4">
+    <div class="tw-px-4 md:tw-px-0">
       {{ page.nav_main }}
     </div>
     <div class="tw-px-4 tw-flex tw-flex-grow md:tw-justify-end">
@@ -95,7 +95,7 @@
       <!--Theme Switcher-->
       {# See https://plaiceholder.co/docs for an other example #}
       {# <div class="fixed bottom-5 left-5 w-12 select-none transition duration-200 ease-in z-30"> #}
-      <div class="tw-relative tw-block tw-flex-none tw-ml-2 md:tw-ml-4 tw-mt-8 md:tw-mt-2 tw-w-12 tw-select-none tw-transition tw-duration-200 tw-ease-in tw-z-30">
+      <div class="tw-relative tw-block tw-flex-none tw-ml-4 md:tw-ml-1 tw-mt-8 md:tw-mt-2 tw-w-12 tw-select-none tw-transition tw-duration-200 tw-ease-in tw-z-30">
         <input type="checkbox" name="theme-switcher" id="theme-switcher"
           class="toggle-checkbox tw-bg-yellow-300 tw-border-yellow-500 tw-mr-1 tw-mt-1 focus:tw-ring-transparent tw-absolute tw-block tw-w-6 tw-h-6 tw-rounded-full tw-border-2 tw-appearance-none tw-cursor-pointer"
         />
@@ -114,6 +114,7 @@
   {# The progess bar is only shown on Pages, Blogs and News #}
   <div id="progress" class="tw-h-1 tw-z-40"
     style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
+    {# style="background:linear-gradient(to right, #00d4ff var(--scroll), transparent 0);"> #}
   </div>
   {# @todo: add this in config ? #}
   {# {% if record.contenttype|default == 'pages' %}

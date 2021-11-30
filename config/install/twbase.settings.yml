@@ -2,15 +2,10 @@
 # Set the default values of settings on the theme-settings.php form.
 
 content_size: lg
-# @todo: Page loader is not used for now
-page_loader: 0
-page_loader_dark: 0
 breadcrumb_display: 1
 header_size: full
 navbar_size: xl
 header_fixed: 1
-header_dark: 1
-header_transparent: 0
 default_showcase_enabled: 1
 default_showcase_display_title: 1
 default_showcase_display_submitted: 0

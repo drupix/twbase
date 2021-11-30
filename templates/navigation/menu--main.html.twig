@@ -31,7 +31,7 @@
 {% macro display_main(item) %}
   {%
     set classes_link = [
-    'tw-px-2 tw-py-2 tw-mt-2 tw-text-sm tw-font-semibold md:tw-mt-0 md:tw-ml-4',
+    'md:tw-px-2 tw-py-2 tw-mt-2 tw-text-sm tw-font-semibold md:tw-mt-0 md:tw-ml-2',
     'focus:tw-outline-none focus:tw-shadow-outline',
   ]
   %}
@@ -43,7 +43,7 @@
     <button
       @click="isOpen = !isOpen"
       @keydown.escape="isOpen = false"
-      class="tw-flex tw-flex-row tw-items-center tw-w-full tw-px-2 tw-py-2 tw-mt-2 tw-text-sm tw-font-semibold tw-text-left tw-bg-transparent md:tw-w-auto md:tw-inline md:tw-mt-0 md:tw-ml-4 focus:tw-outline-none focus:tw-shadow-outline"
+      class="tw-flex tw-flex-row tw-items-center tw-w-full md:tw-px-2 tw-py-2 tw-mt-2 tw-text-sm tw-font-semibold tw-text-left tw-bg-transparent md:tw-w-auto md:tw-inline md:tw-mt-0 md:tw-ml-4 focus:tw-outline-none focus:tw-shadow-outline"
     >
       <span>{{item.title }}</span>
       <svg fill="currentColor" viewBox="0 0 20 20" :class="{'tw-rotate-180': isOpen, 'tw-rotate-0': !isOpen}" class="tw-inline tw-w-4 tw-h-4 tw-mt-1 tw-ml-1 tw-transition-transform tw-duration-300 tw-transform md:tw--mt-1">
