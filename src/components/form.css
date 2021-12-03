@@ -3,24 +3,6 @@
  * Override classy styles for form components.
  */
 
-/* @todo: check to remove */
-form.label-block .form-type-textfield label,
-form.label-block .form-type-textarea label,
-form.label-block .form-type-select label,
-form.label-block .form-type-color label,
-form.label-block .form-type-date label,
-form.label-block .form-type-file label,
-form.label-block .form-type-email label,
-form.label-block .form-type-number label,
-form.label-block .form-type-password label,
-form.label-block .form-type-password-confirm label,
-form.label-block .form-type-range label,
-form.label-block .form-type-tel label,
-form.label-block .form-type-url label,
-form.label-block .form-item .label {
-  @apply tw-block tw-font-medium;
-}
-
 form input[type='submit'] {
   @apply tw-rounded-lg tw-px-4 tw-py-2 tw-uppercase tw-text-gray-800 tw-font-semibold tw-shadow-lg tw-tracking-wider;
 }
@@ -100,6 +82,9 @@ form fieldset.form-wrapper {
 }
 form fieldset.form-wrapper legend {
   @apply tw-px-2 tw-font-medium;
+}
+form fieldset.fieldgroup legend {
+  @apply tw-p-0;
 }
 form fieldset.fieldgroup,
 form fieldset.form-composite {

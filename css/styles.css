@@ -2326,13 +2326,6 @@ Drupal core Classy theme overrides
  * Override classy styles for form components.
  */
 
-/* @todo: check to remove */
-
-form.label-block .form-type-textfield label, form.label-block .form-type-textarea label, form.label-block .form-type-select label, form.label-block .form-type-color label, form.label-block .form-type-date label, form.label-block .form-type-file label, form.label-block .form-type-email label, form.label-block .form-type-number label, form.label-block .form-type-password label, form.label-block .form-type-password-confirm label, form.label-block .form-type-range label, form.label-block .form-type-tel label, form.label-block .form-type-url label, form.label-block .form-item .label {
-	display: block;
-	font-weight: 500;
-}
-
 form input[type='submit'] {
 	border-radius: 0.5rem;
 	padding-left: 1rem;
@@ -2466,6 +2459,10 @@ form fieldset.form-wrapper legend {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 	font-weight: 500;
+}
+
+form fieldset.fieldgroup legend {
+	padding: 0px;
 }
 
 form fieldset.fieldgroup, form fieldset.form-composite {
