@@ -4,7 +4,7 @@
  */
 
 .node--unpublished {
-  @apply tw-bg-purple-500 tw-p-4;
+  @apply tw-bg-purple-200 dark:tw-bg-purple-500 tw-p-4;
 }
 /* .node--view-mode-teaser p,
 .node--view-mode-teaser img {

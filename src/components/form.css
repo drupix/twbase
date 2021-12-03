@@ -22,7 +22,7 @@ form.label-block .form-item .label {
 }
 
 form input[type='submit'] {
-  @apply tw-rounded-lg tw-px-4 tw-py-2 tw-uppercase tw-font-semibold tw-shadow-lg tw-tracking-wider;
+  @apply tw-rounded-lg tw-px-4 tw-py-2 tw-uppercase tw-text-gray-800 tw-font-semibold tw-shadow-lg tw-tracking-wider;
 }
 
 form input[type='text'],
