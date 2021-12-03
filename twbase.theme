@@ -81,20 +81,8 @@ function twbase_preprocess_page_title(&$variables) {
   $display_title = theme_get_setting('default_showcase_display_title');
 
   if(\Drupal::service('path.matcher')->isFrontPage()) {
-    // By default the title is hidden on frontpage
-    //XXXXXX $variables['hide_title'] = TRUE;
-
-    // Add a Title if there is none (i.e. viewing default /node page without content promoted)
     // Hide the title if it is empty
     if(isset($variables['title']['#markup']) && empty($variables['title']['#markup'])) {
-      // // Say that Title is not hidden
-      // $variables['hide_title'] = FALSE;
-      // // Define a default Title
-      // // @todo: add this at Theme config level ???
-      // $title = \Drupal::service('token')->replace(t('Welcome to [site:name]'));
-      // // Set the default Title
-      // $variables['title']['#markup'] = $title;
-
       $variables['hide_title'] = TRUE;
     }
   }

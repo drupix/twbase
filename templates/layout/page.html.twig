@@ -131,13 +131,8 @@
     #}
 
     <section class="tw-flex-grow tw-w-full tw-bg-white dark:tw-bg-gray-800 tw-px-4 tw-py-5 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
-      <div class="{{ container_size }} tw-px-4 XXXXtw--mx-4 tw-flex tw-flex-col lg:tw-flex-row xxx-tw-items-center xxx-tw-justify-between
-        {# tw-space-y-6 lg:tw-space-y-0 lg:tw-flex-row lg:tw-justify-between #}
-      ">
-      {# <div class="tw-container tw-mx-auto tw-max-w-screen-lg tw-px-4"> #}
-      {# <div class="lg:tw-flex md-tw-flex-col tw--mx-4"> #}
-
-        <div class="lg:tw-flex-1 lg:tw-w-2/3 {% if page.sidebar %}tw-p-4{% else %}{% endif %}">
+      <div class="{{ container_size }} tw-px-4 tw-flex tw-flex-col lg:tw-flex-row">
+        <div class="lg:tw-flex-1 lg:tw-w-2/3 {% if page.sidebar %}tw-p-4{% endif %}">
           {{ page.content }}
           {# {% include '@twbase/layout/partials/_content.html.twig' %} #}
         </div>
@@ -148,23 +143,6 @@
           </aside>
         {% endif %}
 
-        {# {% if page.sidebar_first or page.sidebar_second %}
-          <div class="tw-bg-purple-400 lg:tw-flex-1 lg:tw-w-1/3">
-            <div class="tw-bg-indigo-600 tw-flex tw-flex-col md:tw-flex-row lg:tw-flex-row">
-              {% if page.sidebar_first %}
-                <aside class="tw-bg-pink-600 md:tw-w-1/2 lg:tw-w-1/2 tw-p-4" role="complementary">
-                  {{ page.sidebar_first }}
-                </aside>
-              {% endif %}
-
-              {% if page.sidebar_second %}
-                <aside class="tw-bg-green-600 md:tw-w-1/2 lg:tw-w-1/2 tw-p-4" role="complementary">
-                  {{ page.sidebar_second }}
-                </aside>
-              {% endif %}
-            </div>
-          </div>
-        {% endif %} #}
       </div>
     </section>
 

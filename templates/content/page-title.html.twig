@@ -39,19 +39,12 @@
     'tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000'
   ]
 %}
-{# {%
-  set classes = [
-    'tw-max-w-5xl tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000'
-  ]
-%} #}
 
 {% if title and not hide_title %}
-  <div class="tw-w-full tw-px-4-XXX tw-py-5">
-    <div class="{{ container_size }} tw-px-4-XXX">
+  <div class="tw-w-full tw-py-5">
+    <div class="{{ container_size }}">
       {{ title_prefix }}
-      {# {% if title %} #}
-        <h1{{ title_attributes.addClass('page-title', classes) }}>{{ title }}</h1>
-      {# {% endif %} #}
+      <h1{{ title_attributes.addClass('page-title', classes) }}>{{ title }}</h1>
       {{ title_suffix }}
     </div>
   </div>

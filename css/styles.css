@@ -1592,11 +1592,6 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	margin-right: auto;
 }
 
-.tw--mx-4 {
-	margin-left: -1rem;
-	margin-right: -1rem;
-}
-
 .tw-my-6 {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
@@ -3477,10 +3472,6 @@ body.toolbar-vertical.navbar-is-fixed header {
 
 	.lg\:tw--mt-24 {
 		margin-top: -6rem;
-	}
-
-	.lg\:tw-flex {
-		display: flex;
 	}
 
 	.lg\:tw-w-2\/3 {
