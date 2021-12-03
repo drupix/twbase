@@ -5,7 +5,15 @@
 // 07: Customizing Your Design System – Tailwind CSS: From Zero to Production
 // https://www.youtube.com/watch?v=0l0Gx8gWPHk
 
-const { margin } = require('tailwindcss/defaultTheme');
+// const { margin } = require('tailwindcss/defaultTheme');
+const baseColors = {
+  primary: '#3B82F6',
+  secondary: '#60A5FA',
+  success: '#34D399',
+  danger: '#EF4444',
+  warning: '#FBBF24',
+  info: '#818CF8',
+}
 
 module.exports = {
   mode: 'jit',
@@ -21,13 +29,25 @@ module.exports = {
       './**/*.twig',
       '../../../{modules,themes}/custom/**/*.twig'
     ],
+    safelist: [
+      // Needed in menu while switching between dark/light mode
+      'tw-text-white',
+      'tw-text-black',
+      'tw-text-gray-200',
+      'tw-text-gray-500',
+    ]
   },
   darkMode: 'class', // false or 'media' or 'class'
   theme: {
     extend: {
-      // colors: {
-      //   'my-color': '#a83232',
-      // },
+      colors: {
+        'primary': baseColors.primary,
+        'secondary': baseColors.secondary,
+        'success': baseColors.success,
+        'danger': baseColors.danger,
+        'warning': baseColors.warning,
+        'info': baseColors.info,
+      },
       // See https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
       typography: (theme) => ({
         DEFAULT: {

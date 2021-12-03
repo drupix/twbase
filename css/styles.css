@@ -1893,26 +1893,6 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 
-.tw-bg-purple-400 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(167, 139, 250, var(--tw-bg-opacity));
-}
-
-.tw-bg-indigo-600 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
-}
-
-.tw-bg-pink-600 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(219, 39, 119, var(--tw-bg-opacity));
-}
-
-.tw-bg-green-600 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
-}
-
 .tw-bg-transparent {
 	background-color: transparent;
 }
@@ -3192,10 +3172,6 @@ body.toolbar-vertical.navbar-is-fixed header {
 		display: none;
 	}
 
-	.md\:tw-w-1\/2 {
-		width: 50%;
-	}
-
 	.md\:tw-w-auto {
 		width: auto;
 	}
@@ -3513,10 +3489,6 @@ body.toolbar-vertical.navbar-is-fixed header {
 
 	.lg\:tw-w-1\/3 {
 		width: 33.333333%;
-	}
-
-	.lg\:tw-w-1\/2 {
-		width: 50%;
 	}
 
 	.lg\:tw-flex-1 {

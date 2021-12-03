@@ -8,20 +8,20 @@
 }
 
 .text-primary {
-  @apply tw-text-blue-500;
+  @apply tw-text-primary;
 }
 .text-secondary {
-  @apply tw-text-blue-400;
+  @apply tw-text-secondary;
 }
 .text-success {
-  @apply tw-text-green-400;
+  @apply tw-text-success;
 }
 .text-danger {
-  @apply tw-text-red-500;
+  @apply tw-text-danger;
 }
 .text-warning {
-  @apply tw-text-yellow-400;
+  @apply tw-text-warning;
 }
 .text-info{
-  @apply tw-text-indigo-400;
+  @apply tw-text-info;
 }
