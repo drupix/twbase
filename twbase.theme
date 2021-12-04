@@ -5,6 +5,7 @@
  * TWBase theme file.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\NodeType;
 use Drupal\image\Entity\ImageStyle;
 
@@ -20,6 +21,19 @@ function _twbase_twbase_utils_installed() {
   $moduleHandler = \Drupal::service('module_handler');
   // Check if TWBase Theme Utilities module is installed
   return $moduleHandler->moduleExists('twbase_utils');
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Add submit button styles on Log In and Reset password forms
+ */
+function twbase_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form['#id'] == 'user-login-form' || $form['#id'] == 'user-pass') {
+    if (isset($form['actions']['submit'])) {
+      $form['actions']['submit']['#attributes']['class'][] = 'button--primary';
+    }
+  }
 }
 
 /**

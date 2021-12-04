@@ -17,6 +17,7 @@ Drupal core Classy theme overrides
 /* @import "components/hero"; */
 @import "contextual/contextual";
 @import "components/base-text";
+@import "components/button";
 @import "components/field";
 @import "components/form";
 @import "components/messages";

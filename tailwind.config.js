@@ -6,13 +6,50 @@
 // https://www.youtube.com/watch?v=0l0Gx8gWPHk
 
 // const { margin } = require('tailwindcss/defaultTheme');
+
 const baseColors = {
-  primary: '#3B82F6',
-  secondary: '#60A5FA',
-  success: '#34D399',
-  danger: '#EF4444',
-  warning: '#FBBF24',
-  info: '#818CF8',
+  primary: {
+    darkest: '#1D4ED8',  // blue-700
+    dark: '#2563EB',     // blue-600
+    DEFAULT: '#3B82F6',  // blue-500
+    light: '#60A5FA',    // blue-400
+    lightest: '#93C5FD', // blue-300
+  },
+  secondary: {
+    darkest: '#DB2777',  // pink-600
+    dark: '#EC4899',     // pink-500
+    DEFAULT: '#F472B6',  // pink-400
+    light: '#F9A8D4',    // pink-300
+    lightest: '#FBCFE8', // pink-200
+  },
+  success: {
+    darkest: '#059669',  // green-600
+    dark: '#10B981',     // green-500
+    DEFAULT: '#34D399',  // green-400
+    light: '#6EE7B7',    // green-300
+    lightest: '#A7F3D0', // green-200
+  },
+  danger: {
+    darkest: '#B91C1C',  // red-700
+    dark: '#DC2626',     // red-600
+    DEFAULT: '#EF4444',  // red-500
+    light: '#F87171',    // red-400
+    lightest: '#FCA5A5', // red-300
+  },
+  warning: {
+    darkest: '#D97706',  // yellow-600
+    dark: '#F59E0B',     // yellow-500
+    DEFAULT: '#FBBF24',  // yellow-400
+    light: '#FCD34D',    // yellow-300
+    lightest: '#FDE68A', // yellow-200
+  },
+  info: {
+    darkest: '#4F46E5',  // indigo-600
+    dark: '#6366F1',     // indigo-500
+    DEFAULT: '#818CF8',  // indigo-400
+    light: '#A5B4FC',    // indigo-300
+    lightest: '#C7D2FE', // indigo-200
+  },
 }
 
 module.exports = {
@@ -41,12 +78,49 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': baseColors.primary,
-        'secondary': baseColors.secondary,
-        'success': baseColors.success,
-        'danger': baseColors.danger,
-        'warning': baseColors.warning,
-        'info': baseColors.info,
+        turquoise: '#00d4ff',
+        primary: {
+          darkest: baseColors.primary.darkest,
+          dark: baseColors.primary.dark,
+          DEFAULT: baseColors.primary.DEFAULT,
+          light: baseColors.primary.light,
+          lightest: baseColors.primary.lightest,
+        },
+        secondary: {
+          darkest: baseColors.secondary.darkest,
+          dark: baseColors.secondary.dark,
+          DEFAULT: baseColors.secondary.DEFAULT,
+          light: baseColors.secondary.light,
+          lightest: baseColors.secondary.lightest,
+        },
+        success: {
+          darkest: baseColors.success.darkest,
+          dark: baseColors.success.dark,
+          DEFAULT: baseColors.success.DEFAULT,
+          light: baseColors.success.light,
+          lightest: baseColors.success.lightest,
+        },
+        danger: {
+          darkest: baseColors.danger.darkest,
+          dark: baseColors.danger.dark,
+          DEFAULT: baseColors.danger.DEFAULT,
+          light: baseColors.danger.light,
+          lightest: baseColors.danger.lightest,
+        },
+        warning: {
+          darkest: baseColors.warning.darkest,
+          dark: baseColors.warning.dark,
+          DEFAULT: baseColors.warning.DEFAULT,
+          light: baseColors.warning.light,
+          lightest: baseColors.warning.lightest,
+        },
+        info: {
+          darkest: baseColors.info.darkest,
+          dark: baseColors.info.dark,
+          DEFAULT: baseColors.info.DEFAULT,
+          light: baseColors.info.light,
+          lightest: baseColors.info.lightest,
+        },
       },
       // See https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
       typography: (theme) => ({
@@ -153,6 +227,8 @@ module.exports = {
   },
   variants: {
     extend: {
+      opacity: ['disabled'],
+      backgroundColor: ["disabled"],
       typography: ['dark']
     },
   },
