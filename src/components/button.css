@@ -5,43 +5,70 @@
 
 .button {
   /* Common for all buttons */
-  @apply tw-mx-2 tw-rounded-lg tw-uppercase tw-font-semibold tw-shadow-md hover:tw-shadow-lg tw-tracking-wide tw-transition tw-duration-200 tw-transform tw-ease-in-out;
+  @apply tw-px-4 tw-py-2 tw-rounded-lg tw-uppercase tw-text-center tw-font-medium tw-tracking-wide tw-transition tw-duration-200 tw-transform tw-ease-in-out;
   /* Default button colors */
   @apply tw-bg-gray-300 dark:tw-bg-gray-300 tw-text-gray-800 dark:tw-text-gray-800 hover:tw-bg-gray-400 dark:hover:tw-bg-gray-400 hover:tw-text-white dark:hover:tw-text-white;
   @apply focus:tw-text-white dark:focus:tw-text-white focus:tw-bg-gray-500 dark:focus:tw-bg-gray-500 focus:tw-ring-4 focus:tw-ring-gray-200;
   @apply disabled:tw-opacity-50 disabled:tw-bg-gray-200 disabled:hover:tw-text-gray-800 dark:disabled:tw-bg-gray-300 dark:disabled:hover:tw-text-gray-800;
 }
-.button:first-child,
+.tw-prose a.button {
+  @apply tw-px-4 tw-py-3 tw-text-center tw-no-underline;
+  @apply tw-text-gray-800 dark:tw-text-gray-800 hover:tw-bg-gray-400 dark:hover:tw-bg-gray-400 hover:tw-text-white dark:hover:tw-text-white;
+}
+
+.button.button--sm {
+  @apply tw-px-4 tw-py-2 tw-text-sm;
+}
+/*
+.tw-prose a.button.button--sm {
+  @apply tw-px-4 tw-py-3 tw-text-sm;
+} */
+.button.button--lg {
+  @apply tw-px-5 tw-py-4 tw-text-lg;
+}
+/* .tw-prose a.button .button--lg {
+  @apply tw-px-5 tw-py-4 tw-text-lg;
+} */
+
+/* .button:first-child,
 .image-button:first-child {
   @apply tw-mr-2;
-}
+} */
+
 /* Primary buttons colors */
-.button.button--primary {
+.button.button--primary,
+.tw-prose a.button.button--primary {
+  @apply tw-shadow-md hover:tw-shadow-lg;
   @apply tw-text-gray-100 tw-bg-primary hover:tw-bg-primary-dark focus:tw-bg-primary-darkest focus:tw-ring-primary-lightest;
   @apply disabled:hover:tw-text-gray-100 disabled:tw-bg-primary-light;
 }
 /* Secondary buttons colors */
-.button.button--secondary {
+.button.button--secondary,
+.tw-prose a.button.button--secondary {
   @apply tw-text-gray-100 tw-bg-secondary hover:tw-bg-secondary-dark focus:tw-bg-secondary-darkest focus:tw-ring-secondary-lightest;
   @apply disabled:hover:tw-text-gray-100 disabled:tw-bg-secondary-light;
 }
 /* Success buttons colors */
-.button.button--success {
+.button.button--success,
+.tw-prose a.button.button--success {
   @apply tw-text-gray-100 tw-bg-success hover:tw-bg-success-dark focus:tw-bg-success-darkest focus:tw-ring-success-lightest;
   @apply disabled:hover:tw-text-gray-100 disabled:tw-bg-success-light;
 }
 /* Danger buttons colors */
-.button.button--danger {
+.button.button--danger,
+.tw-prose a.button.button--danger {
   @apply tw-text-gray-100 tw-bg-danger hover:tw-bg-danger-dark focus:tw-bg-danger-darkest focus:tw-ring-danger-lightest;
   @apply disabled:hover:tw-text-gray-100 disabled:tw-bg-danger-light;
 }
 /* Warning buttons colors */
-.button.button--warning {
+.button.button--warning,
+.tw-prose a.button.button--warning {
   @apply tw-text-gray-100 tw-bg-warning hover:tw-bg-warning-dark focus:tw-bg-warning-darkest focus:tw-ring-warning-lightest;
   @apply disabled:hover:tw-text-gray-100 disabled:tw-bg-warning-light;
 }
 /* Info buttons colors */
-.button.button--info {
+.button.button--info,
+.tw-prose a.button.button--info {
   @apply tw-text-gray-100 tw-bg-info hover:tw-bg-info-dark focus:tw-bg-info-darkest focus:tw-ring-info-lightest;
   @apply disabled:hover:tw-text-gray-100 disabled:tw-bg-info-light;
 }
