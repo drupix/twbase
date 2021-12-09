@@ -70,6 +70,9 @@ form .dropbutton-widget .dropbutton > li::before {
 form .dropbutton-widget .dropbutton .dropbutton-toggle {
   @apply tw-absolute tw-m-0;
 }
+form .dropbutton-widget .dropbutton .dropbutton-arrow {
+  @apply tw-right-1/3;
+}
 
 form .dropbutton-widget .dropbutton .dropbutton-arrow {
   @apply tw-border-t-gray-400 dark:tw-border-t-gray-400;
