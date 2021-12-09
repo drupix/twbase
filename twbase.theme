@@ -197,6 +197,47 @@ function twbase_preprocess_page(&$variables) {
 
 }
 
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function twbase_preprocess_node(&$variables) {
+  // Leave from here if node is not set
+  // but this should not happens !
+  if (!isset($variables['node'])) return;
+
+  // Leave from here this is not the full node
+  if($variables['view_mode'] != 'full') return;
+
+  /** @var Drupal\node\Entity\Node $node */
+  $node = $variables['node'];
+  // Get node type definition
+  $type = NodeType::load($node->bundle());
+
+  // Get the default showcase enabled status
+  $showcase_enabled = theme_get_setting('default_showcase_enabled');
+  if(_twbase_twbase_utils_installed()) {
+    // Get the showcase enabled status per content type from twbase_utils module
+    $showcase_enabled = $type->getThirdPartySetting('twbase_utils', 'showcase_enabled', $showcase_enabled);
+  }
+
+  // Leave from here if the showcase is not enabled
+  if (!$showcase_enabled) return;
+
+  // Get the default showcase display submitted
+  $display_submitted = theme_get_setting('default_showcase_display_submitted');
+  if(_twbase_twbase_utils_installed()) {
+    // Get the showcase display submitted status per content type from twbase_utils module
+    $display_submitted = $type->getThirdPartySetting('twbase_utils', 'showcase_display_submitted', $display_submitted);
+  }
+
+  // Hide node Submitted informations (username, user picture, created date)
+  // as they are displayed in the showcase
+  if($display_submitted && $type->displaySubmitted()) {
+    $variables['display_submitted'] = FALSE;
+  }
+}
+
 /**
  * Implements hook_preprocess_field__field_name().
  */
@@ -335,7 +376,7 @@ function _twbase_get_default_showcase(&$variables) {
   }
 
   // Add Submitted informations (username, user picture, created date)
-  if($display_submitted &&  $type->displaySubmitted()) {
+  if($display_submitted && $type->displaySubmitted()) {
     // Get the username
     $author = $node->getOwner();
     // Set the showcase username

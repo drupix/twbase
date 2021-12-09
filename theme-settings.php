@@ -170,7 +170,7 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
     '#type' => 'checkbox',
     '#title' => t('Author and date information'),
     '#default_value' => theme_get_setting('default_showcase_display_submitted'),
-    '#description' => t('Display the node author and the publication date in the showcase.') . '<br>' .
+    '#description' => t('Display the node author and the publication date in the showcase.') . ' ' . t('This will automatically hide it from the node default display.') . '<br>' .
 											'<strong>' . t('The content type display settings defined at <a href="@link">admin content type</a> will takes precedence over this option.' . '</strong>',
 												['@link' => Url::fromRoute('entity.node_type.collection')->toString()]
 											),
