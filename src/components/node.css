@@ -15,3 +15,15 @@
   @apply tw-no-underline;
 } */
 
+.node__links ul.links {
+  @apply tw-inline-block;
+}
+.node__links ul.links li {
+  @apply tw-pl-0;
+}
+.node__links ul.links li::before {
+  content: '';
+  @apply tw-w-0 tw-h-0;
+  /* width: 0; */
+  /* height: 0; */
+}
