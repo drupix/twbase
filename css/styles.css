@@ -1002,12 +1002,6 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	margin-top: 1.6em;
 	margin-bottom: 1.6em;
 	padding-left: 1em;
-	position: relative;
-	padding: 1.25rem 3rem 1.5rem 2.25rem;
-	margin: 1rem;
-	border: none;
-	border-radius: 1.5rem;
-	background: #f3f4f6;
 }
 
 .tw-prose blockquote p:first-of-type::before {
@@ -1277,41 +1271,6 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 
 .tw-prose > :last-child {
 	margin-bottom: 0;
-}
-
-.tw-prose blockquote cite {
-	display: inline-block;
-	font-size: .875em;
-	line-height: 1.25rem;
-}
-
-.tw-prose blockquote p:first-of-type::before, .tw-prose blockquote p:last-of-type::after {
-	font-family: Georgia, serif;
-	position: absolute;
-	font-weight: 600;
-	color: #9ca3af;
-	font-family: Georgia, serif;
-	position: absolute;
-	font-weight: 600;
-	color: #9ca3af;
-}
-
-.tw-prose blockquote p::before {
-	content: “;
-	font-size: 4.5rem;
-	line-height: 1;
-	margin-right: -2rem;
-	right: 100%;
-	top: .5rem;
-}
-
-.tw-prose blockquote p::after {
-	content: ”;
-	bottom: -1rem;
-	font-size: 8rem;
-	line-height: 2.5rem;
-	right: 1.25rem;
-	top: auto;
 }
 
 .tw-prose-sm {
@@ -2249,15 +2208,16 @@ Drupal core Classy theme overrides
 
 .button {
   /* Common for all buttons */
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   transform: var(--tw-transform);
   border-radius: 0.5rem;
-  font-weight: 600;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.025em;
-  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
@@ -2265,14 +2225,6 @@ Drupal core Classy theme overrides
   transition-duration: 150ms;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.button:hover {
-	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.button {
   /* Default button colors */
   --tw-bg-opacity: 1;
   background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
@@ -2341,192 +2293,260 @@ Drupal core Classy theme overrides
 	color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
 
-.button:first-child, .image-button:first-child {
-	margin-right: 0.5rem;
+.tw-prose a.button {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	text-align: center;
+	text-decoration: none;
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
+
+.tw-prose a.button:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.tw-dark .tw-prose a.button {
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+
+.tw-dark .tw-prose a.button:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.button.button--sm {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+
+/*
+.tw-prose a.button.button--sm {
+  @apply tw-px-4 tw-py-3 tw-text-sm;
+} */
+
+.button.button--lg {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+}
+
+/* .tw-prose a.button .button--lg {
+  @apply tw-px-5 tw-py-4 tw-text-lg;
+} */
+
+/* .button:first-child,
+.image-button:first-child {
+  @apply tw-mr-2;
+} */
 
 /* Primary buttons colors */
 
-.button.button--primary {
+.button.button--primary, .tw-prose a.button.button--primary {
+	--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.button.button--primary:hover, .tw-prose a.button.button--primary:hover {
+	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.button.button--primary, .tw-prose a.button.button--primary {
 	--tw-bg-opacity: 1;
 	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
-.button.button--primary:hover {
+.button.button--primary:hover, .tw-prose a.button.button--primary:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
 }
 
-.button.button--primary:focus {
+.button.button--primary:focus, .tw-prose a.button.button--primary:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(147, 197, 253, var(--tw-ring-opacity));
 }
 
-.button.button--primary:disabled {
+.button.button--primary:disabled, .tw-prose a.button.button--primary:disabled {
 	--tw-bg-opacity: 1;
 	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
 }
 
-.button.button--primary:disabled:hover {
+.button.button--primary:disabled:hover, .tw-prose a.button.button--primary:disabled:hover {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
 /* Secondary buttons colors */
 
-.button.button--secondary {
+.button.button--secondary, .tw-prose a.button.button--secondary {
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 114, 182, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
-.button.button--secondary:hover {
+.button.button--secondary:hover, .tw-prose a.button.button--secondary:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(236, 72, 153, var(--tw-bg-opacity));
 }
 
-.button.button--secondary:focus {
+.button.button--secondary:focus, .tw-prose a.button.button--secondary:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(219, 39, 119, var(--tw-bg-opacity));
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(251, 207, 232, var(--tw-ring-opacity));
 }
 
-.button.button--secondary:disabled {
+.button.button--secondary:disabled, .tw-prose a.button.button--secondary:disabled {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 168, 212, var(--tw-bg-opacity));
 }
 
-.button.button--secondary:disabled:hover {
+.button.button--secondary:disabled:hover, .tw-prose a.button.button--secondary:disabled:hover {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
 /* Success buttons colors */
 
-.button.button--success {
+.button.button--success, .tw-prose a.button.button--success {
 	--tw-bg-opacity: 1;
 	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
-.button.button--success:hover {
+.button.button--success:hover, .tw-prose a.button.button--success:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
 
-.button.button--success:focus {
+.button.button--success:focus, .tw-prose a.button.button--success:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(167, 243, 208, var(--tw-ring-opacity));
 }
 
-.button.button--success:disabled {
+.button.button--success:disabled, .tw-prose a.button.button--success:disabled {
 	--tw-bg-opacity: 1;
 	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
 }
 
-.button.button--success:disabled:hover {
+.button.button--success:disabled:hover, .tw-prose a.button.button--success:disabled:hover {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
 /* Danger buttons colors */
 
-.button.button--danger {
+.button.button--danger, .tw-prose a.button.button--danger {
 	--tw-bg-opacity: 1;
 	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
-.button.button--danger:hover {
+.button.button--danger:hover, .tw-prose a.button.button--danger:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
 }
 
-.button.button--danger:focus {
+.button.button--danger:focus, .tw-prose a.button.button--danger:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(252, 165, 165, var(--tw-ring-opacity));
 }
 
-.button.button--danger:disabled {
+.button.button--danger:disabled, .tw-prose a.button.button--danger:disabled {
 	--tw-bg-opacity: 1;
 	background-color: rgba(248, 113, 113, var(--tw-bg-opacity));
 }
 
-.button.button--danger:disabled:hover {
+.button.button--danger:disabled:hover, .tw-prose a.button.button--danger:disabled:hover {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
 /* Warning buttons colors */
 
-.button.button--warning {
+.button.button--warning, .tw-prose a.button.button--warning {
 	--tw-bg-opacity: 1;
 	background-color: rgba(251, 191, 36, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
-.button.button--warning:hover {
+.button.button--warning:hover, .tw-prose a.button.button--warning:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
 }
 
-.button.button--warning:focus {
+.button.button--warning:focus, .tw-prose a.button.button--warning:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(217, 119, 6, var(--tw-bg-opacity));
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(253, 230, 138, var(--tw-ring-opacity));
 }
 
-.button.button--warning:disabled {
+.button.button--warning:disabled, .tw-prose a.button.button--warning:disabled {
 	--tw-bg-opacity: 1;
 	background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
 }
 
-.button.button--warning:disabled:hover {
+.button.button--warning:disabled:hover, .tw-prose a.button.button--warning:disabled:hover {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
 /* Info buttons colors */
 
-.button.button--info {
+.button.button--info, .tw-prose a.button.button--info {
 	--tw-bg-opacity: 1;
 	background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
-.button.button--info:hover {
+.button.button--info:hover, .tw-prose a.button.button--info:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
 }
 
-.button.button--info:focus {
+.button.button--info:focus, .tw-prose a.button.button--info:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(199, 210, 254, var(--tw-ring-opacity));
 }
 
-.button.button--info:disabled {
+.button.button--info:disabled, .tw-prose a.button.button--info:disabled {
 	--tw-bg-opacity: 1;
 	background-color: rgba(165, 180, 252, var(--tw-bg-opacity));
 }
 
-.button.button--info:disabled:hover {
+.button.button--info:disabled:hover, .tw-prose a.button.button--info:disabled:hover {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
@@ -2555,12 +2575,45 @@ Drupal core Classy theme overrides
 	font-weight: 400;
 }
 
+.field--label-inline .field__label {
+	padding-top: 0px;
+}
+
+@media (min-width: 640px) {
+
+	.field--label-inline .field__label {
+		padding-top: 0.25rem;
+	}
+}
+
+@media (min-width: 1024px) {
+
+	.field--label-inline .field__label {
+		padding-top: 0.25rem;
+	}
+}
+
+@media (min-width: 1280px) {
+
+	.field--label-inline .field__label {
+		padding-top: 0.5rem;
+	}
+}
+
+@media (min-width: 1536px) {
+
+	.field--label-inline .field__label {
+		padding-top: 0.75rem;
+	}
+}
+
 /* .field--name-field-paragraphs .field__item:last-child .paragraph {
   @apply tw-pb-12;
 } */
 
 .field--name-field-tags .field__item {
-	display: inline;
+	margin-bottom: 0.5rem;
+	display: inline-block;
 }
 
 .field--name-field-tags a.tag-link {
@@ -2709,6 +2762,7 @@ form .dropbutton-widget .dropbutton .dropbutton-toggle {
 }
 
 form .dropbutton-widget .dropbutton .dropbutton-arrow {
+	right: 33.333333%;
 	--tw-border-opacity: 1;
 	border-top-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
@@ -2746,6 +2800,25 @@ form fieldset.fieldgroup, form fieldset.form-composite {
 
 [dir="rtl"] .form-type-radio .description, [dir="rtl"] .form-type-checkbox .description {
 	margin-right: 1.25rem;
+}
+
+/**
+ * @file
+ * Override classy styles for menu.
+ */
+
+ul.menu {
+	margin-left: 0px;
+}
+
+ul.menu > li.menu-item {
+	padding-left: 0px;
+}
+
+ul.menu > .menu-item::before {
+  content: '';
+  height: 0px;
+  width: 0px;
 }
 
 /**
@@ -2804,6 +2877,22 @@ body.toolbar-vertical.navbar-is-fixed header {
 .node--view-mode-teaser .node_author a {
   @apply tw-no-underline;
 } */
+
+.node__links ul.links {
+	display: inline-block;
+}
+
+.node__links ul.links li {
+	padding-left: 0px;
+}
+
+.node__links ul.links li::before {
+  content: '';
+  height: 0px;
+  width: 0px;
+  /* width: 0; */
+  /* height: 0; */
+}
 
 /* @import "components/sidebar"; */
 
@@ -2873,11 +2962,6 @@ body.toolbar-vertical.navbar-is-fixed header {
 
 .tw-dark .dark\:tw-prose-dark pre {
 	background-color: #111827;
-}
-
-.tw-dark .dark\:tw-prose-dark blockquote {
-	color: #e5e7eb;
-	background: #4b5563;
 }
 
 .tw-dark .dark\:tw-prose-dark ol > li::before {
@@ -3040,12 +3124,6 @@ body.toolbar-vertical.navbar-is-fixed header {
 		margin-top: 1.6em;
 		margin-bottom: 1.6em;
 		padding-left: 1em;
-		position: relative;
-		padding: 1.25rem 3rem 1.5rem 2.25rem;
-		margin: 1rem;
-		border: none;
-		border-radius: 1.5rem;
-		background: #f3f4f6;
 	}
 
 	.sm\:tw-prose blockquote p:first-of-type::before {
@@ -3324,44 +3402,6 @@ body.toolbar-vertical.navbar-is-fixed header {
 
 	.sm\:tw-prose > :last-child {
 		margin-bottom: 0;
-	}
-
-	.sm\:tw-prose blockquote cite {
-		display: inline-block;
-		font-size: .875em;
-		line-height: 1.25rem;
-	}
-
-	.sm\:tw-prose blockquote p:first-of-type::before, .sm\:tw-prose blockquote p:last-of-type::after {
-		font-family: Georgia, serif;
-		position: absolute;
-		font-weight: 600;
-		color: #9ca3af;
-	}
-
-	.sm\:tw-prose blockquote p:first-of-type::before, .sm\:tw-prose blockquote p:last-of-type::after {
-		font-family: Georgia, serif;
-		position: absolute;
-		font-weight: 600;
-		color: #9ca3af;
-	}
-
-	.sm\:tw-prose blockquote p::before {
-		content: “;
-		font-size: 4.5rem;
-		line-height: 1;
-		margin-right: -2rem;
-		right: 100%;
-		top: .5rem;
-	}
-
-	.sm\:tw-prose blockquote p::after {
-		content: ”;
-		bottom: -1rem;
-		font-size: 8rem;
-		line-height: 2.5rem;
-		right: 1.25rem;
-		top: auto;
 	}
 
 	.sm\:tw-col-span-1 {

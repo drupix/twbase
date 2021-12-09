@@ -130,6 +130,7 @@ module.exports = {
             a: {
               color: 'inherit',
             },
+            /*
             blockquote: {
               position: 'relative',
               padding: '1.25rem 3rem 1.5rem 2.25rem',
@@ -165,6 +166,7 @@ module.exports = {
               right: '1.25rem',
               top: 'auto',
             },
+            */
             // 'ol > li::before': {
             //   color: theme('colors.gray.800'),
             // },
@@ -172,9 +174,9 @@ module.exports = {
         },
         md: {
           css: {
-            blockquote: {
-              margin: '1rem 3rem',
-            },
+            // blockquote: {
+            //   margin: '1rem 3rem',
+            // },
           },
         },
         dark: {
@@ -210,10 +212,10 @@ module.exports = {
             pre: {
               backgroundColor: theme('colors.gray.900'),
             },
-            blockquote: {
-              color: theme('colors.gray.200'),
-              background: theme('colors.gray.600'),
-            },
+            // blockquote: {
+            //   color: theme('colors.gray.200'),
+            //   background: theme('colors.gray.600'),
+            // },
             'ol > li::before': {
               color: theme('colors.gray.200'),
             },
