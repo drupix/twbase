@@ -14,12 +14,16 @@
   @apply tw-font-normal tw-text-base;
 }
 
+.field--label-inline .field__label {
+  @apply tw-pt-0 sm:tw-pt-1 lg:tw-pt-1 xl:tw-pt-2 2xl:tw-pt-3;
+}
+
 /* .field--name-field-paragraphs .field__item:last-child .paragraph {
   @apply tw-pb-12;
 } */
 
 .field--name-field-tags .field__item {
-  @apply tw-inline;
+  @apply tw-inline-block tw-mb-2;
 }
 .field--name-field-tags a.tag-link {
   @apply tw-no-underline tw-bg-gray-600 tw-text-white dark:tw-text-white hover:tw-text-white dark:hover:tw-text-white tw-rounded-full tw-h-6 tw-px-3 tw-py-1 tw-text-sm tw-font-normal tw-opacity-80 hover:tw-opacity-100;
