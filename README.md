@@ -3,7 +3,7 @@
 A Starter theme for Drupal built with [Tailwind CSS](https://tailwindcss.com/).
 
 [![tailwindcss](https://img.shields.io/badge/tailwindcss-%3E%3D%202.2.7-blue.svg?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
-[![drupal](https://img.shields.io/badge/drupal-^8.9%20||%20^9-blue.svg?style=flat-square&logo=drupal)](https://drupal.org/)
+[![drupal](https://img.shields.io/badge/drupal-^9-blue.svg?style=flat-square&logo=drupal)](https://drupal.org/)
 [![LICENSE](https://img.shields.io/github/license/drupix/twbase?style=flat-square)](https://raw.githubusercontent.com/drupix/twbase/master/LICENSE.txt)
 
 **:warning: WARNING: TWBase is under development and not yet ready for production 🐞**
@@ -11,6 +11,10 @@ A Starter theme for Drupal built with [Tailwind CSS](https://tailwindcss.com/).
 ## Recommended Modules
 
 As TWBase Theme use [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography) I recommends you to install [TWBase Theme Utilities](https://github.com/drupix/twbase_utils) modules with this theme. It load the `styles.css` provided by **TWBase Theme** and add the `prose` (`tw-prose`) extra class to the editor `body` to reflects the frontend while editing node in admin section. Otherwise the content in your editor may look slightly poor and naked... 🙀. The module also provide an admin interface to control the frontpage showcase content and last but not least: it allows you to define showcase and related options per content type 🥳.
+
+## Demo
+
+You can view a very [basic demo](https://twbase-theme.drupal-solutions.ch/) with the [TWBase Theme Utilities](https://github.com/drupix/twbase_utils) modules installed.
 
 ## Development dependencies
 
