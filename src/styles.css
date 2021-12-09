@@ -20,6 +20,7 @@ Drupal core Classy theme overrides
 @import "components/button";
 @import "components/field";
 @import "components/form";
+@import "components/menu";
 @import "components/messages";
 @import "components/misc";
 @import "components/navbar";

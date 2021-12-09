@@ -1,0 +1,15 @@
+/**
+ * @file
+ * Override classy styles for menu.
+ */
+
+ul.menu {
+  @apply tw-ml-0;
+}
+ul.menu > li.menu-item {
+  @apply tw-pl-0;
+}
+ul.menu > .menu-item::before {
+  content: '';
+  @apply tw-w-0 tw-h-0;
+}
