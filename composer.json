@@ -1,0 +1,10 @@
+{
+  "name": "drupix/twbase",
+  "type": "drupal-custom-theme",
+  "description": "Starter theme for Drupal 9 built with Tailwind CSS.",
+  "homepage": "https://github.com/drupix/twbase",
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/core": "^9.0"
+  }
+}
