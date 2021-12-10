@@ -31,6 +31,12 @@ Drupal core Classy theme overrides
 /* @import "../custom/blogs"; */
 
 @layer base {
+  /*
+    Avoid "blip" where you might see your uninitialized template after the page loads, but before Alpine loads
+    https://github.com/alpinejs/alpine/issues/361
+    https://alpinejs.dev/directives/cloak
+  */
+  [x-cloak] { display: none !important; }
 
   body.toolbar-fixed .navbar-fixed {
     top: 36px;

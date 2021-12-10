@@ -767,6 +767,14 @@ select {
 	outline: 1px auto -webkit-focus-ring-color;
 }
 
+/*
+    Avoid "blip" where you might see your uninitialized template after the page loads, but before Alpine loads
+    https://github.com/alpinejs/alpine/issues/361
+    https://alpinejs.dev/directives/cloak
+  */
+
+[x-cloak] { display: none !important; }
+
 body.toolbar-fixed .navbar-fixed {
     top: 36px;
   }
@@ -1831,10 +1839,6 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 
 .tw-border-2 {
 	border-width: 2px;
-}
-
-.tw-border-b {
-	border-bottom-width: 1px;
 }
 
 .tw-border-yellow-500 {
