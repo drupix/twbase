@@ -3,25 +3,25 @@
  * Extra custom classes for unmanaged text.
  */
 
-.dropcap {
+ .tw-prose .dropcap {
   @apply tw-block tw-float-left tw-text-5xl sm:tw-text-6xl xl:tw-text-7xl tw-leading-none tw-p-0 tw-mr-1 tw-uppercase;
 }
 
-.text-primary {
+.tw-prose .text-primary {
   @apply tw-text-primary;
 }
-.text-secondary {
+.tw-prose .text-secondary {
   @apply tw-text-secondary;
 }
-.text-success {
+.tw-prose .text-success {
   @apply tw-text-success;
 }
-.text-danger {
+.tw-prose .text-danger {
   @apply tw-text-danger;
 }
-.text-warning {
+.tw-prose .text-warning {
   @apply tw-text-warning;
 }
-.text-info{
+.tw-prose .text-info{
   @apply tw-text-info;
 }
