@@ -130,13 +130,14 @@ module.exports = {
             a: {
               color: 'inherit',
             },
-            /*
             blockquote: {
-              position: 'relative',
-              padding: '1.25rem 3rem 1.5rem 2.25rem',
+              /* position: 'relative', */
+              padding: '0.75rem 3rem 1rem 2.25rem',
+              /*
               margin: '1rem',
               border: 'none',
               borderRadius: '1.5rem',
+              */
               background: theme('colors.gray.100'),
             },
             'blockquote cite': {
@@ -144,6 +145,7 @@ module.exports = {
               fontSize: '.875em',
               lineHeight: '1.25rem',
             },
+            /*
             'blockquote p:first-of-type::before, blockquote p:last-of-type::after': {
               fontFamily: 'Georgia, serif',
               position: 'absolute',
@@ -174,9 +176,16 @@ module.exports = {
         },
         md: {
           css: {
-            // blockquote: {
-            //   margin: '1rem 3rem',
-            // },
+            blockquote: {
+              padding: '0.75rem 2rem 1rem 2.25rem',
+            },
+          },
+        },
+        sm: {
+          css: {
+            blockquote: {
+              padding: '0.75rem 2.5rem 1rem 2.25rem',
+            },
           },
         },
         dark: {
@@ -212,10 +221,10 @@ module.exports = {
             pre: {
               backgroundColor: theme('colors.gray.900'),
             },
-            // blockquote: {
-            //   color: theme('colors.gray.200'),
-            //   background: theme('colors.gray.600'),
-            // },
+            blockquote: {
+              color: theme('colors.gray.200'),
+              background: theme('colors.gray.600'),
+            },
             'ol > li::before': {
               color: theme('colors.gray.200'),
             },
@@ -235,10 +244,8 @@ module.exports = {
     },
   },
   plugins: [
-//    require('@tailwindcss/jit'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
   ],
-  // important: true,
   prefix: 'tw-'
 }

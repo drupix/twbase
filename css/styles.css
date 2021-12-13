@@ -1010,6 +1010,8 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	margin-top: 1.6em;
 	margin-bottom: 1.6em;
 	padding-left: 1em;
+	padding: 0.75rem 3rem 1rem 2.25rem;
+	background: #f3f4f6;
 }
 
 .tw-prose blockquote p:first-of-type::before {
@@ -1281,6 +1283,12 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	margin-bottom: 0;
 }
 
+.tw-prose blockquote cite {
+	display: inline-block;
+	font-size: .875em;
+	line-height: 1.25rem;
+}
+
 .tw-prose-sm {
 	font-size: 0.875rem;
 	line-height: 1.7142857;
@@ -1302,6 +1310,7 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	margin-top: 1.3333333em;
 	margin-bottom: 1.3333333em;
 	padding-left: 1.1111111em;
+	padding: 0.75rem 2.5rem 1rem 2.25rem;
 }
 
 .tw-prose-sm h1 {
@@ -2137,15 +2146,20 @@ Drupal core Classy theme overrides
  * Override classy styles for nodes.
  */
 
+/* Drupal Contextual links */
+
 .contextual-region .contextual.open ul.contextual-links > li::before {
-  content: '';
-  width: 0;
-  height: 0;
+	height: 0px;
+	width: 0px;
+	content: none;
 }
 
 /**
  * @file
  * Extra custom classes for unmanaged text.
+ *
+ * Withe TWBase Theme Utilities module installed these styles are
+ * available in CKEditor toolbar in the Styles dropdown button
  */
 
 .tw-prose .dropcap {
@@ -2174,6 +2188,11 @@ Drupal core Classy theme overrides
 		line-height: 1;
 	}
 }
+
+/**
+ * Custom colors.
+ * Colors are defined in tailwind.config.js
+*/
 
 .tw-prose .text-primary {
 	--tw-text-opacity: 1;
@@ -2873,15 +2892,6 @@ body.toolbar-vertical.navbar-is-fixed header {
 	background-color: rgba(139, 92, 246, var(--tw-bg-opacity));
 }
 
-/* .node--view-mode-teaser p,
-.node--view-mode-teaser img {
-  @apply tw-m-0 !important;
-}
-.node--view-mode-teaser a.node_read_more,
-.node--view-mode-teaser .node_author a {
-  @apply tw-no-underline;
-} */
-
 .node__links ul.links {
 	display: inline-block;
 }
@@ -2894,8 +2904,6 @@ body.toolbar-vertical.navbar-is-fixed header {
   content: '';
   height: 0px;
   width: 0px;
-  /* width: 0; */
-  /* height: 0; */
 }
 
 /* @import "components/sidebar"; */
@@ -2966,6 +2974,11 @@ body.toolbar-vertical.navbar-is-fixed header {
 
 .tw-dark .dark\:tw-prose-dark pre {
 	background-color: #111827;
+}
+
+.tw-dark .dark\:tw-prose-dark blockquote {
+	color: #e5e7eb;
+	background: #4b5563;
 }
 
 .tw-dark .dark\:tw-prose-dark ol > li::before {
@@ -3128,6 +3141,8 @@ body.toolbar-vertical.navbar-is-fixed header {
 		margin-top: 1.6em;
 		margin-bottom: 1.6em;
 		padding-left: 1em;
+		padding: 0.75rem 3rem 1rem 2.25rem;
+		background: #f3f4f6;
 	}
 
 	.sm\:tw-prose blockquote p:first-of-type::before {
@@ -3406,6 +3421,12 @@ body.toolbar-vertical.navbar-is-fixed header {
 
 	.sm\:tw-prose > :last-child {
 		margin-bottom: 0;
+	}
+
+	.sm\:tw-prose blockquote cite {
+		display: inline-block;
+		font-size: .875em;
+		line-height: 1.25rem;
 	}
 
 	.sm\:tw-col-span-1 {

@@ -1,12 +1,19 @@
 /**
  * @file
  * Extra custom classes for unmanaged text.
+ *
+ * Withe TWBase Theme Utilities module installed these styles are
+ * available in CKEditor toolbar in the Styles dropdown button
  */
 
- .tw-prose .dropcap {
+.tw-prose .dropcap {
   @apply tw-block tw-float-left tw-text-5xl sm:tw-text-6xl xl:tw-text-7xl tw-leading-none tw-p-0 tw-mr-1 tw-uppercase;
 }
 
+/**
+ * Custom colors.
+ * Colors are defined in tailwind.config.js
+*/
 .tw-prose .text-primary {
   @apply tw-text-primary;
 }
