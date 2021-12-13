@@ -144,6 +144,7 @@ module.exports = {
               display: 'inline-block',
               fontSize: '.875em',
               lineHeight: '1.25rem',
+              paddingBottom: '1.25rem',
             },
             /*
             'blockquote p:first-of-type::before, blockquote p:last-of-type::after': {
@@ -179,12 +180,18 @@ module.exports = {
             blockquote: {
               padding: '0.75rem 2rem 1rem 2.25rem',
             },
+            'blockquote cite': {
+              paddingBottom: '1rem',
+            },
           },
         },
         sm: {
           css: {
             blockquote: {
               padding: '0.75rem 2.5rem 1rem 2.25rem',
+            },
+            'blockquote cite': {
+              paddingBottom: '1rem',
             },
           },
         },

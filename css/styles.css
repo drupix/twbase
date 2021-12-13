@@ -1287,6 +1287,7 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 	display: inline-block;
 	font-size: .875em;
 	line-height: 1.25rem;
+	padding-bottom: 1.25rem;
 }
 
 .tw-prose-sm {
@@ -1517,6 +1518,10 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
 
 .tw-prose-sm > :last-child {
 	margin-bottom: 0;
+}
+
+.tw-prose-sm blockquote cite {
+	padding-bottom: 1rem;
 }
 
 .tw-fixed {
@@ -3427,6 +3432,7 @@ body.toolbar-vertical.navbar-is-fixed header {
 		display: inline-block;
 		font-size: .875em;
 		line-height: 1.25rem;
+		padding-bottom: 1.25rem;
 	}
 
 	.sm\:tw-col-span-1 {
