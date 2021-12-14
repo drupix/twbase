@@ -2,7 +2,7 @@
 
 A Starter theme for Drupal built with [Tailwind CSS](https://tailwindcss.com/).
 
-[![tailwindcss](https://img.shields.io/badge/tailwindcss-%3E%3D%202.2.7-blue.svg?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+[![tailwindcss](https://img.shields.io/badge/tailwindcss-%3E%3D%203.0.0-blue.svg?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
 [![drupal](https://img.shields.io/badge/drupal-^9-blue.svg?style=flat-square&logo=drupal)](https://drupal.org/)
 [![LICENSE](https://img.shields.io/github/license/drupix/twbase?style=flat-square)](https://raw.githubusercontent.com/drupix/twbase/master/LICENSE.txt)
 
