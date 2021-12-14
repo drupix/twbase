@@ -47,18 +47,18 @@
   </div>
 
   <nav id="main-nav" :class="{'tw-flex': open, 'tw-hidden': !open}"
-      class="tw-z-30 tw-bg-white tw-text-white tw-top-0 currentColor tw-flex-col tw-flex-grow tw-px-4 tw-py-4 tw-hidden md:tw-flex md:tw-flex-row md:tw-bg-transparent">
+      class="tw-z-30 tw-bg-white tw-text-white tw-top-0 currentColor tw-flex-col tw-grow tw-px-4 tw-py-4 tw-hidden md:tw-flex md:tw-flex-row md:tw-bg-transparent">
 
     <div class="tw-px-4 md:tw-px-0">
       {{ page.nav_main }}
     </div>
-    <div class="tw-px-4 tw-flex tw-flex-grow md:tw-justify-end">
+    <div class="tw-px-4 tw-flex tw-grow md:tw-justify-end">
       {{ page.nav_additional }}
     </div>
 
     {# @todo: #}
     {# Add locales switcher #}
-    <div id="locales-switcher" class="md:flex md:flex-grow md:justify-end">
+    <div id="locales-switcher" class="md:flex md:grow md:justify-end">
       {# {% if locales()|length %}
         {% for locale in locales() %}
           <a href="{{ locale.link|replace({'?_locale=': ''}) }}" class="{% if loop.first %}md:ml-4{% else %}md:ml-0{% endif %} px-2 py-2 mt-2 text-sm font-semibold bg-transparent md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
@@ -114,24 +114,9 @@
 </div>
 
 
-{% if header_fixed %}
+{% if header_fixed and show_progress %}
   {# The progess bar is only shown on Pages, Blogs and News #}
   <div id="progress" class="tw-h-1 tw-z-40"
     style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
-    {# style="background:linear-gradient(to right, #00d4ff var(--scroll), transparent 0);"> #}
   </div>
-  {# @todo: add this in config ? #}
-  {# {% if record.contenttype|default == 'pages' %}
-    <div id="progress" class="h-1 z-40"
-      style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
-    </div>
-  {% elseif record.contenttype|default == 'blogs' %}
-    <div id="progress" class="h-1 z-40"
-      style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
-    </div>
-  {% elseif record.contenttype|default == 'news' %}
-    <div id="progress" class="h-1 z-40"
-      style="background:linear-gradient(to right, #60A5FA var(--scroll), transparent 0);">
-    </div>
-  {% endif %} #}
 {% endif %}

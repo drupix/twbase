@@ -8,32 +8,6 @@
 #}
 
 <!--Content-->
-{# <section class="tw-w-full tw-bg-white dark:tw-bg-gray-800 tw-px-4 tw-py-5 tw-pb-12 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
-  <div class="{{ container_size }} tw-px-4 tw-py-5">
-  <!--<div class="md:tw-flex">-->
-    <!--Page content-->
-    <div class="md:tw-flex-1 tw-py-4">
-      {{ page.content }}
-    </div>
-
-    {% if page.sidebar_first %}
-      <aside class="md:tw-w-1/4 tw-p-4" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endif %}
-
-    {% if page.sidebar_second %}
-      <aside class="md:tw-w-1/4" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
-
-  <!--</div>-->
-  </div>
-</section> #}
-
-<section class="tw-flex-grow tw-w-full tw-bg-white dark:tw-bg-gray-800 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
-  {# <div class="tw-flex"> #}
-    {{ page.content }}
-  {# </div> #}
+<section class="tw-grow tw-w-full tw-bg-white dark:tw-bg-gray-800 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
+  {{ page.content }}
 </section>

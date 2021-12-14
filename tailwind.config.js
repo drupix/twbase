@@ -8,6 +8,13 @@
 // const { margin } = require('tailwindcss/defaultTheme');
 
 const baseColors = {
+  turquoise: {
+    darkest: '#0891B2',  // cyan-600
+    dark: '#06B6D4',     // cyan-500
+    DEFAULT: '#22D3EE',  // cyan-400
+    light: '#67E8F9',    // cyan-300
+    lightest: '#A5F3FC', // cyan-200
+  },
   primary: {
     darkest: '#1D4ED8',  // blue-700
     dark: '#2563EB',     // blue-600
@@ -46,31 +53,31 @@ const baseColors = {
 }
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    // mode: "all",
-    enabled: true,
-    // preserveHtmlElements: false,
-    options: {
-      keyframes: true,
-    },
-    content: [
-      './**/*.twig',
-      '../../../{modules,themes}/custom/**/*.twig'
-    ],
-    safelist: [
-      // Needed in menu while switching between dark/light mode
-      'tw-text-white',
-      'tw-text-black',
-      'tw-text-gray-200',
-      'tw-text-gray-500',
-    ]
-  },
+  content: [
+    './**/*.twig',
+    '../../../{modules,themes}/custom/**/*.twig'
+  ],
+  safelist: [
+    // Needed by twbase_utils module, see twbase_utils_editor_js_settings_alter().
+    'tw-p-4',
+    'tw-prose',
+    // Needed in menu while switching between dark/light mode
+    'tw-text-white',
+    'tw-text-black',
+    'tw-text-gray-200',
+    'tw-text-gray-500',
+  ],
   darkMode: 'class', // false or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        turquoise: '#00d4ff',
+        turquoise: {
+          darkest: baseColors.turquoise.darkest,
+          dark: baseColors.turquoise.dark,
+          DEFAULT: baseColors.turquoise.DEFAULT,
+          light: baseColors.turquoise.light,
+          lightest: baseColors.turquoise.lightest,
+        },
         primary: {
           darkest: baseColors.primary.darkest,
           dark: baseColors.primary.dark,
@@ -226,13 +233,6 @@ module.exports = {
           }
         }
       })
-    },
-  },
-  variants: {
-    extend: {
-      opacity: ['disabled'],
-      backgroundColor: ["disabled"],
-      typography: ['dark']
     },
   },
   plugins: [

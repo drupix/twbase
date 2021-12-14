@@ -5,7 +5,7 @@
 
 .button {
   /* Common for all buttons */
-  @apply tw-px-4 tw-py-2 tw-rounded-lg tw-uppercase tw-text-center tw-font-medium tw-tracking-wide tw-transition tw-duration-200 tw-transform tw-ease-in-out;
+  @apply tw-px-4 tw-py-2 tw-rounded-lg tw-uppercase tw-text-center tw-font-medium tw-tracking-wide tw-transition tw-duration-200 tw-ease-in-out;
   /* Default button colors */
   @apply tw-bg-gray-300 dark:tw-bg-gray-300 tw-text-gray-800 dark:tw-text-gray-800 hover:tw-bg-gray-400 dark:hover:tw-bg-gray-400 hover:tw-text-white dark:hover:tw-text-white;
   @apply focus:tw-text-white dark:focus:tw-text-white focus:tw-bg-gray-500 dark:focus:tw-bg-gray-500 focus:tw-ring-4 focus:tw-ring-gray-200;
