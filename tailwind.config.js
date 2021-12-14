@@ -16,11 +16,11 @@ const baseColors = {
     lightest: '#93C5FD', // blue-300
   },
   secondary: {
-    darkest: '#DB2777',  // pink-600
-    dark: '#EC4899',     // pink-500
-    DEFAULT: '#F472B6',  // pink-400
-    light: '#F9A8D4',    // pink-300
-    lightest: '#FBCFE8', // pink-200
+    darkest: '#4F46E5',  // indigo-600
+    dark: '#6366F1',     // indigo-500
+    DEFAULT: '#818CF8',  // indigo-400
+    light: '#A5B4FC',    // indigo-300
+    lightest: '#C7D2FE', // indigo-200
   },
   success: {
     darkest: '#059669',  // green-600
@@ -43,22 +43,14 @@ const baseColors = {
     light: '#FCD34D',    // yellow-300
     lightest: '#FDE68A', // yellow-200
   },
-  info: {
-    darkest: '#4F46E5',  // indigo-600
-    dark: '#6366F1',     // indigo-500
-    DEFAULT: '#818CF8',  // indigo-400
-    light: '#A5B4FC',    // indigo-300
-    lightest: '#C7D2FE', // indigo-200
-  },
 }
 
 module.exports = {
   mode: 'jit',
   purge: {
     // mode: "all",
-    // enabled: true,
-    // enabled: false,
-    preserveHtmlElements: false,
+    enabled: true,
+    // preserveHtmlElements: false,
     options: {
       keyframes: true,
     },
@@ -113,13 +105,6 @@ module.exports = {
           DEFAULT: baseColors.warning.DEFAULT,
           light: baseColors.warning.light,
           lightest: baseColors.warning.lightest,
-        },
-        info: {
-          darkest: baseColors.info.darkest,
-          dark: baseColors.info.dark,
-          DEFAULT: baseColors.info.DEFAULT,
-          light: baseColors.info.light,
-          lightest: baseColors.info.lightest,
         },
       },
       // See https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js

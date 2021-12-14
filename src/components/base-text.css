@@ -29,6 +29,3 @@
 .tw-prose .text-warning {
   @apply tw-text-warning;
 }
-.tw-prose .text-info{
-  @apply tw-text-info;
-}

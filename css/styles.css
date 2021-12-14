@@ -2206,7 +2206,7 @@ Drupal core Classy theme overrides
 
 .tw-prose .text-secondary {
 	--tw-text-opacity: 1;
-	color: rgba(244, 114, 182, var(--tw-text-opacity));
+	color: rgba(129, 140, 248, var(--tw-text-opacity));
 }
 
 .tw-prose .text-success {
@@ -2222,11 +2222,6 @@ Drupal core Classy theme overrides
 .tw-prose .text-warning {
 	--tw-text-opacity: 1;
 	color: rgba(251, 191, 36, var(--tw-text-opacity));
-}
-
-.tw-prose .text-info {
-	--tw-text-opacity: 1;
-	color: rgba(129, 140, 248, var(--tw-text-opacity));
 }
 
 /**
@@ -2428,26 +2423,26 @@ Drupal core Classy theme overrides
 
 .button.button--secondary, .tw-prose a.button.button--secondary {
 	--tw-bg-opacity: 1;
-	background-color: rgba(244, 114, 182, var(--tw-bg-opacity));
+	background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
 .button.button--secondary:hover, .tw-prose a.button.button--secondary:hover {
 	--tw-bg-opacity: 1;
-	background-color: rgba(236, 72, 153, var(--tw-bg-opacity));
+	background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
 }
 
 .button.button--secondary:focus, .tw-prose a.button.button--secondary:focus {
 	--tw-bg-opacity: 1;
-	background-color: rgba(219, 39, 119, var(--tw-bg-opacity));
+	background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
 	--tw-ring-opacity: 1;
-	--tw-ring-color: rgba(251, 207, 232, var(--tw-ring-opacity));
+	--tw-ring-color: rgba(199, 210, 254, var(--tw-ring-opacity));
 }
 
 .button.button--secondary:disabled, .tw-prose a.button.button--secondary:disabled {
 	--tw-bg-opacity: 1;
-	background-color: rgba(249, 168, 212, var(--tw-bg-opacity));
+	background-color: rgba(165, 180, 252, var(--tw-bg-opacity));
 }
 
 .button.button--secondary:disabled:hover, .tw-prose a.button.button--secondary:disabled:hover {
@@ -2544,37 +2539,6 @@ Drupal core Classy theme overrides
 }
 
 .button.button--warning:disabled:hover, .tw-prose a.button.button--warning:disabled:hover {
-	--tw-text-opacity: 1;
-	color: rgba(243, 244, 246, var(--tw-text-opacity));
-}
-
-/* Info buttons colors */
-
-.button.button--info, .tw-prose a.button.button--info {
-	--tw-bg-opacity: 1;
-	background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
-	--tw-text-opacity: 1;
-	color: rgba(243, 244, 246, var(--tw-text-opacity));
-}
-
-.button.button--info:hover, .tw-prose a.button.button--info:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
-}
-
-.button.button--info:focus, .tw-prose a.button.button--info:focus {
-	--tw-bg-opacity: 1;
-	background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgba(199, 210, 254, var(--tw-ring-opacity));
-}
-
-.button.button--info:disabled, .tw-prose a.button.button--info:disabled {
-	--tw-bg-opacity: 1;
-	background-color: rgba(165, 180, 252, var(--tw-bg-opacity));
-}
-
-.button.button--info:disabled:hover, .tw-prose a.button.button--info:disabled:hover {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }

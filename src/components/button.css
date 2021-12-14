@@ -66,9 +66,3 @@
   @apply tw-text-gray-100 tw-bg-warning hover:tw-bg-warning-dark focus:tw-bg-warning-darkest focus:tw-ring-warning-lightest;
   @apply disabled:hover:tw-text-gray-100 disabled:tw-bg-warning-light;
 }
-/* Info buttons colors */
-.button.button--info,
-.tw-prose a.button.button--info {
-  @apply tw-text-gray-100 tw-bg-info hover:tw-bg-info-dark focus:tw-bg-info-darkest focus:tw-ring-info-lightest;
-  @apply disabled:hover:tw-text-gray-100 disabled:tw-bg-info-light;
-}
