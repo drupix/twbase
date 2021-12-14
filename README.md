@@ -14,12 +14,16 @@ As TWBase Theme use [Tailwind Typography](https://github.com/tailwindlabs/tailwi
 
 ## Demo
 
-You can view a very [basic demo](https://twbase-theme.drupal-solutions.ch/) with the [TWBase Theme Utilities](https://github.com/drupix/twbase_utils) modules installed.
+A very [basic demo](https://twbase-theme.drupal-solutions.ch/) is available ~~with the [TWBase Theme Utilities](https://github.com/drupix/twbase_utils) modules installed~~.
+
+## ToDo
+
+- [ ] Allow to change frontpage showcase image in theme settings
+- [ ] Test multilinagual site with language switcher
 
 ## Development dependencies
 
-* [tailwindcss](https://tailwindcss.com/) ^2.2.17
-  * All is said!
+* [tailwindcss](https://tailwindcss.com/) ^3.0.0
 * [postcss](https://github.com/postcss/postcss)
   * Transforming styles with JS plugins
 * [postcss-cli](https://github.com/postcss/postcss-cli)
@@ -39,35 +43,9 @@ To install all dependencies run **`npm install`** from theme root directory.
 
 ### Development compilation
 
-The Just-In-Time mode (**`jit`** ) is activated in `tailwind.config.js` which allows to compile css on the fly... bzzzzz...
-
 To **watch** changes while *"playing"* with `css` and html `class`, run  **`npm run watch`** from theme root directory.
 
 ### Building for production
-
-When building for production, you should always use Tailwind’s purge option to tree-shake unused styles and optimize your final build size.
-
-**📌 As I'm a little 🐒 still learning the intricacies of Tailwind, this part needs refinement.**
-
-```javascript
-// tailwind.config.js
-module.exports = {
-  mode: 'jit',
-  purge: {
-    // mode: "all",
-    // enabled: true,
-    preserveHtmlElements: false,
-    options: {
-      keyframes: true,
-    },
-    content: [
-      './**/*.twig',
-      '../../../{modules,themes}/custom/**/*.twig'
-    ],
-  },
-  ...
-}
-```
 
 By default, for development purpose the outputed css file is not minified. To minify it, uncomment `cssnano` in the plugins section of `postcss.config.js` :
 
@@ -112,7 +90,7 @@ It's me! **drupix**
 * All contributors of [cssnano](https://github.com/cssnano/cssnano/graphs/contributors)
 * All the other guys I forgot to mention here
 
-Special thanks to [Bob den Otter 🌷🇳🇱](https://github.com/bobdenotter) and [all contributors of Bolt](https://github.com/bolt/bolt) default theme who opened my eyes with Tailwind.
+Special thanks to [Bob den Otter 🌷🇳🇱](https://github.com/bobdenotter) and [all contributors of Bolt](https://github.com/bolt/bolt) default theme who introduced me with Tailwind.
 
 ---
 
