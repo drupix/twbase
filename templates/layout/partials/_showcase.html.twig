@@ -18,11 +18,11 @@
         {# {{ page.showcase }} #}
 
         {% if showcase.title %}
-          <h1 class="page-title tw-max-w-5xl tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-1000">{{ showcase.title }}</h1>
+          <h1 class="page-title tw-max-w-5xl tw-text-3xl lg:tw-text-5xl tw-font-semibold tw-text-white tw-transition-all tw-duration-700">{{ showcase.title }}</h1>
         {% endif %}
 
         {% if showcase.submitted %}
-          <div class="tw-flex tw-mt-4 tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-1000 tw-pt-4">
+          <div class="tw-flex tw-mt-4 tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-700 tw-pt-4">
             {% set submitted_author = showcase.submitted.author %}
 
             {% if submitted_author.picture %}
@@ -45,7 +45,7 @@
         {% endif %}
 
         {% if showcase.introduction %}
-          <div class="tw-flex tw-mt-3 tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-1000 tw-pt-4 tw-prose">
+          <div class="tw-flex tw-mt-3 tw-max-w-3xl tw-text-lg md:tw-text-2xl tw-text-white tw-transition-all tw-duration-700 tw-pt-4 tw-prose">
             {{ showcase.introduction }}
           </div>
         {% endif %}
