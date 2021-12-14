@@ -6,6 +6,7 @@ breadcrumb_display: 1
 header_size: full
 navbar_size: xl
 header_fixed: 1
+show_progress: 1
 default_showcase_enabled: 1
 default_showcase_display_title: 1
 default_showcase_display_submitted: 0

@@ -123,6 +123,7 @@ function twbase_preprocess_page_title(&$variables) {
 function twbase_preprocess_page(&$variables) {
   // Configuring header and navbar
   $variables['header_fixed'] = theme_get_setting('header_fixed');
+  $variables['show_progress'] = theme_get_setting('show_progress');
   $variables['header_size'] = theme_get_setting('header_size');
   $variables['navbar_size'] = theme_get_setting('navbar_size');
   // Configuring regions sizes

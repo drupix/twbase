@@ -106,6 +106,18 @@ function twbase_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
 		'#description' => t('When checked, the header will be fixed at the top of the browser.'),
 	];
 
+	$form['header_options']['show_progress'] = [
+		'#title' => t('Show progress'),
+		'#type' => 'checkbox',
+		'#default_value' => theme_get_setting('show_progress'),
+		'#description' => t('When checked, a progress bar will be displayed while scrolling into the page.'),
+		'#states' => [
+      'invisible' => [
+        'input[name="header_fixed"]' => ['checked' => FALSE],
+      ],
+    ],
+	];
+
 	/************************/
 	/** Showcase settings  **/
 	/************************/
