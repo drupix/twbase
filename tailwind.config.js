@@ -64,8 +64,8 @@ module.exports = {
     // Needed in menu while switching between dark/light mode
     'tw-text-white',
     'tw-text-black',
-    'tw-text-gray-200',
-    'tw-text-gray-500',
+    'tw-text-slate-200',
+    'tw-text-slate-500',
   ],
   darkMode: 'class', // false or 'media' or 'class'
   theme: {
@@ -130,7 +130,7 @@ module.exports = {
               border: 'none',
               borderRadius: '1.5rem',
               */
-              background: theme('colors.gray.100'),
+              background: theme('colors.slate.100'),
             },
             'blockquote cite': {
               display: 'inline-block',
@@ -143,7 +143,7 @@ module.exports = {
               fontFamily: 'Georgia, serif',
               position: 'absolute',
               fontWeight: '600',
-              color: theme('colors.gray.400'),
+              color: theme('colors.slate.400'),
             },
             'blockquote p::before': {
               content: '“',
@@ -163,7 +163,7 @@ module.exports = {
             },
             */
             // 'ol > li::before': {
-            //   color: theme('colors.gray.800'),
+            //   color: theme('colors.slate.800'),
             // },
           },
         },
@@ -189,46 +189,46 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme('colors.gray.200'),
+            color: theme('colors.slate.200'),
             '[class~="lead"]': {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             h1: {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             h2: {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             h3: {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             h4: {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             h5: {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             h6: {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             strong: {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             code: {
-              color: theme('colors.gray.400'),
+              color: theme('colors.slate.400'),
             },
             pre: {
-              backgroundColor: theme('colors.gray.900'),
+              backgroundColor: theme('colors.slate.900'),
             },
             blockquote: {
-              color: theme('colors.gray.200'),
-              background: theme('colors.gray.600'),
+              color: theme('colors.slate.200'),
+              background: theme('colors.slate.600'),
             },
             'ol > li::before': {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
             'thead th': {
-              color: theme('colors.gray.200'),
+              color: theme('colors.slate.200'),
             },
           }
         }

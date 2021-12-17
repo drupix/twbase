@@ -111,8 +111,8 @@ function documentScroll(forceScrolled = false) {
       header.classList.remove("tw-text-black");
       header.classList.remove("tw-shadow");
       if(slogan != undefined) {
-        slogan.classList.add("tw-text-gray-500");
-        slogan.classList.remove("tw-text-gray-200");
+        slogan.classList.add("tw-text-slate-500");
+        slogan.classList.remove("tw-text-slate-200");
       }
       light_logo.classList.remove("tw-hidden");
       dark_logo.classList.add("tw-hidden");
@@ -123,8 +123,8 @@ function documentScroll(forceScrolled = false) {
       header.classList.add("tw-text-black");
       header.classList.add("tw-shadow");
       if(slogan != undefined) {
-        slogan.classList.remove("tw-text-gray-200");
-        slogan.classList.add("tw-text-gray-500");
+        slogan.classList.remove("tw-text-slate-200");
+        slogan.classList.add("tw-text-slate-500");
       }
       light_logo.classList.add("tw-hidden");
       dark_logo.classList.remove("tw-hidden");
@@ -183,12 +183,12 @@ function documentScroll(forceScrolled = false) {
 
     if(slogan != undefined) {
       if(localStorage.themeMode === 'tw-dark') {
-        slogan.classList.add("tw-text-gray-500");
-        slogan.classList.remove("tw-text-gray-200");
+        slogan.classList.add("tw-text-slate-500");
+        slogan.classList.remove("tw-text-slate-200");
       }
       else {
-        slogan.classList.add("tw-text-gray-200");
-        slogan.classList.remove("tw-text-gray-500");
+        slogan.classList.add("tw-text-slate-200");
+        slogan.classList.remove("tw-text-slate-500");
       }
     }
 

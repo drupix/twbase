@@ -30,13 +30,13 @@
             {% endif %}
             <div class="tw-flex tw-flex-col tw-flex-1 tw-justify-around">
               {% if submitted_author.name %}
-                <p class="tw-font-semibold tw-text-gray-200">
+                <p class="tw-font-semibold tw-text-slate-200">
                   {% trans %}By {{ submitted_author.name }}{% endtrans %}
                 </p>
               {% endif %}
 
               {% if showcase.submitted.created %}
-                <p class="tw-font-semibold tw-text-base tw-text-gray-400">
+                <p class="tw-font-semibold tw-text-base tw-text-slate-400">
                   {{ showcase.submitted.created }}
                 </p>
               {% endif %}

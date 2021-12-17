@@ -17,8 +17,8 @@ const showcase_divider_2 = document.getElementById("showcase-divider-2");
 const tailwindcss_typography_logo_text = document.getElementById("tailwindcss-typography-logo-text");
 
 const color_white = '#FFFFFF';
-const color_gray_200 = '#E5E7EB';
-const color_gray_800 = '#1F2937';
+const color_slate_200 = '#E2E8F0';
+const color_slate_800 = '#1E293B';
 
 //
 // This come from https://tailwindcss.com/docs/dark-mode
@@ -61,25 +61,25 @@ themeSwitcher.addEventListener('click', () => {
 function _switchColors(darkModeIsOn = false) {
   if(darkModeIsOn) {
     if(tailwindcss_typography_logo_text) {
-      tailwindcss_typography_logo_text.setAttribute('fill', color_gray_200);
+      tailwindcss_typography_logo_text.setAttribute('fill', color_slate_200);
     }
 
     if(showcase_divider_1) {
       showcase_divider_1.setAttribute('fill', color_white);
     }
     if(showcase_divider_2) {
-      showcase_divider_2.setAttribute('fill', color_gray_800);
+      showcase_divider_2.setAttribute('fill', color_slate_800);
     }
 
     // if(index_divider_bottom_1) {
-    //   index_divider_bottom_1.setAttribute('fill', color_gray_800);
+    //   index_divider_bottom_1.setAttribute('fill', color_slate_800);
     // }
     // if(index_divider_bottom_2) {
-    //   index_divider_bottom_2.setAttribute('fill', color_gray_800);
+    //   index_divider_bottom_2.setAttribute('fill', color_slate_800);
     // }
 
     // if(record_divider_bottom) {
-    //   record_divider_bottom.setAttribute('fill', color_gray_800);
+    //   record_divider_bottom.setAttribute('fill', color_slate_800);
     // }
   }
   else {
@@ -95,7 +95,7 @@ function _switchColors(darkModeIsOn = false) {
     }
 
     // if(index_divider_bottom_1) {
-    //   index_divider_bottom_1.setAttribute('fill', color_gray_200);
+    //   index_divider_bottom_1.setAttribute('fill', color_slate_200);
     // }
     // if(index_divider_bottom_2) {
     //   index_divider_bottom_2.setAttribute('fill', color_white);

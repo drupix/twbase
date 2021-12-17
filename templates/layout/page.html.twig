@@ -68,10 +68,10 @@
 #}
 {# <div class="layout-container"> #}
 {# <div class="tw-container tw-mx-auto tw-p-4"> #}
-<div id="page-wrapper" class="tw-flex tw-flex-col tw-min-h-screen font-roboto gradient dark:tw-bg-gray-900">
+<div id="page-wrapper" class="tw-flex tw-flex-col tw-min-h-screen font-roboto gradient dark:tw-bg-slate-900">
 
   <header id="header" role="banner"
-    class="tw-text-white dark:tw-bg-gray-900 dark:tw-border-gray-700 tw-w-full {% if header_fixed %}navbar-fixed tw-fixed tw-top-0 tw-left-0 tw-right-0{% endif %} tw-z-40">
+    class="tw-text-white dark:tw-bg-slate-900 dark:tw-border-slate-700 tw-w-full {% if header_fixed %}navbar-fixed tw-fixed tw-top-0 tw-left-0 tw-right-0{% endif %} tw-z-40">
     {# {{ page.header }} #}
     {% if page.header %}
       {% include '@twbase/layout/partials/_header.html.twig' %}
@@ -85,7 +85,7 @@
   {# <main role="main" class="tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark"> #}
   <main id="main" role="main"
     {% if main_style %}style="{{ main_style }}"{% endif %}
-    class="tw-flex tw-flex-col tw-flex-1 tw-text-gray-800 dark:tw-text-gray-200 tw-z-30">
+    class="tw-flex tw-flex-col tw-flex-1 tw-text-slate-800 dark:tw-text-slate-200 tw-z-30">
            {# tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark
     "> #}
 
@@ -130,7 +130,7 @@
     {% endif %}
     #}
 
-    <section class="tw-grow tw-w-full tw-bg-white dark:tw-bg-gray-800 tw-px-4 tw-py-5 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
+    <section class="tw-grow tw-w-full tw-bg-white dark:tw-bg-slate-800 tw-px-4 tw-py-5 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
       <div class="{{ container_size }} tw-px-4 tw-flex tw-flex-col lg:tw-flex-row">
         <div class="lg:tw-flex-1 lg:tw-w-2/3 {% if page.sidebar %}tw-p-4{% endif %}">
           {{ page.content }}

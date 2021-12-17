@@ -64,27 +64,42 @@ Drupal core Classy theme overrides
   .region-sidebar-second .block:first-child h2 {
     @apply tw-mt-0;
   }
+  .region-pre-footer,
+  /* .region-pre-footer a, */
+  .region-pre-footer .block > h2,
+  .region-pre-footer .block .block-title {
+    @apply tw-text-slate-500 dark:tw-text-slate-500;
+  }
+  /* .region-pre-footer a:hover {
+    @apply tw-text-slate-300 dark:tw-text-slate-300;
+  } */
+  .region-footer,
+  .region-footer a,
+  .region-footer .block > h2,
+  .region-footer .block .block-title {
+    @apply tw-text-slate-500 dark:tw-text-slate-500;
+  }
 
   .tabs .primary {
-    @apply tw-list-none tw-text-sm tw-flex tw-cursor-pointer tw-border-b-2 tw-border-gray-600;
+    @apply tw-list-none tw-text-sm tw-flex tw-cursor-pointer tw-border-b-2 tw-border-slate-600;
   }
   .tabs .primary li {
-    @apply tw-p-0 tw-mr-1 tw-rounded-t-lg tw-bg-gray-200;
+    @apply tw-p-0 tw-mr-1 tw-rounded-t-lg tw-bg-slate-200;
   }
   .tabs .primary li a {
-    @apply tw-block tw-py-1 tw-px-4 tw-bg-transparent tw-text-gray-600;
+    @apply tw-block tw-py-1 tw-px-4 tw-bg-transparent tw-text-slate-600;
   }
   .tabs .primary li:hover {
-    @apply tw-bg-gray-400;
+    @apply tw-bg-slate-400;
   }
   .tabs .primary li:hover a {
-    @apply tw-text-white tw-border-b-2 tw-border-gray-600 tw-no-underline tw--mb-0.5;
+    @apply tw-text-white tw-border-b-2 tw-border-slate-600 tw-no-underline tw--mb-0.5;
   }
   .tabs .primary li.is-active {
-    @apply tw-bg-gray-600;
+    @apply tw-bg-slate-600;
   }
   .tabs .primary li.is-active a {
-    @apply tw-text-white tw-border-b-2 tw-border-gray-600 tw--mb-0.5;
+    @apply tw-text-white tw-border-b-2 tw-border-slate-600 tw--mb-0.5;
   }
 
 }

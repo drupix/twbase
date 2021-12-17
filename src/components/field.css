@@ -7,7 +7,7 @@
   @apply tw-font-normal tw-text-base;
 }
 .text-format-wrapper .filter-wrapper select {
-  @apply dark:tw-text-gray-400 dark:tw-bg-gray-600;
+  @apply dark:tw-text-slate-400 dark:tw-bg-slate-600;
 }
 
 .field__label {
@@ -26,5 +26,5 @@
   @apply tw-inline-block tw-mb-2;
 }
 .field--name-field-tags a.tag-link {
-  @apply tw-no-underline tw-bg-gray-600 tw-text-white dark:tw-text-white hover:tw-text-white dark:hover:tw-text-white tw-rounded-full tw-h-6 tw-px-3 tw-py-1 tw-text-sm tw-font-normal tw-opacity-80 hover:tw-opacity-100;
+  @apply tw-no-underline tw-bg-slate-600 tw-text-white dark:tw-text-white hover:tw-text-white dark:hover:tw-text-white tw-rounded-full tw-h-6 tw-px-3 tw-py-1 tw-text-sm tw-font-normal tw-opacity-80 hover:tw-opacity-100;
 }

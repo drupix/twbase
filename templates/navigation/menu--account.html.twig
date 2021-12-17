@@ -20,7 +20,7 @@
 #}
 {%
   set classes_link = [
-    'tw-flex tw-items-center tw-px-3 tw-py-3 tw-bg-transparent hover:tw-bg-gray-200 dark:hover:tw-bg-gray-600',
+    'tw-flex tw-items-center tw-px-3 tw-py-3 tw-bg-transparent hover:tw-bg-slate-200 dark:hover:tw-bg-slate-600',
     'focus:tw-outline-none focus:tw-shadow-outline'
 ]
 %}
@@ -44,7 +44,7 @@
     x-transition:leave="tw-transition tw-ease-in tw-duration-300"
     x-transition:leave-start="tw-opacity-100 tw-scale-100"
     x-transition:leave-end="tw-opacity-0 tw-scale-90"
-    class="tw-absolute tw-font-normal tw-bg-white dark:tw-bg-gray-800 tw-text-gray-700 dark:tw-text-white tw-rounded tw-shadow tw-overflow-hidden tw-w-48 tw-border tw-mt-2 tw-py-1 md:tw-right-0 tw-z-40"
+    class="tw-absolute tw-font-normal tw-bg-white dark:tw-bg-slate-800 tw-text-slate-700 dark:tw-text-white tw-rounded tw-shadow tw-overflow-hidden tw-w-48 tw-border tw-mt-2 tw-py-1 md:tw-right-0 tw-z-40"
   >
     {% for item in items %}
       <li>
@@ -58,7 +58,7 @@
           {% endset %}
         {% elseif item.url.routeName == 'user.login' %}
           {% set title %}
-            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-gray-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
+            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-slate-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-in-alt"
                 class="tw-inline tw-h-6 tw-w-6 fa-sign-in-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path fill="currentColor" d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z"></path></svg>
@@ -67,7 +67,7 @@
           {% endset %}
         {% elseif item.url.routeName == 'user.logout' %}
           {% set title %}
-            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-gray-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
+            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-slate-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-out-alt"
                 class="tw-inline tw-h-6 tw-w-6 fa-sign-out-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path fill="currentColor" d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"></path>
@@ -76,7 +76,7 @@
           {% endset %}
         {% else %}
           {% set title %}
-            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-gray-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
+            {# <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-slate-600"><path d="M0 0h24v24H0z" fill="none"></path><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg> #}
             <span class="tw-ml-2">{{ item.title }}</span>
           {% endset %}
         {% endif %}
