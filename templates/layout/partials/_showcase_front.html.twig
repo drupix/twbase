@@ -63,7 +63,7 @@
 
   {# The showcase image #}
   {% if showcase.image_path %}
-    <img src="{{ showcase.image_path }}" class="tw-absolute tw-top-0 tw-left-0 tw-z-10 tw-w-full tw-h-full tw-object-cover">
+    <img src="{{ showcase.image_path }}" loading="lazy" typeof="foaf:Image" class="tw-absolute tw-top-0 tw-left-0 tw-z-10 tw-w-full tw-h-full tw-object-cover">
   {% endif %}
 
   {# The overlay gradient #}
