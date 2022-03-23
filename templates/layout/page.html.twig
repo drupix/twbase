@@ -18,6 +18,7 @@
  *
  * Theme layout specific utility variables:
  * - header_fixed: utilities for setting the header pos (fixed at top or not).
+ * - show_progress: utilities for setting the progress while scrolling (enabled or not).
  * - header_size: utilities for setting the maximum width of the header.
  * - navbar_size: utilities for setting the maximum width of the navbar.
  * - content_size: utilities for setting the maximum width of the content.
@@ -29,13 +30,13 @@
  * @see twbase_preprocess_page()
  *
  * Theme showcase specific utility variables:
- * - has_showcase: utilities for setting the showcase (enabled or not).
- * - showcase_size: utilities for setting the frontpage showcase size (default, fullscreen).
- * - showcase_content_pos: utilities for setting the frontpage showcase content position (default, bottom left).
- * - showcase_add_overlay: utilities for setting the showcase overlay.
- * - showcase_overlay_type: utilities for setting the showcase overlay type.
- * - showcase_add_front_deco: utilities for setting the showcase for frontpage decoration (swirl).
- * - showcase_add_deco: utilities for setting the showcase for pages decoration (swirl).
+ * - has_showcase:            utilities for setting the showcase (enabled or not).
+ * - showcase_size:           utilities for setting the frontpage showcase size (default, fullscreen).
+ * - showcase_content_pos:    utilities for setting the frontpage showcase content position (default, bottom left).
+ * - showcase_add_overlay:    utilities for setting the showcase overlay.
+ * - showcase_overlay_type:   utilities for setting the showcase overlay type.
+ * - showcase_add_front_deco: utilities for setting the showcase decoration (swirl) for frontpage.
+ * - showcase_add_deco:       utilities for setting the showcase decoration (swirl) for pages.
  * @see twbase_preprocess_page()
  *
  * Site identity:
@@ -82,12 +83,9 @@
     {% endif %}
   </header>
 
-  {# <main role="main" class="tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark"> #}
   <main id="main" role="main"
     {% if main_style %}style="{{ main_style }}"{% endif %}
     class="tw-flex tw-flex-col tw-flex-1 tw-text-slate-800 dark:tw-text-slate-200 tw-z-30">
-           {# tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark
-    "> #}
 
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
@@ -99,7 +97,7 @@
       {% endif %}
     {% endif %}
 
-    {# Set the container_size here, it is needed in breadcrumb and _content_top #}
+    {# Set the container_size here, it is needed in breadcrumb and content_top #}
     {% if content_size == 'full' %}
       {% set container_size = 'tw-w-full' %}
     {% else %}
@@ -130,15 +128,15 @@
     {% endif %}
     #}
 
-    <section class="tw-grow tw-w-full tw-bg-white dark:tw-bg-slate-800 tw-px-4 tw-py-5 tw-prose tw-prose-sm sm:tw-prose lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
+    <section class="tw-grow tw-w-full tw-bg-white dark:tw-bg-slate-800 tw-px-4 tw-py-5 tw-prose tw-prose-sm sm:tw-prose-base lg:tw-prose-lg xl:tw-prose-xl 2xl:tw-prose-2xl dark:tw-prose-dark">
       <div class="{{ container_size }} tw-px-4 tw-flex tw-flex-col lg:tw-flex-row">
-        <div class="lg:tw-flex-1 lg:tw-w-2/3 {% if page.sidebar %}tw-p-4{% endif %}">
+        <div class="lg:tw-flex-1 lg:tw-w-2/3 {% if page.sidebar %}lg:tw-pr-4{% endif %}">
           {{ page.content }}
           {# {% include '@twbase/layout/partials/_content.html.twig' %} #}
         </div>
 
         {% if page.sidebar %}
-          <aside class="lg:tw-w-1/3 tw-p-4" role="complementary">
+          <aside class="lg:tw-w-1/3 lg:tw-pl-4" role="complementary">
             {{ page.sidebar }}
           </aside>
         {% endif %}

@@ -64,6 +64,18 @@ Drupal core Classy theme overrides
   .region-sidebar-second .block:first-child h2 {
     @apply tw-mt-0;
   }
+
+  .region-wide-content,
+  .region-wide-content a,
+  .region-wide-content .block > h2,
+  .region-wide-content .block .block-title {
+    @apply tw-text-slate-800 dark:tw-text-slate-800;
+  }
+  .region-wide-content .block > h2,
+  .region-wide-content .block .block-title {
+    @apply tw-mt-0;
+  }
+
   .region-pre-footer,
   /* .region-pre-footer a, */
   .region-pre-footer .block > h2,
@@ -73,6 +85,7 @@ Drupal core Classy theme overrides
   /* .region-pre-footer a:hover {
     @apply tw-text-slate-300 dark:tw-text-slate-300;
   } */
+
   .region-footer,
   .region-footer a,
   .region-footer .block > h2,

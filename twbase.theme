@@ -121,6 +121,10 @@ function twbase_preprocess_page_title(&$variables) {
  * Override or insert variables into the page templates.
  */
 function twbase_preprocess_page(&$variables) {
+  //
+  // Layout specific variables
+  //
+
   // Configuring header and navbar
   $variables['header_fixed'] = theme_get_setting('header_fixed');
   $variables['show_progress'] = theme_get_setting('show_progress');
