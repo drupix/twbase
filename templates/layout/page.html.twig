@@ -87,7 +87,10 @@
     {% if main_style %}style="{{ main_style }}"{% endif %}
     class="tw-flex tw-flex-col tw-flex-1 tw-text-slate-800 dark:tw-text-slate-200 tw-z-30">
 
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    {# link is in html.html.twig #}
+    <a href="#main-content" class="visually-hidden focusable skip-link" id="main-content" tabindex="-1">
+      {{ 'Skip to main content'|t }}
+    </a>
 
     {% if has_showcase %}
       {% if is_front %}
