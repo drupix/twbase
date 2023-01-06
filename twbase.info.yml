@@ -2,8 +2,9 @@ name: TWBase
 type: theme
 description: 'Starter theme built with Tailwind CSS.'
 # core_version_requirement: ^8 || ^9
-core_version_requirement: ^9
-base theme: classy
+core_version_requirement: ^9.4 || ^10
+# base theme: classy
+base theme: false
 package: Tailwind CSS
 screenshots: 'screenshots.jpg'
 logo: logo.png
@@ -16,6 +17,8 @@ libraries:
   - twbase/alpinejs
 
 ckeditor_stylesheets:
+  - css/styles.css
+ckeditor5-stylesheets:
   - css/styles.css
 
 regions:
