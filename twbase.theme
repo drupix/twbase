@@ -274,8 +274,8 @@ function _twbase_get_default_front_showcase(&$variables) {
 
   // Build an array of datas to return for the showcase
   $variables['showcase'] = [
-    'title' => FALSE,
-    'introduction' => FALSE,
+    'title' => [],
+    'introduction' => [],
     'button_text' => FALSE,
     'button_href' => FALSE,
     'button_new_windows' => FALSE,
@@ -288,11 +288,24 @@ function _twbase_get_default_front_showcase(&$variables) {
     // Get the TWBase Theme Utilities module settings
     $twbase_utils_config = \Drupal::config('twbase_utils.settings_showcase');
 
+    // Get default showcase image.
+    $showcase_image_uri = '/themes/custom/twbase/img/home-showcase.jpg';
+
+    // Load & get uri of the showcase image from config.
+    $showcase_image_fid = $twbase_utils_config->get('showcase_image.fid');
+
+    if (!empty($showcase_image_fid[0])) {
+      $file = \Drupal\file\Entity\File::load($showcase_image_fid[0]);
+      $showcase_image_uri = $file->getFileUri();
+    }
+    $showcase_image_uri = \Drupal::service('file_url_generator')
+      ->generateAbsoluteString($showcase_image_uri);
+
     // Set showcase data
     $variables['showcase']['title']['#markup'] = $twbase_utils_config->get('title');
     $variables['showcase']['introduction']['#markup'] = $twbase_utils_config->get('body.value');
-    // @todo: manage image in module admin ?
-    $variables['showcase']['image_path'] = '/themes/custom/twbase/img/home-showcase.jpg';
+    $variables['showcase']['image_path'] = \Drupal::service('file_url_generator')
+      ->transformRelative($showcase_image_uri);
     $variables['showcase']['button_text'] = $twbase_utils_config->get('button.text');
     $variables['showcase']['button_link'] = $twbase_utils_config->get('button.link');
     $variables['showcase']['button_new_windows'] = $twbase_utils_config->get('button.target');
