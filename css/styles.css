@@ -1395,6 +1395,10 @@ body.navbar-is-fixed .toolbar-oriented .toolbar-bar {
   position: relative;
 }
 
+.tw-sticky {
+  position: sticky;
+}
+
 .tw-top-0 {
   top: 0px;
 }
@@ -2502,6 +2506,12 @@ Drupal core Classy theme overrides
  * @file
  * Override classy styles for form components.
  */
+
+form .form-item .description {
+  padding-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
 
 form input[type='submit'] {
   padding-left: 1rem;

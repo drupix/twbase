@@ -3,6 +3,10 @@
  * Override classy styles for form components.
  */
 
+form .form-item .description {
+  @apply tw-text-sm tw-pt-1;
+}
+
 form input[type='submit'] {
   @apply tw-px-4 tw-py-2 tw-text-slate-800;
 }

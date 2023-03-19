@@ -18,7 +18,7 @@ A very [basic demo](https://twbase-theme.drupal-solutions.ch/) is available ~~wi
 
 ## ToDo
 
-- [ ] Allow to change frontpage showcase image in theme settings
+- [x] Allow to change frontpage showcase image in theme settings. Thanks to [Tdnshah](https://github.com/Tdnshah/)
 - [ ] Provide blocks placement on install ?
 - [ ] Test multilingual site with language switcher
 - [ ] Rename branch 9.1.x to 1.x
