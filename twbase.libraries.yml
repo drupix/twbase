@@ -38,13 +38,13 @@ darkmode-switcher:
 alpinejs:
   header: true
   remote: https://github.com/alpinejs/alpine
-  version: 3.5.0
+  version: 3.12.0
   license:
     name: MIT
     url: https://github.com/alpinejs/alpine/blob/main/LICENSE.md
     gpl-compatible: true
   js:
-    https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js: {
+    https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js: {
       type: external,
       minified: true,
       attributes: { defer: true }
