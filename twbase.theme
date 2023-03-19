@@ -274,8 +274,8 @@ function _twbase_get_default_front_showcase(&$variables) {
 
   // Build an array of datas to return for the showcase
   $variables['showcase'] = [
-    'title' => FALSE,
-    'introduction' => FALSE,
+    'title' => [],
+    'introduction' => [],
     'button_text' => FALSE,
     'button_href' => FALSE,
     'button_new_windows' => FALSE,
