@@ -6,3 +6,5 @@ node_modules/
 
 elements.html
 /**/*.bak
+xxx-*.*
+/**/xxx-*.*
