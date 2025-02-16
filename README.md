@@ -93,7 +93,7 @@ It's me! **drupix**
 * All contributors of [cssnano](https://github.com/cssnano/cssnano/graphs/contributors)
 * All the other guys I forgot to mention here
 
-Special thanks to [Bob den Otter 🌷🇳🇱](https://github.com/bobdenotter) and [all contributors of Bolt](https://github.com/bolt/bolt) default theme who introduced me with Tailwind.
+Special thanks to [Bob den Otter 🌷🇳🇱🙏](https://github.com/bobdenotter) and [all contributors of Bolt](https://github.com/bolt/bolt) default theme who introduced me with Tailwind.
 
 ---
 
