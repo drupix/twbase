@@ -14,7 +14,7 @@ As TWBase Theme use [Tailwind Typography](https://github.com/tailwindlabs/tailwi
 
 ## Demo
 
-A very [basic demo](https://twbase-theme.drupal-solutions.ch/) is available ~~with the [TWBase Theme Utilities](https://github.com/drupix/twbase_utils) modules installed~~.
+~~A very [basic demo](https://twbase-theme.drupal-solutions.ch/) is available~~ ~~with the [TWBase Theme Utilities](https://github.com/drupix/twbase_utils) modules installed~~.
 
 ## ToDo
 
